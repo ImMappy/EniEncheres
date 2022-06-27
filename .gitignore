@@ -1,4 +1,5 @@
 target/
 out/
 ressourcesWEB/
+META-INF/
 *class
