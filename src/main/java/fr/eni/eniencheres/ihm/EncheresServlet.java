@@ -1,4 +1,4 @@
-package com.example.eniencheres.ihm;
+package fr.eni.eniencheres.ihm;
 
 import java.io.*;
 import javax.servlet.ServletException;
@@ -6,7 +6,7 @@ import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 
 @WebServlet({"/eniencheres", ""})
-public class HelloServlet extends HttpServlet {
+public class EncheresServlet extends HttpServlet {
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         request.getRequestDispatcher("/WEB-INF/index.jsp").forward(request, response);
