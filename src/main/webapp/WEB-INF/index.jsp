@@ -52,10 +52,9 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <!-- Navbar brand -->
                 <a class="navbar-brand mt-2 mt-lg-0" href="#">
-                    <img
-                            src="${pageContext.request.contextPath}/img/logo-navbar.png"
+                    <img src="${pageContext.request.contextPath}/img/logo-navbar.png"
 
-                            alt="ENI Encheres logo" width="100rem"
+                            alt="ENI Encheres logo" width="80"
 
                     />
                 </a>

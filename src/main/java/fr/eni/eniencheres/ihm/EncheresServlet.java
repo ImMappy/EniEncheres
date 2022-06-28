@@ -5,7 +5,7 @@ import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
 
-@WebServlet({"/eniencheres"})
+@WebServlet({"/eniencheres",""})
 public class EncheresServlet extends HttpServlet {
 
 
