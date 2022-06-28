@@ -2,173 +2,185 @@ package fr.eni.eniencheres.bo;
 
 public class Utilisateurs {
 
-        private Integer noUtilisateur;
-        private String pseudo;
-        private String nom;
-        private String prenom;
-        private String email;
-        private String telephone;
-        private String rue;
-        private String codePostal;
-        private String ville;
-        private String motDePasse;
-        private int credit;
-        private boolean administrateur;
+    private Integer noUtilisateur;
+    private String pseudo;
+    private String nom;
+    private String prenom;
+    private String email;
+    private String telephone;
+    private String rue;
+    private String codePostal;
+    private String ville;
+    private String motDePasse;
+    private int credit;
+    private byte administrateur;
 
-        public Utilisateurs(String pseudo, String nom, String prenom, String email, String telephone, String rue, String codePostal, String ville, String motDePasse, int credit) {
-            this.pseudo = pseudo;
-            this.nom = nom;
-            this.prenom = prenom;
-            this.email = email;
-            this.telephone = telephone;
-            this.rue = rue;
-            this.codePostal = codePostal;
-            this.ville = ville;
-            this.motDePasse = motDePasse;
-        }
+    public Utilisateurs(String pseudo, String nom, String prenom, String email, String telephone, String rue, String codePostal, String ville, String motDePasse) {
+        this.pseudo = pseudo;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.email = email;
+        this.telephone = telephone;
+        this.rue = rue;
+        this.codePostal = codePostal;
+        this.ville = ville;
+        this.motDePasse = motDePasse;
+    }
 
-        public Utilisateurs(String pseudo, String nom, String prenom, String email, String telephone, String rue, String codePostal,
-                            String ville, String motDePasse, int credit, boolean administrateur) {
-            this.pseudo = pseudo;
-            this.nom = nom;
-            this.prenom = prenom;
-            this.email = email;
-            this.telephone = telephone;
-            this.rue = rue;
-            this.codePostal = codePostal;
-            this.ville = ville;
-            this.motDePasse = motDePasse;
-            this.credit = credit;
-        }
+    public Utilisateurs(String pseudo, String nom, String prenom, String email, String telephone, String rue, String codePostal,
+                        String ville, String motDePasse, int credit, byte administrateur)
+    {
+        this.pseudo = pseudo;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.email = email;
+        this.telephone = telephone;
+        this.rue = rue;
+        this.codePostal = codePostal;
+        this.ville = ville;
+        this.motDePasse = motDePasse;
+        this.credit = credit;
+    }
 
-        public Utilisateurs(Integer noUtilisateur, String pseudo, String nom, String prenom,
-                            String email, String telephone, String rue, String codePostal, String ville, String motDePasse, int credit, boolean administrateur) {
-            this.noUtilisateur = noUtilisateur;
-            this.pseudo = pseudo;
-            this.nom = nom;
-            this.prenom = prenom;
-            this.email = email;
-            this.telephone = telephone;
-            this.rue = rue;
-            this.codePostal = codePostal;
-            this.ville = ville;
-            this.motDePasse = motDePasse;
-            this.credit = credit;
-            this.administrateur = administrateur;
-        }
+    public Utilisateurs(Integer noUtilisateur, String pseudo, String nom, String prenom,
+                        String email, String telephone, String rue, String codePostal, String ville, String motDePasse, int credit, byte administrateur)
+    {
+        this.noUtilisateur = noUtilisateur;
+        this.pseudo = pseudo;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.email = email;
+        this.telephone = telephone;
+        this.rue = rue;
+        this.codePostal = codePostal;
+        this.ville = ville;
+        this.motDePasse = motDePasse;
+        this.credit = credit;
+        this.administrateur = administrateur;
+    }
 
-        public Integer getNoUtilisateur() {
-            return noUtilisateur;
-        }
+    public Utilisateurs() {
 
-        public String getPseudo() {
-            return pseudo;
-        }
+    }
+    public Utilisateurs(String pseudo, String motDePasse) {
+        this.pseudo = pseudo;
+        this.motDePasse = motDePasse;
+    }
 
-        public String getNom() {
-            return nom;
-        }
+    public Integer getNoUtilisateur() {
+        return noUtilisateur;
+    }
 
-        public String getPrenom() {
-            return prenom;
-        }
+    public String getPseudo() {
+        return pseudo;
+    }
 
-        public String getEmail() {
-            return email;
-        }
+    public String getNom() {
+        return nom;
+    }
 
-        public String getTelephone() {
-            return telephone;
-        }
+    public String getPrenom() {
+        return prenom;
+    }
 
-        public String getRue() {
-            return rue;
-        }
+    public String getEmail() {
+        return email;
+    }
 
-        public String getCodePostal() {
-            return codePostal;
-        }
+    public String getTelephone() {
+        return telephone;
+    }
 
-        public String getVille() {
-            return ville;
-        }
+    public String getRue() {
+        return rue;
+    }
 
-        public String getMotDePasse() {
-            return motDePasse;
-        }
+    public String getCodePostal() {
+        return codePostal;
+    }
 
-        public int getCredit() {
-            return credit;
-        }
+    public String getVille() {
+        return ville;
+    }
 
-        public boolean isAdministrateur() {
-            return administrateur;
-        }
+    public String getMotDePasse() {
+        return motDePasse;
+    }
 
-        public void setNoUtilisateur(Integer noUtilisateur) {
-            this.noUtilisateur = noUtilisateur;
-        }
+    public int getCredit() {
+        return credit;
+    }
 
-        public void setPseudo(String pseudo) {
-            this.pseudo = pseudo;
-        }
+    public byte isAdministrateur() {
+        return administrateur;
+    }
 
-        public void setNom(String nom) {
-            this.nom = nom;
-        }
+    public void setNoUtilisateur(Integer noUtilisateur) {
+        this.noUtilisateur = noUtilisateur;
+    }
 
-        public void setPrenom(String prenom) {
-            this.prenom = prenom;
-        }
+    public void setPseudo(String pseudo) {
+        this.pseudo = pseudo;
+    }
 
-        public void setEmail(String email) {
-            this.email = email;
-        }
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
 
-        public void setTelephone(String telephone) {
-            this.telephone = telephone;
-        }
+    public void setPrenom(String prenom) {
+        this.prenom = prenom;
+    }
 
-        public void setRue(String rue) {
-            this.rue = rue;
-        }
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
-        public void setCodePostal(String codePostal) {
-            this.codePostal = codePostal;
-        }
+    public void setTelephone(String telephone) {
+        this.telephone = telephone;
+    }
 
-        public void setVille(String ville) {
-            this.ville = ville;
-        }
+    public void setRue(String rue) {
+        this.rue = rue;
+    }
 
-        public void setMotDePasse(String motDePasse) {
-            this.motDePasse = motDePasse;
-        }
+    public void setCodePostal(String codePostal) {
+        this.codePostal = codePostal;
+    }
 
-        public void setCredit(int credit) {
-            this.credit = credit;
-        }
+    public void setVille(String ville) {
+        this.ville = ville;
+    }
 
-        public void setAdministrateur(boolean administrateur) {
-            this.administrateur = administrateur;
-        }
+    public void setMotDePasse(String motDePasse) {
+        this.motDePasse = motDePasse;
+    }
 
-        @Override
-        public String toString() {
-            return "Utilisateurs{" +
-                    "noUtilisateur=" + noUtilisateur +
-                    ", pseudo='" + pseudo + '\'' +
-                    ", nom='" + nom + '\'' +
-                    ", prenom='" + prenom + '\'' +
-                    ", email='" + email + '\'' +
-                    ", telephone='" + telephone + '\'' +
-                    ", rue='" + rue + '\'' +
-                    ", codePostal='" + codePostal + '\'' +
-                    ", ville='" + ville + '\'' +
-                    ", motDePasse='" + motDePasse + '\'' +
-                    ", credit=" + credit +
-                    ", administrateur=" + administrateur +
-                    '}';
-        }
+    public int setCredit(int credit) {
+        this.credit = credit;
+        return credit;
+    }
+
+    public byte setAdministrateur(byte administrateur) {
+        this.administrateur = administrateur;
+        return administrateur;
+    }
+
+    @Override
+    public String toString() {
+        return "Utilisateurs{" +
+                "noUtilisateur=" + noUtilisateur +
+                ", pseudo='" + pseudo + '\'' +
+                ", nom='" + nom + '\'' +
+                ", prenom='" + prenom + '\'' +
+                ", email='" + email + '\'' +
+                ", telephone='" + telephone + '\'' +
+                ", rue='" + rue + '\'' +
+                ", codePostal='" + codePostal + '\'' +
+                ", ville='" + ville + '\'' +
+                ", motDePasse='" + motDePasse + '\'' +
+                ", credit=" + credit +
+                ", administrateur=" + administrateur +
+                '}';
+    }
 
 }

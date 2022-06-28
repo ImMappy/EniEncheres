@@ -57,18 +57,32 @@
                         <!-- Pills content -->
                         <div class="tab-content">
                             <div class="tab-pane fade show active" id="pills-login" role="tabpanel" aria-labelledby="tab-login">
-                                <form>
+                                <form action="${pageContext.request.contextPath}/connexion" method="post">
                                     <!-- Email input -->
                                     <div class="form-outline mb-4">
-                                        <input type="email" name="username" id="loginName" class="form-control" />
+                                        <input type="text" name="pseudo" id="loginName" class="form-control" required/>
                                         <label class="form-label" for="loginName">Nom d'Utilisateur</label>
                                     </div>
 
                                     <!-- Password input -->
                                     <div class="form-outline mb-4">
-                                        <input type="password" name="password" id="loginPassword" class="form-control" />
+                                        <input type="password" name="password" id="loginPassword" class="form-control" required/>
                                         <label class="form-label" for="loginPassword">Mot de Passe</label>
                                     </div>
+
+                                    <!-- Error Login -->
+                                    <c:if test="${isNotAllowed}">
+                                        <div class="mt-2 d-flex justify-content-center">
+                                            <p id="nullConnexion">Nom d'Utilisateur ou Mot de Passe INCORRECT !</p>
+                                        </div>
+                                    </c:if>
+
+                                    <!-- Error Password -->
+                                    <c:if test="${errorPassword}">
+                                        <div class="mt-2 d-flex justify-content-center">
+                                            <p id="nullPassword">Saisie du Mot de Passe Incorrect, Recommencez !</p>
+                                        </div>
+                                    </c:if>
 
                                     <!-- 2 column grid layout for inline styling -->
                                     <div class="row mb-4">
@@ -99,68 +113,76 @@
                                 </form>
                             </div>
                             <div class="tab-pane fade" id="pills-register" role="tabpanel" aria-labelledby="tab-register">
-                                <form>
+                                <form action="${pageContext.request.contextPath}/inscription" method="post">
                                     <!-- Username input -->
-                                    <div class="form-outline mb-4">
-                                        <input type="text" name="registerPseudo" id="registerUsername" class="form-control" />
+                                    <div class="form-outline mb-3">
+                                        <input type="hidden" name="idUser" value=""/>
+                                        <input type="text" name="registerPseudo" id="registerUsername" class="form-control" required/>
                                         <label class="form-label" for="registerUsername">Pseudo</label>
                                     </div>
 
                                     <!-- Surname input -->
                                     <div class="col d-flex gap-2">
-                                    <div class="form-outline mb-4">
-                                        <input type="text" name="registerPrenom" id="registerSurname" class="form-control" />
+                                    <div class="form-outline mb-3">
+                                        <input type="text" name="registerPrenom" id="registerSurname" class="form-control" required/>
                                         <label class="form-label" for="registerSurname">Prénom</label>
                                     </div>
 
                                     <!-- Name input -->
-                                    <div class="form-outline mb-4">
-                                        <input type="text" name="registerNom" id="registerName" class="form-control" />
+                                    <div class="form-outline mb-3">
+                                        <input type="text" name="registerNom" id="registerName" class="form-control" required/>
                                         <label class="form-label" for="registerName">Nom</label>
                                     </div>
                                     </div>
 
                                     <!-- Telephone input -->
-                                    <div class="form-outline mb-4">
-                                        <input type="number" name="registerTelephone" id="registerTel" class="form-control" />
+                                    <div class="form-outline mb-3">
+                                        <input type="number" name="registerTelephone" id="registerTel" class="form-control" required/>
                                         <label class="form-label" for="registerTel">Téléphone</label>
                                     </div>
 
                                     <!-- Email input -->
-                                    <div class="form-outline mb-4">
-                                        <input type="email" name="registerEmail" id="registerEmail" class="form-control" />
+                                    <div class="form-outline mb-3">
+                                        <input type="email" name="registerEmail" id="registerEmail" class="form-control" required/>
                                         <label class="form-label" for="registerEmail">E-mail</label>
                                     </div>
 
                                     <!-- Password input -->
-                                    <div class="form-outline mb-4">
-                                        <input type="password" name="registerPassword" id="registerPassword" class="form-control" />
+                                    <div class="form-outline mb-3">
+                                        <input type="password" name="registerPassword" id="registerPassword" class="form-control" required/>
                                         <label class="form-label" for="registerPassword">Mot de Passe</label>
                                     </div>
 
                                     <!-- Repeat Password input -->
-                                    <div class="form-outline mb-4">
-                                        <input type="password" name="registerPassword" id="registerRepeatPassword" class="form-control" />
+                                    <div class="form-outline mb-3">
+                                        <input type="password" name="registerPassword2" id="registerRepeatPassword" class="form-control" required/>
                                         <label class="form-label" for="registerRepeatPassword">Confirmation</label>
                                     </div>
 
+                                    <!-- Error Password -->
+                                    <c:if test="${errorPassword}">
+                                        <div class="d-flex justify-content-center">
+                                            <p id="nullPassword">Mot de Passe Incorrect !</p>
+                                        </div>
+                                    </c:if>
+
                                     <!-- Postal Code input -->
                                     <div class="col d-flex gap-2">
-                                    <div class="form-outline mb-4">
-                                        <input type="number" name="registerCodePostal" id="registerPostalCode" class="form-control" />
+                                    <div class="form-outline mb-3">
+                                        <input type="number" name="registerCodePostal" id="registerPostalCode" class="form-control" required/>
                                         <label class="form-label" for="registerPostalCode">Code Postal</label>
                                     </div>
 
                                     <!-- Ville input -->
-                                    <div class="form-outline mb-4">
-                                        <input type="text" name="registerVille" id="registerVille" class="form-control" />
+                                    <div class="form-outline mb-3">
+                                        <input type="text" name="registerVille" id="registerVille" class="form-control" required/>
                                         <label class="form-label" for="registerVille">Ville</label>
                                     </div>
                                     </div>
 
                                     <!-- Rue input -->
-                                    <div class="form-outline mb-4">
-                                        <input type="text" name="registerRue" id="registerRue" class="form-control" />
+                                    <div class="form-outline mb-3">
+                                        <input type="text" name="registerRue" id="registerRue" class="form-control" required/>
                                         <label class="form-label" for="registerRue">Rue</label>
                                     </div>
 
