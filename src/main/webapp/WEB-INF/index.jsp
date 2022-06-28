@@ -53,7 +53,7 @@
                 <!-- Navbar brand -->
                 <a class="navbar-brand mt-2 mt-lg-0" href="#">
                     <img
-                            src="${pageContext.request.contextPath}/img/logo-ENI-full.png"
+                            src="${pageContext.request.contextPath}/img/logo-navbar.png"
 
                             alt="ENI Encheres logo" width="100rem"
 
@@ -180,7 +180,7 @@
             <button type="button" class="btn btn-success w-100 text-center mt-5"><i class="fas fa-search trailing"></i> Rechercher</button>
         </form>
     </section>
-    <section id="grid-articles container">
+    <section id="articles-grid container">
         <div class="article-card d-flex align-items-center">
             <div class="article-image w-50 mr-4">
                 <img src="https://lapierre-shopware.accell.cloud/thumbnail/64/bb/9f/1648474576/E-Sensium%202.2%20MY21%20Web%20-%20View%20PNG_800x800.png" alt="velo" class="w-100">
