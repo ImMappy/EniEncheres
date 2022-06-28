@@ -117,45 +117,45 @@
                                     <!-- Username input -->
                                     <div class="form-outline mb-3">
                                         <input type="hidden" name="idUser" value=""/>
-                                        <input type="text" name="registerPseudo" id="registerUsername" class="form-control" />
+                                        <input type="text" name="registerPseudo" id="registerUsername" class="form-control" required/>
                                         <label class="form-label" for="registerUsername">Pseudo</label>
                                     </div>
 
                                     <!-- Surname input -->
                                     <div class="col d-flex gap-2">
                                     <div class="form-outline mb-3">
-                                        <input type="text" name="registerPrenom" id="registerSurname" class="form-control" />
+                                        <input type="text" name="registerPrenom" id="registerSurname" class="form-control" required/>
                                         <label class="form-label" for="registerSurname">Prénom</label>
                                     </div>
 
                                     <!-- Name input -->
                                     <div class="form-outline mb-3">
-                                        <input type="text" name="registerNom" id="registerName" class="form-control" />
+                                        <input type="text" name="registerNom" id="registerName" class="form-control" required/>
                                         <label class="form-label" for="registerName">Nom</label>
                                     </div>
                                     </div>
 
                                     <!-- Telephone input -->
                                     <div class="form-outline mb-3">
-                                        <input type="number" name="registerTelephone" id="registerTel" class="form-control" />
+                                        <input type="number" name="registerTelephone" id="registerTel" class="form-control" required/>
                                         <label class="form-label" for="registerTel">Téléphone</label>
                                     </div>
 
                                     <!-- Email input -->
                                     <div class="form-outline mb-3">
-                                        <input type="email" name="registerEmail" id="registerEmail" class="form-control" />
+                                        <input type="email" name="registerEmail" id="registerEmail" class="form-control" required/>
                                         <label class="form-label" for="registerEmail">E-mail</label>
                                     </div>
 
                                     <!-- Password input -->
                                     <div class="form-outline mb-3">
-                                        <input type="password" name="registerPassword" id="registerPassword" class="form-control" />
+                                        <input type="password" name="registerPassword" id="registerPassword" class="form-control" required/>
                                         <label class="form-label" for="registerPassword">Mot de Passe</label>
                                     </div>
 
                                     <!-- Repeat Password input -->
                                     <div class="form-outline mb-3">
-                                        <input type="password" name="registerPassword2" id="registerRepeatPassword" class="form-control" />
+                                        <input type="password" name="registerPassword2" id="registerRepeatPassword" class="form-control" required/>
                                         <label class="form-label" for="registerRepeatPassword">Confirmation</label>
                                     </div>
 
@@ -169,20 +169,20 @@
                                     <!-- Postal Code input -->
                                     <div class="col d-flex gap-2">
                                     <div class="form-outline mb-3">
-                                        <input type="number" name="registerCodePostal" id="registerPostalCode" class="form-control" />
+                                        <input type="number" name="registerCodePostal" id="registerPostalCode" class="form-control" required/>
                                         <label class="form-label" for="registerPostalCode">Code Postal</label>
                                     </div>
 
                                     <!-- Ville input -->
                                     <div class="form-outline mb-3">
-                                        <input type="text" name="registerVille" id="registerVille" class="form-control" />
+                                        <input type="text" name="registerVille" id="registerVille" class="form-control" required/>
                                         <label class="form-label" for="registerVille">Ville</label>
                                     </div>
                                     </div>
 
                                     <!-- Rue input -->
                                     <div class="form-outline mb-3">
-                                        <input type="text" name="registerRue" id="registerRue" class="form-control" />
+                                        <input type="text" name="registerRue" id="registerRue" class="form-control" required/>
                                         <label class="form-label" for="registerRue">Rue</label>
                                     </div>
 
