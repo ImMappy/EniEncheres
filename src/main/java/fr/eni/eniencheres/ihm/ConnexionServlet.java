@@ -33,6 +33,7 @@ public class ConnexionServlet extends HttpServlet {
             if(user != null){
                 isAllowed = false;
                 this.getServletContext().setAttribute("isNotAllowed", false);
+                this.getServletContext().setAttribute("errorPassword", false);
                 resp.sendRedirect(req.getContextPath() + "/eniencheres");
             } else {
                 isAllowed = true;

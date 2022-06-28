@@ -77,6 +77,13 @@
                                         </div>
                                     </c:if>
 
+                                    <!-- Error Password -->
+                                    <c:if test="${errorPassword}">
+                                        <div class="mt-2 d-flex justify-content-center">
+                                            <p id="nullPassword">Saisie du Mot de Passe Incorrect, Recommencez !</p>
+                                        </div>
+                                    </c:if>
+
                                     <!-- 2 column grid layout for inline styling -->
                                     <div class="row mb-4">
                                         <div class="col d-flex justify-content-center">
@@ -106,67 +113,75 @@
                                 </form>
                             </div>
                             <div class="tab-pane fade" id="pills-register" role="tabpanel" aria-labelledby="tab-register">
-                                <form>
+                                <form action="${pageContext.request.contextPath}/inscription" method="post">
                                     <!-- Username input -->
-                                    <div class="form-outline mb-4">
+                                    <div class="form-outline mb-3">
+                                        <input type="hidden" name="idUser" value=""/>
                                         <input type="text" name="registerPseudo" id="registerUsername" class="form-control" />
                                         <label class="form-label" for="registerUsername">Pseudo</label>
                                     </div>
 
                                     <!-- Surname input -->
                                     <div class="col d-flex gap-2">
-                                    <div class="form-outline mb-4">
+                                    <div class="form-outline mb-3">
                                         <input type="text" name="registerPrenom" id="registerSurname" class="form-control" />
                                         <label class="form-label" for="registerSurname">Prénom</label>
                                     </div>
 
                                     <!-- Name input -->
-                                    <div class="form-outline mb-4">
+                                    <div class="form-outline mb-3">
                                         <input type="text" name="registerNom" id="registerName" class="form-control" />
                                         <label class="form-label" for="registerName">Nom</label>
                                     </div>
                                     </div>
 
                                     <!-- Telephone input -->
-                                    <div class="form-outline mb-4">
+                                    <div class="form-outline mb-3">
                                         <input type="number" name="registerTelephone" id="registerTel" class="form-control" />
                                         <label class="form-label" for="registerTel">Téléphone</label>
                                     </div>
 
                                     <!-- Email input -->
-                                    <div class="form-outline mb-4">
+                                    <div class="form-outline mb-3">
                                         <input type="email" name="registerEmail" id="registerEmail" class="form-control" />
                                         <label class="form-label" for="registerEmail">E-mail</label>
                                     </div>
 
                                     <!-- Password input -->
-                                    <div class="form-outline mb-4">
+                                    <div class="form-outline mb-3">
                                         <input type="password" name="registerPassword" id="registerPassword" class="form-control" />
                                         <label class="form-label" for="registerPassword">Mot de Passe</label>
                                     </div>
 
                                     <!-- Repeat Password input -->
-                                    <div class="form-outline mb-4">
-                                        <input type="password" name="registerPassword" id="registerRepeatPassword" class="form-control" />
+                                    <div class="form-outline mb-3">
+                                        <input type="password" name="registerPassword2" id="registerRepeatPassword" class="form-control" />
                                         <label class="form-label" for="registerRepeatPassword">Confirmation</label>
                                     </div>
 
+                                    <!-- Error Password -->
+                                    <c:if test="${errorPassword}">
+                                        <div class="d-flex justify-content-center">
+                                            <p id="nullPassword">Mot de Passe Incorrect !</p>
+                                        </div>
+                                    </c:if>
+
                                     <!-- Postal Code input -->
                                     <div class="col d-flex gap-2">
-                                    <div class="form-outline mb-4">
+                                    <div class="form-outline mb-3">
                                         <input type="number" name="registerCodePostal" id="registerPostalCode" class="form-control" />
                                         <label class="form-label" for="registerPostalCode">Code Postal</label>
                                     </div>
 
                                     <!-- Ville input -->
-                                    <div class="form-outline mb-4">
+                                    <div class="form-outline mb-3">
                                         <input type="text" name="registerVille" id="registerVille" class="form-control" />
                                         <label class="form-label" for="registerVille">Ville</label>
                                     </div>
                                     </div>
 
                                     <!-- Rue input -->
-                                    <div class="form-outline mb-4">
+                                    <div class="form-outline mb-3">
                                         <input type="text" name="registerRue" id="registerRue" class="form-control" />
                                         <label class="form-label" for="registerRue">Rue</label>
                                     </div>

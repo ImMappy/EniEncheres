@@ -11,7 +11,7 @@ import java.util.List;
 
 public class UtilisateursDAOImpl implements UtilisateursDAO {
 
-    private static final String INSERT_UTILISATEUR = "INSERT INTO UTILISATEURS (pseudo,nom,prenom,email,telephone,rue,code_postal,ville,mot_de_passe) VALUES(?,?,?,?,?,?,?,?,?,?)";
+    private static final String INSERT_UTILISATEUR = "INSERT INTO UTILISATEURS (pseudo,nom,prenom,email,telephone,rue,code_postal,ville,mot_de_passe, administrateur, credit)" + "VALUES (?,?,?,?,?,?,?,?,?,?,?)";
     private static final String SELECT_UTILISATEUR_BY_ID = "SELECT * FROM UTILISATEURS WHERE no_utilisateur = ? ";
     private static final String UPDATE_UTILISATEUR = "UPDATE UTILISATEURS SET pseudo = ?, nom = ?, prenom = ?, email = ?, telephone = ?, rue = ?, code_postal = ?, ville = ?, mot_de_passe = ?";
     private static final String SELECT_ALL_UTILISATEURS = "SELECT * FROM UTILISATEURS";
@@ -33,7 +33,7 @@ public class UtilisateursDAOImpl implements UtilisateursDAO {
             preparedStatement.executeQuery();
             ResultSet rs = preparedStatement.getResultSet();
             if(rs.next()){
-                user = new Utilisateurs(rs.getString("pseudo"),rs.getString("nom"),rs.getString("prenom"),rs.getString("email"),rs.getString("telephone"),rs.getString("rue"),rs.getString("codePostal"),rs.getString("ville"),rs.getString("motDePasse"),rs.getInt("credit"),rs.getBoolean("administrateur"));
+                user = new Utilisateurs(rs.getString("pseudo"),rs.getString("nom"),rs.getString("prenom"),rs.getString("email"),rs.getString("telephone"),rs.getString("rue"),rs.getString("codePostal"),rs.getString("ville"),rs.getString("motDePasse"),rs.getInt("credit"),rs.getByte("administrateur"));
             }
         } catch (SQLException e){
             e.printStackTrace();
@@ -56,7 +56,7 @@ public class UtilisateursDAOImpl implements UtilisateursDAO {
             ResultSet rs = preparedStatement.getResultSet();
             while(rs.next()){
                  utilisateursList= new ArrayList<>();
-                user = new Utilisateurs(rs.getString("pseudo"),rs.getString("nom"),rs.getString("prenom"),rs.getString("email"),rs.getString("telephone"),rs.getString("rue"),rs.getString("codePostal"),rs.getString("ville"),rs.getString("motDePasse"),rs.getInt("credit"),rs.getBoolean("administrateur"));
+                user = new Utilisateurs(rs.getString("pseudo"),rs.getString("nom"),rs.getString("prenom"),rs.getString("email"),rs.getString("telephone"),rs.getString("rue"),rs.getString("codePostal"),rs.getString("ville"),rs.getString("motDePasse"),rs.getInt("credit"),rs.getByte("administrateur"));
                 utilisateursList.add(user);
             }
 
@@ -79,12 +79,14 @@ public class UtilisateursDAOImpl implements UtilisateursDAO {
             preparedStatement.setString(1,user.getPseudo());
             preparedStatement.setString(2,user.getNom());
             preparedStatement.setString(3,user.getPrenom());
-            preparedStatement.setString(4,user.getEmail());
-            preparedStatement.setString(5, user.getTelephone());
-            preparedStatement.setString(6, user.getRue());
+            preparedStatement.setString(4,user.getTelephone());
+            preparedStatement.setString(5,user.getEmail());
+            preparedStatement.setString(6,user.getMotDePasse());
             preparedStatement.setString(7,user.getCodePostal());
-            preparedStatement.setString(8, user.getVille());
-            preparedStatement.setString(9, user.getMotDePasse());
+            preparedStatement.setString(8,user.getVille());
+            preparedStatement.setString(9,user.getRue());
+            preparedStatement.setByte(10,user.setAdministrateur((byte) 0));
+            preparedStatement.setInt(11, user.setCredit(100));
             preparedStatement.executeUpdate();
             ResultSet rs = preparedStatement.getGeneratedKeys();
             if(rs.next()){

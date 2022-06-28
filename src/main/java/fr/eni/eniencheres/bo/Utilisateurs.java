@@ -12,7 +12,7 @@ public class Utilisateurs {
     private String ville;
     private String motDePasse;
     private int credit;
-    private boolean administrateur;
+    private byte administrateur;
 
     public Utilisateurs(String pseudo, String nom, String prenom, String email, String telephone, String rue, String codePostal, String ville, String motDePasse) {
         this.pseudo = pseudo;
@@ -27,7 +27,7 @@ public class Utilisateurs {
     }
 
     public Utilisateurs(String pseudo, String nom, String prenom, String email, String telephone, String rue, String codePostal,
-                        String ville, String motDePasse, int credit, boolean administrateur)
+                        String ville, String motDePasse, int credit, byte administrateur)
     {
         this.pseudo = pseudo;
         this.nom = nom;
@@ -42,7 +42,7 @@ public class Utilisateurs {
     }
 
     public Utilisateurs(Integer noUtilisateur, String pseudo, String nom, String prenom,
-                        String email, String telephone, String rue, String codePostal, String ville, String motDePasse, int credit, boolean administrateur)
+                        String email, String telephone, String rue, String codePostal, String ville, String motDePasse, int credit, byte administrateur)
     {
         this.noUtilisateur = noUtilisateur;
         this.pseudo = pseudo;
@@ -110,7 +110,7 @@ public class Utilisateurs {
         return credit;
     }
 
-    public boolean isAdministrateur() {
+    public byte isAdministrateur() {
         return administrateur;
     }
 
@@ -154,12 +154,14 @@ public class Utilisateurs {
         this.motDePasse = motDePasse;
     }
 
-    public void setCredit(int credit) {
+    public int setCredit(int credit) {
         this.credit = credit;
+        return credit;
     }
 
-    public void setAdministrateur(boolean administrateur) {
+    public byte setAdministrateur(byte administrateur) {
         this.administrateur = administrateur;
+        return administrateur;
     }
 
     @Override
