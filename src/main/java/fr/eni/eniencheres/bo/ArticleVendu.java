@@ -3,7 +3,7 @@ package fr.eni.eniencheres.bo;
 import java.util.Date;
 
 public class ArticleVendu {
-    private String noArticle;
+    private Integer noArticle;
     private String nomArticle;
     private String description;
     private Date dateDebutEncheres;
@@ -12,7 +12,10 @@ public class ArticleVendu {
     private int prixVente;
     private int etatVente;
 
-    public ArticleVendu(String noArticle, String nomArticle, String description, Date dateDebutEncheres, Date dateFinEncheres, int miseAPrix, int prixVente, int etatVente) {
+    public ArticleVendu() {
+    }
+
+    public ArticleVendu(Integer noArticle, String nomArticle, String description, Date dateDebutEncheres, Date dateFinEncheres, int miseAPrix, int prixVente, int etatVente) {
         this.noArticle = noArticle;
         this.nomArticle = nomArticle;
         this.description = description;
@@ -33,11 +36,11 @@ public class ArticleVendu {
         this.etatVente = etatVente;
     }
 
-    public String getNoArticle() {
+    public Integer getNoArticle() {
         return noArticle;
     }
 
-    public void setNoArticle(String noArticle) {
+    public void setNoArticle(Integer noArticle) {
         this.noArticle = noArticle;
     }
 
