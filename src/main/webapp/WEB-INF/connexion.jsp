@@ -57,18 +57,25 @@
                         <!-- Pills content -->
                         <div class="tab-content">
                             <div class="tab-pane fade show active" id="pills-login" role="tabpanel" aria-labelledby="tab-login">
-                                <form>
+                                <form action="${pageContext.request.contextPath}/connexion" method="post">
                                     <!-- Email input -->
                                     <div class="form-outline mb-4">
-                                        <input type="email" name="username" id="loginName" class="form-control" />
+                                        <input type="text" name="pseudo" id="loginName" class="form-control" required/>
                                         <label class="form-label" for="loginName">Nom d'Utilisateur</label>
                                     </div>
 
                                     <!-- Password input -->
                                     <div class="form-outline mb-4">
-                                        <input type="password" name="password" id="loginPassword" class="form-control" />
+                                        <input type="password" name="password" id="loginPassword" class="form-control" required/>
                                         <label class="form-label" for="loginPassword">Mot de Passe</label>
                                     </div>
+
+                                    <!-- Error Login -->
+                                    <c:if test="${isNotAllowed}">
+                                        <div class="mt-2 d-flex justify-content-center">
+                                            <p id="nullConnexion">Nom d'Utilisateur ou Mot de Passe INCORRECT !</p>
+                                        </div>
+                                    </c:if>
 
                                     <!-- 2 column grid layout for inline styling -->
                                     <div class="row mb-4">

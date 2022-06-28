@@ -26,3 +26,8 @@
     size: 1rem;
     color: darkgray;
 }
+
+#nullConnexion {
+    font-size: 0.9rem;
+    color: darkred;
+}

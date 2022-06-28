@@ -58,6 +58,14 @@ public class Utilisateurs {
         this.administrateur = administrateur;
     }
 
+    public Utilisateurs() {
+
+    }
+    public Utilisateurs(String pseudo, String motDePasse) {
+        this.pseudo = pseudo;
+        this.motDePasse = motDePasse;
+    }
+
     public Integer getNoUtilisateur() {
         return noUtilisateur;
     }

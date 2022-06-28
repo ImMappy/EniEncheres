@@ -10,5 +10,5 @@ public interface UtilisateursDAO {
     public void updateUtilisateur(Utilisateurs user) throws DALException;
     public Utilisateurs selectUtilisateurById(int id)throws DALException;
     public List selectAllUtilisateurs()throws DALException;
-
+    Utilisateurs selectInfosUser(String pseudo, String motDePasse) throws DALException;
 }

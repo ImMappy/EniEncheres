@@ -11,12 +11,12 @@ import java.util.List;
 
 public class UtilisateursDAOImpl implements UtilisateursDAO {
 
-    private final String INSERT_UTILISATEUR = "INSERT (pseudo,nom,prenom,email,telephone,rue,codePostal,ville,motDePasse) VALUES(?,?,?,?,?,?,?,?,?,?)";
-    private final String SELECT_UTILISATEUR_BY_ID = "SELECT * FROM Utilisateur WHERE id = ? ";
-    private final String UPDATE_UTILISATEUR = "UPDATE Utilisateur SET pseudo = ?, nom = ?, prenom = ?, email = ?, telephone = ?, rue = ? codePostal = ?, ville = ?, motDePasse = ?";
-    private final String SELECT_ALL_UTILISATEURS = "SELECT * FROM Utilisateur";
-    private final String DELETE_UTILISATEUR = "DELETE Utilisateur WHERE noUtilisateur ?";
-
+    private static final String INSERT_UTILISATEUR = "INSERT INTO UTILISATEURS (pseudo,nom,prenom,email,telephone,rue,code_postal,ville,mot_de_passe) VALUES(?,?,?,?,?,?,?,?,?,?)";
+    private static final String SELECT_UTILISATEUR_BY_ID = "SELECT * FROM UTILISATEURS WHERE no_utilisateur = ? ";
+    private static final String UPDATE_UTILISATEUR = "UPDATE UTILISATEURS SET pseudo = ?, nom = ?, prenom = ?, email = ?, telephone = ?, rue = ?, code_postal = ?, ville = ?, mot_de_passe = ?";
+    private static final String SELECT_ALL_UTILISATEURS = "SELECT * FROM UTILISATEURS";
+    private static final String DELETE_UTILISATEUR = "DELETE UTILISATEURS WHERE no_utilisateur = ?";
+    private static final String SELECT_INFOS_USER = "SELECT pseudo,mot_de_passe FROM UTILISATEURS WHERE pseudo = ? AND mot_de_passe = ?";
 
 
     /**
@@ -135,6 +135,25 @@ public class UtilisateursDAOImpl implements UtilisateursDAO {
             e.printStackTrace();
             throw new DALException("Erreur delete",e);
         }
+    }
+
+
+    public Utilisateurs selectInfosUser(String pseudo, String motDePasse) throws DALException {
+        Utilisateurs user = null;
+        try(Connection connection = ConnectionProvider.getConnection() ){
+            PreparedStatement preparedStatement = connection.prepareStatement(SELECT_INFOS_USER);
+            preparedStatement.setString(1,pseudo);
+            preparedStatement.setString(2,motDePasse);
+            preparedStatement.executeQuery();
+            ResultSet rs = preparedStatement.getResultSet();
+            if(rs.next()){
+                user= new Utilisateurs(rs.getString("pseudo"),rs.getString("mot_de_passe"));
+            }
+        }catch (SQLException e){
+            e.printStackTrace();
+            throw new DALException("Erreur select_infos");
+        }
+        return user;
     }
 }
 
