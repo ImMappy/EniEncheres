@@ -95,7 +95,7 @@ public class UtilisateursManagerImpl implements UtilisateursManager{
     public List getAllUtilisateurs()throws BLLException{
         List<Utilisateurs> utilisateursList = new ArrayList<>();
         try{
-           utilisateursList = userDao.selectAllUtilisateurs();
+            utilisateursList = userDao.selectAllUtilisateurs();
         } catch (DALException e){
             e.printStackTrace();
             throw new BLLException("Erreur affichage de tous les utilisateurs",e);
