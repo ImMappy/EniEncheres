@@ -7,8 +7,10 @@ import java.io.IOException;
 
 @WebServlet({"/eniencheres"})
 public class EncheresServlet extends HttpServlet {
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+
+    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+
         request.getRequestDispatcher("/WEB-INF/index.jsp").forward(request, response);
     }
 

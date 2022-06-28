@@ -1,6 +1,7 @@
 package fr.eni.eniencheres.bo;
 
 public class Utilisateurs {
+
     private Integer noUtilisateur;
     private String pseudo;
     private String nom;
@@ -181,4 +182,5 @@ public class Utilisateurs {
                 ", administrateur=" + administrateur +
                 '}';
     }
+
 }

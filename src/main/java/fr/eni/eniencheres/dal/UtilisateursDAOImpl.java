@@ -33,7 +33,9 @@ public class UtilisateursDAOImpl implements UtilisateursDAO {
             preparedStatement.executeQuery();
             ResultSet rs = preparedStatement.getResultSet();
             if(rs.next()){
+
                 user = new Utilisateurs(rs.getString("pseudo"),rs.getString("nom"),rs.getString("prenom"),rs.getString("email"),rs.getString("telephone"),rs.getString("rue"),rs.getString("codePostal"),rs.getString("ville"),rs.getString("motDePasse"),rs.getInt("credit"),rs.getByte("administrateur"));
+
             }
         } catch (SQLException e){
             e.printStackTrace();
@@ -48,7 +50,7 @@ public class UtilisateursDAOImpl implements UtilisateursDAO {
      */
     public List selectAllUtilisateurs() throws DALException{
         List<Utilisateurs> utilisateursList = null;
-        Utilisateurs user = null;
+        Utilisateurs user;
         try(Connection connection = ConnectionProvider.getConnection()){
 //            TODO: Exécution script SQL SELECT_ALL_UTILISATEUR
             PreparedStatement preparedStatement = connection.prepareStatement(SELECT_ALL_UTILISATEURS);
@@ -56,7 +58,9 @@ public class UtilisateursDAOImpl implements UtilisateursDAO {
             ResultSet rs = preparedStatement.getResultSet();
             while(rs.next()){
                  utilisateursList= new ArrayList<>();
+
                 user = new Utilisateurs(rs.getString("pseudo"),rs.getString("nom"),rs.getString("prenom"),rs.getString("email"),rs.getString("telephone"),rs.getString("rue"),rs.getString("codePostal"),rs.getString("ville"),rs.getString("motDePasse"),rs.getInt("credit"),rs.getByte("administrateur"));
+
                 utilisateursList.add(user);
             }
 
