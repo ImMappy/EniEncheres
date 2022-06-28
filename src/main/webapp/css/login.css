@@ -1,0 +1,28 @@
+.bg-image-vertical {
+    position: relative;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: auto 100%;
+}
+
+@media (min-width: 1025px) {
+    .h-custom-2 {
+        height: 100%;
+    }
+}
+
+#containerformulaire {
+    margin: 0 auto;
+    width: 400px;
+
+}
+
+.fa-github {
+    margin-right: 10px;;
+    color: darkgray;
+}
+#gitname  {
+    size: 1rem;
+    color: darkgray;
+}
