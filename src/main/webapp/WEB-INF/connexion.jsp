@@ -13,7 +13,7 @@
     <meta name="author" content="Romain.Helard" />
 
     <!-- FavIcons Settings -->
-    <link rel="icon" href="img/favicon.ico" />
+    <link rel="icon" href="img/favicon.png" />
     <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
     <!-- Google Fonts -->
