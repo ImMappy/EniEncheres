@@ -2,23 +2,24 @@ package fr.eni.eniencheres.dal;
 
 import fr.eni.eniencheres.bo.ArticleVendu;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 
-public class ArticleVenduImpl {
+public class ArticleVenduDAOImpl implements ArticleVenduDAO{
     private static final String INSERT = "insert into ARTICLES_VENDUS (nomArticle, description, dateDebutEncheres, dateFinEncheres, miseAPrix, prixVente, etatVente)"+ "values (?,?,?,?,?,?,?,?)";
     private static final String SELECT_ID = "SELECT * FROM ARTICLES_VENDUS WHERE noArticle = ?";
     private static final String DELETE = "DELETE FROM ARTICLES_VENDUS WHERE noArticle = ?";
     private static final String UPDATE = "UPDATE ARTICLES_VENDUS SET nomArticle=?, description=?, dateDebutEncheres=?, dateFinEncheres=?,miseAPrix=?,prixVente=?,etatVente=? WHERE noArticle = ?";
 
+    private static final String SELECT_ALL_ARTICLES = "SELECT * FROM Articles_Vendus";
 
 
     //* partie INSERT
     //* se connecter à la Base de donnée
-    private  void insertArticles (ArticleVendu articleVendu)throws DALException {
+    @Override
+    public void insert(ArticleVendu articleVendu)throws DALException {
         try (Connection conn = ConnectionProvider.getConnection()) {
 
         //* Préparation Requête SQL
@@ -39,7 +40,7 @@ public class ArticleVenduImpl {
             //* Renvoi en tableau de résultat
             ResultSet rs = stmt.getGeneratedKeys();
             if (rs.next()){
-                articleVendu.setNoArticle(rs.getString(1));
+                articleVendu.setNoArticle(rs.getInt(1));
             }
     } catch (SQLException e) {
             e.printStackTrace();
@@ -48,6 +49,7 @@ public class ArticleVenduImpl {
 }
 
     //*Partie SELECT_BY_ID
+    @Override
     public ArticleVendu selectById(Integer i) throws DALException{
 
         //*Initialisation d'un article
@@ -87,6 +89,9 @@ public class ArticleVenduImpl {
     }
 
 
+
+    @Override
+    //* Partie Delete
     public void delete(Integer id) throws DALException {
 
         //* se connecter à la base de donnée
@@ -104,6 +109,9 @@ public class ArticleVenduImpl {
             throw new DALException("Erreur insert ", e);
         }
     }
+
+    //*Partie UPDATE
+    @Override
     public void update(ArticleVendu articleVendu) throws DALException {
 
         // *Connection à la base de donnée
@@ -122,16 +130,46 @@ public class ArticleVenduImpl {
             stmt.setInt(7, articleVendu.getEtatVente());
 
 
-            // Exécuter la Mise à jour
+            //* Exécuter la Mise à jour
             stmt.executeUpdate();
 
-            //message d'erreur si un problème est rencontré
+            //*message d'erreur si un problème est rencontré
         } catch (SQLException e) {
             e.printStackTrace();
             throw new DALException("Erreur a la modification d'un article");
         }
     }
 
+
+    //* SelectALL
+    @Override
+    public List<ArticleVendu> selectAll()  throws DALException {
+        //*création Liste article
+        List<ArticleVendu> listeArticle = new ArrayList<>();
+
+        try (Connection conn = ConnectionProvider.getConnection()){
+
+            Statement stmt = conn.createStatement();
+            ResultSet rs =stmt.executeQuery(SELECT_ALL_ARTICLES);
+
+            while (rs.next()){
+                ArticleVendu article = new ArticleVendu(rs.getString("nom"),
+                                rs.getString("description"),
+                                rs.getDate("DateDebutEncheres"),
+                                rs.getDate("DateFinEncheres"),
+                                rs.getInt("miseAPrix"),
+                                rs.getInt("PrixVente"),
+                                rs.getInt("etatVente")
+                );
+                listeArticle.add(article);
+            }
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            throw new DALException("Erreur a la selection des articles");
+
+        } return listeArticle;
+    }
 
 }
 
