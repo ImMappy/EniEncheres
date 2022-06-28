@@ -56,7 +56,7 @@
                             <!-- Navbar brand -->
                             <a class="navbar-brand mt-2 mt-lg-0" href="#">
                                 <img
-                                        src="${pageContext.request.contextPath}/img/logo-navbar.png"
+                                        src="${pageContext.request.contextPath}/main/webapp/img/logo-navbar.png"
                                         alt="ENI Encheres logo" width="100rem"
                                 />
                             </a>
