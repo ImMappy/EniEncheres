@@ -30,7 +30,7 @@
 
 </head>
 <body>
-<header>
+<header id="top">
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg  container">
         <!-- Container wrapper -->
@@ -53,26 +53,25 @@
                 <!-- Navbar brand -->
                 <a class="navbar-brand mt-2 mt-lg-0" href="#">
                     <img
-                            src="https://mdbcdn.b-cdn.net/img/logo/mdb-transaprent-noshadows.webp"
-                            height="15"
-                            alt="MDB Logo"
-                            loading="lazy"
+                            src="${pageContext.request.contextPath}/img/logo-ENI-full.png"
+
+                            alt="ENI Encheres logo" width="100rem"
+
                     />
                 </a>
-                <!-- Left links -->
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Encheres</a>
-                    </li>
-                </ul>
-                <!-- Left links -->
+
             </div>
             <!-- Collapsible wrapper -->
 
             <!-- Right elements -->
             <div class="d-flex align-items-center">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
+                    <li class="nav-item ">
+                        <a class="nav-link mx-3" href="#">Encheres</a>
+                    </li>
+                </ul>
                 <c:if test="${!isAllowed}">
-                    <a href="<%=request.getContextPath()%>/WEB-INF/connexion.jsp">Se connecter</a>
+                    <a class="h2 text-primary mx-3" href="${pageContext.request.contextPath}/connexion"><i class="fa-solid fa-power-off "></i></a>
                 </c:if>
                 <c:if test="${isAllowed}">
                 <!-- Avatar -->
@@ -181,9 +180,28 @@
             <button type="button" class="btn btn-success w-100 text-center mt-5"><i class="fas fa-search trailing"></i> Rechercher</button>
         </form>
     </section>
-    <section id="grid-articles contqine">
+    <section id="grid-articles container">
+        <div class="article-card d-flex align-items-center">
+            <div class="article-image w-50 mr-4">
+                <img src="https://lapierre-shopware.accell.cloud/thumbnail/64/bb/9f/1648474576/E-Sensium%202.2%20MY21%20Web%20-%20View%20PNG_800x800.png" alt="velo" class="w-100">
 
+            </div>
+            <div class="article-detail">
+                <span class="categorie">Categorie</span>
+                <h4>Article test</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero, possimus nostrum!</p>
+                <div class="prix">
+                    <small>Prix</small>
+                    <div class="article-lien-detail">
+                        <a href="#"><img src="${pageContext.request.contextPath}/img/icons8-auction-66.png"/> </a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
+    <footer>
+        <a href="#top">Revenir en haut</a>
+    </footer>
 </main>
 
 <!-- Bootstrap JS -->

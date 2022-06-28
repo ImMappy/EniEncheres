@@ -15,7 +15,7 @@ public class Utilisateurs {
         private int credit;
         private boolean administrateur;
 
-        public Utilisateurs(String pseudo, String nom, String prenom, String email, String telephone, String rue, String codePostal, String ville, String motDePasse) {
+        public Utilisateurs(String pseudo, String nom, String prenom, String email, String telephone, String rue, String codePostal, String ville, String motDePasse, int credit) {
             this.pseudo = pseudo;
             this.nom = nom;
             this.prenom = prenom;
