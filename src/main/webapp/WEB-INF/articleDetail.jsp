@@ -13,12 +13,10 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
     <!-- Google Search Meta -->
     <meta name="title" content="ENI - ENCHERES - HD2WM-144" />
     <meta name="description" content="Sites Enchères en ligne ENI" />
     <meta name="author" content="Romain.Helard" />
-
     <!-- FavIcons Settings -->
     <link rel="icon" href="img/favicon.png" />
     <!-- Font Awesome -->
@@ -29,71 +27,175 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.2.0/mdb.min.css" rel="stylesheet"/>
     <!-- BOOTSTRAP -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-
     <!-- Normalize CSS and Steelsheets -->
     <link href="css/normalize.css" rel="stylesheet" />
     <title>Detail de l'article</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 </head>
 <body>
-    <h2>Detail vente</h2>
-    <section class="container">
-        <div class="img-article">
-            Image
-        </div>
-        <div class="details">
-            <ul>
-                <li class="h3">PC Gamer pour travailler</li>
-                <li>
-                    <div class="d-flex">
-                        <span class="h3">Description</span>
-                        <p>Description text</p>
-                    </div>
-                </li>
-                <li>
-                    <div class="d-flex">
-                        <span class="h3">Categorie</span>
-                        <span>Informatique</span>
-                    </div>
-                </li>
-                <li>
-                    <div class="d-flex">
-                        <span class="h3">Meilleure offre</span>
-                        <span>Offre 1</span>
-                        <span>Offre 2</span>
-                    </div>
+<header id="top">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg container bg-transparent shadow-0">
+        <!-- Container wrapper -->
+        <div class="container-fluid">
+            <!-- Toggle button -->
+            <button
+                    class="navbar-toggler"
+                    type="button"
+                    data-mdb-toggle="collapse"
+                    data-mdb-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+            >
+                <i class="fas fa-bars"></i>
+            </button>
 
-                </li>
-                <li>
-                    <div class="d-flex">
-                        <span class="h3">Fin de l'enchere</span>
-                        <span>Date</span>
+            <!-- Collapsible wrapper -->
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <!-- Navbar brand -->
+                <a class="navbar-brand mt-2 mt-lg-0" href="<%=request.getContextPath()%>">
+                    <img src="${pageContext.request.contextPath}/img/logo-navbar.png" alt="ENI Encheres logo" width="80"/>
+                </a>
+            </div>
+            <!-- Collapsible wrapper -->
+
+            <!-- Right elements -->
+            <div class="d-flex align-items-center">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item "><a class="nav-link mx-2" href="#">Encheres</a></li>
+                    <c:if test="${!isAllowed}">
+                        <li class="nav-item "><a class="nav-link mx-2" href="#">Vendre un article</a></li>
+                        <li class="nav-item "><a class="nav-link mx-2" href="#">Mon profil</a></li>
+                    </c:if>
+                    <c:if test="${isAllowed}">
+                        <li class="nav-item "><a class="nav-link mx-2" href="#">Créer mon Profil</a></li>
+                    </c:if>
+                </ul>
+                <c:if test="${!isAllowed}">
+                    <a class="h2 text-primary mx-3" href="${pageContext.request.contextPath}/connexion"><i class="fa-solid fa-power-off "></i></a>
+                </c:if>
+                <c:if test="${isAllowed}">
+                <!-- Avatar -->
+                <div class="dropdown">
+                    <a
+                            class="dropdown-toggle d-flex align-items-center hidden-arrow"
+                            href="#"
+                            id="navbarDropdownMenuAvatar"
+                            role="button"
+                            data-mdb-toggle="dropdown"
+                            aria-expanded="false"
+                    >
+                        <img
+                                src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp"
+                                class="rounded-circle"
+                                height="25"
+                                alt="Black and White Portrait of a Man"
+                                loading="lazy"
+                        />
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuAvatar">
+                        <li><a class="dropdown-item" href="#">Vendre un article</a></li>
+                        <li><a class="dropdown-item" href="#">Mon profil</a></li>
+                        <li><a class="dropdown-item" href="#">Deconnexion</a></li>
+                    </ul>
+                </div>
+            </div>
+            </c:if>
+            <!-- Right elements -->
+        </div>
+        <!-- Container wrapper -->
+    </nav>
+    <!-- Navbar -->
+
+</header>
+<main>
+    <h2 class="text-center">Detail de la vente</h2>
+    <section class="container w-50 border border p-3">
+        <div class="row ">
+            <div class="col-12 col-sm-5">
+                <img src="${pageContext.request.contextPath}/img/logo-ENI-full.png" width="180">
+            </div>
+            <div class="col-12 col-sm-7 ">
+                <div class="row">
+                    <div class="col-12 col-sm-12 my-3">
+                        <span class="h5">PC Gamer pour travailler</span>
                     </div>
-                </li>
-                <li>
-                    <div class="d-flex">
-                        <span class="h3">Retrait :</span>
-                        <span>Adresse</span>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-sm-5">
+                        <span class="h5">Description</span>
                     </div>
-                </li>
-                <li>
-                    <div class="d-flex">
-                        <span class="h3">Vendeur :</span>
-                        <span>Utilisateur</span>
-                    </div>
-                </li>
-                <li>
-                    <form method="post" action="">
-                        <div class="d-flex">
-                            <label for="montant">Proposition</label>
-                            <input type="number" name="montant" id="montant">
+                    <div class="col-12 col-sm-7">
+                        <div class="w-75">
+                            <p>TEXT TEXT TEXT TEXTTEXT TEXTTEXT TEXTTEXT TEXTTEXT TEXT</p>
                         </div>
-                        <button type="button" class="btn btn-primary">Encherir</button>
-                    </form>
-                </li>
-            </ul>
-        </div>
-    </section>
 
+                    </div>
+                </div>
+                <div class="row ">
+                    <div class="col-12 col-sm-5">
+                        <span class="h5">Meilleure offre</span>
+                    </div>
+                    <div class="col-12 col-sm-7">
+                        <span>210 points</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-sm-5">
+                        <span class="h5">Mise a prix :</span>
+                    </div>
+                    <div class="col-12 col-sm-7">
+                       <span>185 points</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-sm-7 offset-5">
+                <div class="row">
+                    <div class="col-12 col-sm-5">
+                        <span class="h5">Fin de l'enchere</span>
+                    </div>
+                    <div class="col-12 col-sm-7">
+                        <p>09/10/2018</p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12 col-sm-5">
+                        <span class="h5">Retrait</span>
+                    </div>
+                    <div class="col-12 col-sm-7">
+                        <p>10 Allee des Alouettes 44800 Saint Herblain</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-sm-5">
+                        <span class="h5">Vendeur</span>
+                    </div>
+                    <div class="col-12 col-sm-7">
+                        <span>Jojo44</span>
+                    </div>
+                </div>
+                <div class="row">
+                       <form action="${pageContext.request.contextPath}/articleDetail">
+                           <div class="d-flex my-3">
+                               <div class="col-12 col-sm-5">
+                                   <label class="form-label" for="proposition">Proposition</label>
+                               </div>
+                               <div class="col-12 col-sm-7">
+                                    <input class="form-control w-50" type="number" name="proposition" id="proposition"/>
+                               </div>
+                           </div>
+                           <button type="button" class="btn btn-primary" name="enchere">Encherir</button>
+                       </form>
+                   </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+</main>
 </body>
 </html>
