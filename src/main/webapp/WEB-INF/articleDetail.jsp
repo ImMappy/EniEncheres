@@ -63,10 +63,10 @@
             <!-- Right elements -->
             <div class="d-flex align-items-center">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item "><a class="nav-link mx-2" href="#">Encheres</a></li>
+                    <li class="nav-item "><a class="nav-link mx-2" href="<%=request.getContextPath()%>">Encheres</a></li>
                     <c:if test="${!isAllowed}">
-                        <li class="nav-item "><a class="nav-link mx-2" href="#">Vendre un article</a></li>
-                        <li class="nav-item "><a class="nav-link mx-2" href="#">Mon profil</a></li>
+                        <li class="nav-item "><a class="nav-link mx-2" href="${pageContext.request.contextPath}/venteArticleServlet">Vendre un article</a></li>
+                        <li class="nav-item "><a class="nav-link mx-2" href="${pageContext.request.contextPath}/profilServlet">Mon profil</a></li>
                     </c:if>
                     <c:if test="${isAllowed}">
                         <li class="nav-item "><a class="nav-link mx-2" href="#">Créer mon Profil</a></li>
@@ -197,5 +197,32 @@
 
     </section>
 </main>
+<!-- FOOTER -->
+<section class="">
+    <!-- Footer -->
+    <footer class="text-center text-white rounded-2 mb-2" style="background-color: #0a4275;">
+        <!-- Grid container -->
+        <div class="container p-4 pb-0 mt-5">
+            <!-- Section: CTA -->
+            <c:if test="${isAllowed}">
+                <section class="">
+                    <p class="d-flex justify-content-center align-items-center">
+                        <span class="me-3">Enregistrez-vous Gratuitement</span>
+                        <a class="h2 text-primary mx-3" href="${pageContext.request.contextPath}/connexion"><button type="button" class="btn btn-outline-light btn-rounded">
+                            CREER MON COMPTE
+                        </button></a>
+                    </p>
+                </section>
+            </c:if>
+            <!-- Section: CTA -->
+        </div>
+        <!-- Grid container -->
+
+        <!-- Copyright -->
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+            © 2022 Copyright : ROMAIN HELARD / DAVID DESTREE / LUIS MARIA</a>
+        </div>
+        <!-- Copyright -->
+    </footer>
 </body>
 </html>

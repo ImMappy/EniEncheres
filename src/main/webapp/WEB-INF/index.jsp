@@ -59,10 +59,10 @@
             <!-- Right elements -->
             <div class="d-flex align-items-center">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item "><a class="nav-link mx-2" href="#">Encheres</a></li>
+                    <li class="nav-item "><a class="nav-link mx-2" href="<%=request.getContextPath()%>">Encheres</a></li>
                     <c:if test="${!isAllowed}">
-                        <li class="nav-item "><a class="nav-link mx-2" href="#">Vendre un article</a></li>
-                        <li class="nav-item "><a class="nav-link mx-2" href="#">Mon profil</a></li>
+                        <li class="nav-item "><a class="nav-link mx-2" href="${pageContext.request.contextPath}/venteArticleServlet">Vendre un article</a></li>
+                        <li class="nav-item "><a class="nav-link mx-2" href="${pageContext.request.contextPath}/profilServlet">Mon profil</a></li>
                     </c:if>
                     <c:if test="${isAllowed}">
                         <li class="nav-item "><a class="nav-link mx-2" href="#">Créer mon Profil</a></li>
@@ -113,19 +113,21 @@
                 <i class="fas fa-search trailing"></i>
                 <input type="text" name="articleIn" class="form-control" placeholder="Le nom de l'article contient"/>
             </div>
+
             <div class="row my-4">
-                <div class="col-6">
-                    <label for="category" class="d-flex align-items-center">Categorie</label>
+                <div class="col-1   ">
+                    <label for="category" class="mt-2">Categorie</label>
                 </div>
-                <div class="col-6">
-                    <select name="category" id="category" class="form-select ml-1">
-                        <option value="0">Toutes</option>
-                        <option value="1">Informatique</option>
-                        <option value="2">Mode</option>
-                        <option value="3">Autres</option>
+                <div class="col-11">
+                    <select name="category" id="category" class="form-select ms-3 w-75">
+                        <option value="0">Informatique</option>
+                        <option value="1">Ameublement</option>
+                        <option value="2">Vetements</option>
+                        <option value="3">Sports & Loisirs</option>
                     </select>
                 </div>
             </div>
+            <c:if test="${isAllowed}">
             <div class="row">
                 <div class="col-6">
                     <input type="radio" name="filterRadio" id="achats">
@@ -147,7 +149,7 @@
                     </div>
                 </div>
                 <div class="col-6">
-                    <input type="radio" name="filterRadio" id="ventes">
+                    <input type="radio" name="filterRadio" id="ventes" ${disableRadio}>
                     <label for="ventes">Mes ventes</label>
                     <div>
                         <div>
@@ -165,7 +167,7 @@
                     </div>
                 </div>
             </div>
-            </div>
+            </c:if>
             <button type="button" class="btn btn-light w-100 text-center mt-5 shadow-2"><i class="fas fa-search trailing"></i> Rechercher</button>
         </form>
     </section>
