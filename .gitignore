@@ -3,3 +3,5 @@ out/
 ressourcesWEB/
 META-INF/
 *class
+.idea/dataSources.xml
+.idea/dataSources.local.xml
