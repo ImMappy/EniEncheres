@@ -26,13 +26,12 @@
     <!-- Normalize CSS and Steelsheets -->
     <link href="css/normalize.css" rel="stylesheet" />
     <title>ENI - ENCHERES</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 
 </head>
 <body>
 <header id="top">
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg  container">
+    <nav class="navbar navbar-expand-lg container bg-transparent shadow-0">
         <!-- Container wrapper -->
         <div class="container-fluid">
             <!-- Toggle button -->
@@ -52,22 +51,22 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <!-- Navbar brand -->
                 <a class="navbar-brand mt-2 mt-lg-0" href="#">
-                    <img src="${pageContext.request.contextPath}/img/logo-navbar.png"
-
-                            alt="ENI Encheres logo" width="80"
-
-                    />
+                    <img src="${pageContext.request.contextPath}/img/logo-navbar.png" alt="ENI Encheres logo" width="80"/>
                 </a>
-
             </div>
             <!-- Collapsible wrapper -->
 
             <!-- Right elements -->
             <div class="d-flex align-items-center">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
-                    <li class="nav-item ">
-                        <a class="nav-link mx-3" href="#">Encheres</a>
-                    </li>
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item "><a class="nav-link mx-2" href="#">Encheres</a></li>
+                    <c:if test="${!isAllowed}">
+                    <li class="nav-item "><a class="nav-link mx-2" href="#">Vendre un article</a></li>
+                    <li class="nav-item "><a class="nav-link mx-2" href="#">Mon profil</a></li>
+                    </c:if>
+                    <c:if test="${isAllowed}">
+                    <li class="nav-item "><a class="nav-link mx-2" href="#">Créer mon Profil</a></li>
+                    </c:if>
                 </ul>
                 <c:if test="${!isAllowed}">
                     <a class="h2 text-primary mx-3" href="${pageContext.request.contextPath}/connexion"><i class="fa-solid fa-power-off "></i></a>
@@ -91,19 +90,10 @@
                                 loading="lazy"
                         />
                     </a>
-                    <ul
-                            class="dropdown-menu dropdown-menu-end"
-                            aria-labelledby="navbarDropdownMenuAvatar"
-                    >
-                        <li>
-                            <a class="dropdown-item" href="#">Vendre un article</a>
-                        </li>
-                        <li>
-                            <a class="dropdown-item" href="#">Mon profil</a>
-                        </li>
-                        <li>
-                            <a class="dropdown-item" href="#">Deconnexion</a>
-                        </li>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuAvatar">
+                        <li><a class="dropdown-item" href="#">Vendre un article</a></li>
+                        <li><a class="dropdown-item" href="#">Mon profil</a></li>
+                        <li><a class="dropdown-item" href="#">Deconnexion</a></li>
                     </ul>
                 </div>
             </div>
@@ -176,36 +166,145 @@
                 </div>
             </div>
             </div>
-            <button type="button" class="btn btn-success w-100 text-center mt-5"><i class="fas fa-search trailing"></i> Rechercher</button>
+            <button type="button" class="btn btn-light w-100 text-center mt-5 shadow-2"><i class="fas fa-search trailing"></i> Rechercher</button>
         </form>
     </section>
-    <section id="articles-grid container">
-        <div class="article-card d-flex align-items-center">
-            <div class="article-image w-50 mr-4">
-                <img src="https://lapierre-shopware.accell.cloud/thumbnail/64/bb/9f/1648474576/E-Sensium%202.2%20MY21%20Web%20-%20View%20PNG_800x800.png" alt="velo" class="w-100">
 
+    <!-- CARD ARTICLES -->
+    <div id="containerCard">
+    <div class="container-fluid d-flex justify-content-center">
+        <div class="row mt-5">
+            <div class="col-xl-3 col-lg-4 col-sm-6 col-md-6 col-12 mt-3">
+                <div class="card">
+                    <img src="img/articles-img/ASUSA15-TUF507RE-HN012W.png" class="card-img-top" width="100%">
+                    <div class="card-body pt-0 px-0">
+                        <div class="d-flex flex-row justify-content-between mb-0 px-3">
+                            <small class="text-muted mt-1">PRIX</small>
+                            <h6>210 POINTS</h6>
+                        </div>
+                        <hr class="mt-2 mx-3">
+                        <div class="d-flex flex-row justify-content-between px-3 pb-2">
+                            <div class="d-flex flex-column"><span class="text-muted">ASUS A15 TUF507RE-HN012W</span><small class="text-muted">AMD Ryzen 7 6800H 16 Go SSD 512 Go 15.6" LED Full HD 144 Hz NVIDIA GeForce RTX 3050 Ti 4 Go Wi-Fi 6/Bluetooth Webcam Windows 11 Famille</small></div>
+                        </div>
+                        <div class="d-flex flex-row justify-content-between p-3 mid">
+                            <div class="d-flex flex-column"><small class="text-muted mb-1">VENDEUR</small><div class="d-flex flex-row"><div class="d-flex flex-column ml-1"><h6 class="ml-1">JOJO44</h6></div></div></div>
+                            <div class="d-flex flex-column"><small class="text-muted mb-1">FIN DE L'ENCHERE</small><div class="d-flex flex-row"><h6 class="ml-1">10/08/2022</h6></div></div>
+                        </div>
+                        <div class="mx-3 mt-1 mb-2"><button type="button" class="btn btn-danger btn-block"><small>DETAIL DE L'ARTICLE</small></button></div>
+                        <small class="d-flex justify-content-center text-muted">*enregistrez-vous pour enchèrir</small>
+                    </div>
+                </div>
             </div>
-            <div class="article-detail">
-                <span class="categorie">Categorie</span>
-                <h4>Article test</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero, possimus nostrum!</p>
-                <div class="prix">
-                    <small>Prix</small>
-                    <div class="article-lien-detail">
-                        <a href="#"><img src="${pageContext.request.contextPath}/img/icons8-auction-66.png"/> </a>
+
+            <div class="col-xl-3 col-lg-4 col-sm-6 col-md-6 col-12 mt-3">
+                <div class="card">
+                    <img src="img/articles-img/ASUS-CHROMEBOOK-PRO-C436FFA-E10309.png" class="card-img-top" width="100%">
+                    <div class="card-body pt-0 px-0">
+                        <div class="d-flex flex-row justify-content-between mb-0 px-3">
+                            <small class="text-muted mt-1">PRIX</small>
+                            <h6>420 POINTS</h6>
+                        </div>
+                        <hr class="mt-2 mx-3">
+                        <div class="d-flex flex-row justify-content-between px-3 pb-2">
+                            <div class="d-flex flex-column"><span class="text-muted">ASUS Pro Flip 14 C436FFA-E10309</span><small class="text-muted">Intel Core i5-10210U 16 Go SSD 128 Go 14" LED Tactile Full HD Wi-Fi AX/Bluetooth Webcam Chrome OS Fréquence 75 Hz - Autonomie 18 Heures</small></div>
+                        </div>
+                        <div class="d-flex flex-row justify-content-between p-3 mid">
+                            <div class="d-flex flex-column"><small class="text-muted mb-1">VENDEUR</small><div class="d-flex flex-row"><div class="d-flex flex-column ml-1"><h6 class="ml-1">DADA85</h6></div></div></div>
+                            <div class="d-flex flex-column"><small class="text-muted mb-1">FIN DE L'ENCHERE</small><div class="d-flex flex-row"><h6 class="ml-1">17/10/2022</h6></div></div>
+                        </div>
+                        <div class="mx-3 mt-1 mb-2"><button type="button" class="btn btn-danger btn-block"><small>DETAIL DE L'ARTICLE</small></button></div>
+                        <small class="d-flex justify-content-center text-muted">*enregistrez-vous pour enchèrir</small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xl-3 col-lg-4 col-sm-6 col-md-6 col-12 mt-3">
+                <div class="card">
+                    <img src="img/articles-img/STEELSERIES-AEROX-3-WIRELESS.png" class="card-img-top" width="100%">
+                    <div class="card-body pt-0 px-0">
+                        <div class="d-flex flex-row justify-content-between mb-0 px-3">
+                            <small class="text-muted mt-1">PRIX</small>
+                            <h6>60 POINTS</h6>
+                        </div>
+                        <hr class="mt-2 mx-3">
+                        <div class="d-flex flex-row justify-content-between px-3 pb-2">
+                            <div class="d-flex flex-column"><span class="text-muted">SteelSeries Aerox 3 Wireless</span><small class="text-muted">Souris sans fil pour gamer - droitier - Bluetooth/RF 2.4 GHz - capteur optique 18000 dpi - 6 boutons programmables - rétro-éclairage RGB</small></div>
+                        </div>
+                        <div class="d-flex flex-row justify-content-between p-3 mid">
+                            <div class="d-flex flex-column"><small class="text-muted mb-1">VENDEUR</small><div class="d-flex flex-row"><div class="d-flex flex-column ml-1"><h6 class="ml-1">RORO44</h6></div></div></div>
+                            <div class="d-flex flex-column"><small class="text-muted mb-1">FIN DE L'ENCHERE</small><div class="d-flex flex-row"><h6 class="ml-1">03/11/2022</h6></div></div>
+                        </div>
+                        <div class="mx-3 mt-1 mb-2"><button type="button" class="btn btn-danger btn-block"><small>DETAIL DE L'ARTICLE</small></button></div>
+                        <small class="d-flex justify-content-center text-muted">*enregistrez-vous pour enchèrir</small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xl-3 col-lg-4 col-sm-6 col-md-6 col-12 mt-3">
+                <div class="card">
+                    <img src="img/articles-img/Brother-DCP-1612WVB.png" class="card-img-top" width="100%">
+                    <div class="card-body pt-0 px-0">
+                        <div class="d-flex flex-row justify-content-between mb-0 px-3">
+                            <small class="text-muted mt-1">PRIX</small>
+                            <h6>125 POINTS</h6>
+                        </div>
+                        <hr class="mt-2 mx-3">
+                        <div class="d-flex flex-row justify-content-between px-3 pb-2">
+                            <div class="d-flex flex-column"><span class="text-muted">Brother DCP-1612WVB All In Box</span><small class="text-muted">Imprimante multifonction laser monochrome 3-en-1 (USB 2.0/Wi-Fi) / Idéale pour les professionnels qui travaillent chez eux ainsi que pour les petites entreprises</small></div>
+                        </div>
+                        <div class="d-flex flex-row justify-content-between p-3 mid">
+                            <div class="d-flex flex-column"><small class="text-muted mb-1">VENDEUR</small><div class="d-flex flex-row"><div class="d-flex flex-column ml-1"><h6 class="ml-1">LUIS95</h6></div></div></div>
+                            <div class="d-flex flex-column"><small class="text-muted mb-1">FIN DE L'ENCHERE</small><div class="d-flex flex-row"><h6 class="ml-1">21/07/2022</h6></div></div>
+                        </div>
+                        <div class="mx-3 mt-1 mb-2"><button type="button" class="btn btn-danger btn-block"><small>DETAIL DE L'ARTICLE</small></button></div>
+                        <small class="d-flex justify-content-center text-muted">*enregistrez-vous pour enchèrir</small>
                     </div>
                 </div>
             </div>
         </div>
+            <!-- FIN CARD ARTICLES -->
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <section class="">
+        <!-- Footer -->
+        <footer class="text-center text-white rounded-2 mb-2" style="background-color: #0a4275;">
+            <!-- Grid container -->
+            <div class="container p-4 pb-0 mt-5">
+                <!-- Section: CTA -->
+                <c:if test="${isAllowed}">
+                <section class="">
+                    <p class="d-flex justify-content-center align-items-center">
+                        <span class="me-3">Enregistrez-vous Gratuitement</span>
+                        <a class="h2 text-primary mx-3" href="${pageContext.request.contextPath}/connexion"><button type="button" class="btn btn-outline-light btn-rounded">
+                            CREER MON COMPTE
+                        </button></a>
+                    </p>
+                </section>
+                </c:if>
+                <!-- Section: CTA -->
+            </div>
+            <!-- Grid container -->
+
+            <!-- Copyright -->
+            <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+                © 2022 Copyright : ROMAIN HELARD / DAVID DESTREE / LUIS MARIA</a>
+            </div>
+            <!-- Copyright -->
+        </footer>
+        <!-- Footer -->
     </section>
-    <footer>
-        <a href="#top">Revenir en haut</a>
-    </footer>
+    <!-- FIN FOOTER -->
+
+
+
 </main>
 
 <!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 <!-- MDB -->
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.2.0/mdb.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </body>
 </html>
