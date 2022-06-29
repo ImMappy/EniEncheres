@@ -177,6 +177,7 @@
               <div class="me-5">
                 <button type="button" class="btn btn-primary">Enregistrer</button>
                 <button type="button" class="btn btn-primary">Annuler</button>
+                <button type="button" class="btn btn-primary">Annuler la vente</button>
               </div>
             </form>
           </li>
