@@ -80,7 +80,7 @@
                                     <!-- Error Password -->
                                     <c:if test="${errorPassword}">
                                         <div class="mt-2 d-flex justify-content-center">
-                                            <p id="nullPassword">Saisie du Mot de Passe Incorrect, Recommencez !</p>
+                                            <p id="nullPassword2">Saisie du Mot de Passe Incorrect, Recommencez !</p>
                                         </div>
                                     </c:if>
 
@@ -188,8 +188,7 @@
 
                                     <!-- Checkbox -->
                                     <div class="form-check d-flex justify-content-center mb-4">
-                                        <input class="form-check-input me-2" type="checkbox" value="" id="registerCheck"
-                                               aria-describedby="registerCheckHelpText" required/>
+                                        <input class="form-check-input me-2" type="checkbox" value="" id="registerCheck" aria-describedby="registerCheckHelpText" required/>
                                         <label class="form-check-label" for="registerCheck">J'ai lu et j'accepte les termes et conditions</label>
                                     </div>
 
