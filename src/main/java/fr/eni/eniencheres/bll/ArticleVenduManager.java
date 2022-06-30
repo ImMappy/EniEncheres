@@ -2,6 +2,8 @@ package fr.eni.eniencheres.bll;
 
 import fr.eni.eniencheres.bo.ArticleVendu;
 
+import java.sql.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 public interface ArticleVenduManager {
