@@ -1,39 +1,78 @@
 package fr.eni.eniencheres.bo;
 
-import java.util.Date;
+import java.sql.Date;
+import java.time.LocalDate;
 
 public class ArticleVendu {
     private Integer noArticle;
     private String nomArticle;
     private String description;
-    private Date dateDebutEncheres;
-    private Date dateFinEncheres;
-    private int miseAPrix;
+    private LocalDate dateDebutEncheres;
+    private LocalDate dateFinEncheres;
+    private int prixInitial;
     private int prixVente;
+    private int noUtilisateur;
+    private int noCategorie;
     private int etatVente;
 
     public ArticleVendu() {
     }
 
-    public ArticleVendu(Integer noArticle, String nomArticle, String description, Date dateDebutEncheres, Date dateFinEncheres, int miseAPrix, int prixVente, int etatVente) {
+    public ArticleVendu(String nomArticle, String description, LocalDate dateDebutEncheres, LocalDate dateFinEncheres, int prixInitial, int noCategorie) {
+        this.nomArticle = nomArticle;
+        this.description = description;
+        this.dateDebutEncheres = dateDebutEncheres;
+        this.dateFinEncheres = dateFinEncheres;
+        this.prixInitial = prixInitial;
+        this.noCategorie = noCategorie;
+    }
+
+    public ArticleVendu(Integer noArticle, String nomArticle, String description, LocalDate dateDebutEncheres, LocalDate dateFinEncheres, int prixInitial, int prixVente, int noUtilisateur, int noCategorie, int etatVente) {
         this.noArticle = noArticle;
         this.nomArticle = nomArticle;
         this.description = description;
         this.dateDebutEncheres = dateDebutEncheres;
         this.dateFinEncheres = dateFinEncheres;
-        this.miseAPrix = miseAPrix;
+        this.prixInitial = prixInitial;
         this.prixVente = prixVente;
+        this.noUtilisateur = noUtilisateur;
+        this.noCategorie = noCategorie;
         this.etatVente = etatVente;
     }
 
-    public ArticleVendu(String nomArticle, String description, Date dateDebutEncheres, Date dateFinEncheres, int miseAPrix, int prixVente, int etatVente) {
+    public ArticleVendu(Integer noArticle, String nomArticle, String description, LocalDate dateDebutEncheres, LocalDate dateFinEncheres, int prixInitial, int prixVente, int noUtilisateur, int noCategorie) {
+        this.noArticle = noArticle;
         this.nomArticle = nomArticle;
         this.description = description;
         this.dateDebutEncheres = dateDebutEncheres;
         this.dateFinEncheres = dateFinEncheres;
-        this.miseAPrix = miseAPrix;
+        this.prixInitial = prixInitial;
         this.prixVente = prixVente;
+        this.noUtilisateur = noUtilisateur;
+        this.noCategorie = noCategorie;
+    }
+
+    public ArticleVendu(String nomArticle, String description, LocalDate dateDebutEncheres, LocalDate dateFinEncheres, int prixInitial, int prixVente, int noUtilisateur, int noCategorie, int etatVente) {
+        this.nomArticle = nomArticle;
+        this.description = description;
+        this.dateDebutEncheres = dateDebutEncheres;
+        this.dateFinEncheres = dateFinEncheres;
+        this.prixInitial = prixInitial;
+        this.prixVente = prixVente;
+        this.noUtilisateur = noUtilisateur;
+        this.noCategorie = noCategorie;
         this.etatVente = etatVente;
+    }
+
+    public ArticleVendu(String nomArticle, String description, LocalDate dateDebutEncheres, LocalDate dateFinEncheres, int prixInitial, int prixVente, int noUtilisateur, int noCategorie) {
+        this.nomArticle = nomArticle;
+        this.description = description;
+        this.dateDebutEncheres = dateDebutEncheres;
+        this.dateFinEncheres = dateFinEncheres;
+        this.prixInitial = prixInitial;
+        this.prixVente = prixVente;
+        this.noUtilisateur = noUtilisateur;
+        this.noCategorie = noCategorie;
     }
 
     public Integer getNoArticle() {
@@ -60,30 +99,28 @@ public class ArticleVendu {
         this.description = description;
     }
 
-//! {return (java.sql.Date) dateDebutEncheres; }  pas sur
-    public java.sql.Date getDateDebutEncheres() {
-        return (java.sql.Date) dateDebutEncheres;
+    public LocalDate getDateDebutEncheres() {
+        return dateDebutEncheres;
     }
 
-    public void setDateDebutEncheres(Date dateDebutEncheres) {
+    public void setDateDebutEncheres(LocalDate dateDebutEncheres) {
         this.dateDebutEncheres = dateDebutEncheres;
     }
 
-    //! {return (java.sql.Date) dateDebutEncheres; }  pas sur
-    public java.sql.Date getDateFinEncheres() {
-        return (java.sql.Date) dateFinEncheres;
+    public LocalDate getDateFinEncheres() {
+        return dateFinEncheres;
     }
 
-    public void setDateFinEncheres(Date dateFinEncheres) {
+    public void setDateFinEncheres(LocalDate dateFinEncheres) {
         this.dateFinEncheres = dateFinEncheres;
     }
 
-    public int getMiseAPrix() {
-        return miseAPrix;
+    public int getPrixInitial() {
+        return prixInitial;
     }
 
-    public void setMiseAPrix(int miseAPrix) {
-        this.miseAPrix = miseAPrix;
+    public void setPrixInitial(int prixInitial) {
+        this.prixInitial = prixInitial;
     }
 
     public int getPrixVente() {
@@ -94,8 +131,20 @@ public class ArticleVendu {
         this.prixVente = prixVente;
     }
 
-    public int isEtatVente() {
-        return etatVente;
+    public int getNoUtilisateur() {
+        return noUtilisateur;
+    }
+
+    public void setNoUtilisateur(int noUtilisateur) {
+        this.noUtilisateur = noUtilisateur;
+    }
+
+    public int getNoCategorie() {
+        return noCategorie;
+    }
+
+    public void setNoCategorie(int noCategorie) {
+        this.noCategorie = noCategorie;
     }
 
     public int getEtatVente() {
@@ -106,22 +155,22 @@ public class ArticleVendu {
         this.etatVente = etatVente;
     }
 
-
-
     @Override
     public String toString() {
-        return "ArticleVendu{" +
-                "noArticle='" + noArticle + '\'' +
-                ", nomArticle='" + nomArticle + '\'' +
-                ", description='" + description + '\'' +
-                ", dateDebutEncheres=" + dateDebutEncheres +
-                ", dateFinEncheres=" + dateFinEncheres +
-                ", miseAPrix=" + miseAPrix +
-                ", prixVente=" + prixVente +
-                ", etatVente=" + etatVente +
-                '}';
+        final StringBuilder sb = new StringBuilder("ArticleVendu{");
+        sb.append("noArticle=").append(noArticle);
+        sb.append(", nomArticle='").append(nomArticle).append('\'');
+        sb.append(", description='").append(description).append('\'');
+        sb.append(", dateDebutEncheres=").append(dateDebutEncheres);
+        sb.append(", dateFinEncheres=").append(dateFinEncheres);
+        sb.append(", prixInitial=").append(prixInitial);
+        sb.append(", prixVente=").append(prixVente);
+        sb.append(", noUtilisateur=").append(noUtilisateur);
+        sb.append(", noCategorie=").append(noCategorie);
+        sb.append(", etatVente=").append(etatVente);
+        sb.append('}');
+        return sb.toString();
     }
-
 }
 
 

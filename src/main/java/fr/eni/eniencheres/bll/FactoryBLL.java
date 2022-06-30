@@ -5,7 +5,6 @@ public class FactoryBLL {
     public static UtilisateursManager getUtilisateursManager() {
         return new UtilisateursManagerImpl();
     }
-    public static CategoriesManager getCategoriesManager(){
-        return new CategoriesManagerImpl();
-    }
+
+    public static ArticleVenduManager getArticleVenduManager(){return new ArticleVenduManagerImpl();}
 }

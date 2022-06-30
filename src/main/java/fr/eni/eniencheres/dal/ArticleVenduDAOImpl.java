@@ -3,15 +3,16 @@ package fr.eni.eniencheres.dal;
 import fr.eni.eniencheres.bo.ArticleVendu;
 
 import java.sql.*;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
 
 public class ArticleVenduDAOImpl implements ArticleVenduDAO{
-    private static final String INSERT = "insert into ARTICLES_VENDUS (nomArticle, description, dateDebutEncheres, dateFinEncheres, miseAPrix, prixVente, etatVente)"+ "values (?,?,?,?,?,?,?,?)";
-    private static final String SELECT_ID = "SELECT * FROM ARTICLES_VENDUS WHERE noArticle = ?";
-    private static final String DELETE = "DELETE FROM ARTICLES_VENDUS WHERE noArticle = ?";
-    private static final String UPDATE = "UPDATE ARTICLES_VENDUS SET nomArticle=?, description=?, dateDebutEncheres=?, dateFinEncheres=?,miseAPrix=?,prixVente=?,etatVente=? WHERE noArticle = ?";
+    private static final String INSERT = "insert into ARTICLES_VENDUS (nom_article, description, date_debut_encheres, date_fin_encheres, prix_initial, prix_vente, no_utilisateur, no_categorie)"+ "values (?,?,?,?,?,?,?,?)";
+    private static final String SELECT_ID = "SELECT * FROM ARTICLES_VENDUS WHERE no_article = ?";
+    private static final String DELETE = "DELETE FROM ARTICLES_VENDUS WHERE no_article = ?";
+    private static final String UPDATE = "UPDATE ARTICLES_VENDUS SET nom_article=?, description=?, date_debut_encheres=?, date_fin_encheres=?,prix_initial=?,prix_vente=? WHERE no_article = ?";
 
     private static final String SELECT_ALL_ARTICLES = "SELECT * FROM Articles_Vendus";
 
@@ -24,15 +25,15 @@ public class ArticleVenduDAOImpl implements ArticleVenduDAO{
 
         //* Préparation Requête SQL
         PreparedStatement stmt = conn.prepareStatement(INSERT, PreparedStatement.RETURN_GENERATED_KEYS);
-
         //* Valoriser les paramêtres
         stmt.setString( 1, articleVendu.getNomArticle());
         stmt.setString( 2, articleVendu.getDescription());
-        stmt.setDate( 3, articleVendu.getDateDebutEncheres());
-        stmt.setDate( 4, articleVendu.getDateFinEncheres());
-        stmt.setInt(5, articleVendu.getMiseAPrix());
+        stmt.setDate( 3, Date.valueOf(articleVendu.getDateDebutEncheres()));
+        stmt.setDate( 4, Date.valueOf(articleVendu.getDateFinEncheres()));
+        stmt.setInt(5, articleVendu.getPrixInitial());
         stmt.setInt(6, articleVendu.getPrixVente());
-        stmt.setInt(7, articleVendu.getEtatVente());
+        stmt.setInt(7, articleVendu.getNoUtilisateur());
+        stmt.setInt(8, articleVendu.getNoCategorie());
 
             //* Exécuter la requête
             stmt.executeUpdate();
@@ -67,14 +68,17 @@ public class ArticleVenduDAOImpl implements ArticleVenduDAO{
                 //* Récupération de l'article by ID
                 ResultSet rs = stmt.executeQuery();
                 if (rs.next()){
+
                     articleVendu = new ArticleVendu(
-                            rs.getString("nom"),
-                            rs.getString("description"),
-                            rs.getDate("debutEnchere"),
-                            rs.getDate("finEnchere"),
-                            rs.getInt("miseAPrix"),
-                            rs.getInt("prixVente"),
-                            rs.getInt("etatVente")
+                            rs.getString(articleVendu.getNomArticle()),
+                            rs.getString(articleVendu.getDescription()),
+                            rs.getObject("date_debut_encheres",LocalDate.class),
+                            rs.getObject("date_fin_encheres",LocalDate.class),
+                            rs.getInt(articleVendu.getPrixInitial()),
+                            rs.getInt(articleVendu.getPrixVente()),
+                            rs.getInt(articleVendu.getNoUtilisateur()),
+                            rs.getInt(articleVendu.getNoCategorie())
+
                     );
                 }
             }
@@ -84,7 +88,7 @@ public class ArticleVenduDAOImpl implements ArticleVenduDAO{
                 System.out.println(e.getMessage());
                 throw new DALException("Erreur a la selection d'un article by id");
             }
-            // *Return l'article Sélectionné
+        // *Return l'article Sélectionné
             return articleVendu;
     }
 
@@ -123,11 +127,10 @@ public class ArticleVenduDAOImpl implements ArticleVenduDAO{
             // *Valoriser les paramètres de l'article
             stmt.setString( 1, articleVendu.getNomArticle());
             stmt.setString( 2, articleVendu.getDescription());
-            stmt.setDate( 3, articleVendu.getDateDebutEncheres());
-            stmt.setDate( 4, articleVendu.getDateFinEncheres());
-            stmt.setInt(5, articleVendu.getMiseAPrix());
+            stmt.setDate( 3, Date.valueOf(articleVendu.getDateDebutEncheres()));
+            stmt.setDate( 4, Date.valueOf(articleVendu.getDateFinEncheres()));
+            stmt.setInt(5, articleVendu.getPrixInitial());
             stmt.setInt(6, articleVendu.getPrixVente());
-            stmt.setInt(7, articleVendu.getEtatVente());
 
 
             //* Exécuter la Mise à jour
@@ -153,13 +156,14 @@ public class ArticleVenduDAOImpl implements ArticleVenduDAO{
             ResultSet rs =stmt.executeQuery(SELECT_ALL_ARTICLES);
 
             while (rs.next()){
-                ArticleVendu article = new ArticleVendu(rs.getString("nom"),
+                ArticleVendu article = new ArticleVendu(rs.getString("nomArticle"),
                                 rs.getString("description"),
-                                rs.getDate("DateDebutEncheres"),
-                                rs.getDate("DateFinEncheres"),
-                                rs.getInt("miseAPrix"),
-                                rs.getInt("PrixVente"),
-                                rs.getInt("etatVente")
+                                rs.getObject("date_debut_encheres",LocalDate.class),
+                                rs.getObject("date_fin_encheres",LocalDate.class),
+                                rs.getInt("prixInitial"),
+                                rs.getInt("prixVente"),
+                                rs.getInt("noUtilisateur"),
+                                rs.getInt("noCategorie")
                 );
                 listeArticle.add(article);
             }
