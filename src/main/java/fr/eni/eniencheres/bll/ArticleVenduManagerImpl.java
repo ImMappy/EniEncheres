@@ -5,6 +5,8 @@ import fr.eni.eniencheres.dal.ArticleVenduDAO;
 import fr.eni.eniencheres.dal.DALException;
 import fr.eni.eniencheres.dao.DaoFactory;
 
+import java.sql.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 public class ArticleVenduManagerImpl implements ArticleVenduManager{
@@ -28,9 +30,9 @@ public class ArticleVenduManagerImpl implements ArticleVenduManager{
 
     @Override
     //* ajout article
-    public void ajouterArticle (ArticleVendu article) throws BLLException{
+    public void ajouterArticle (ArticleVendu a) throws BLLException{
         try {
-            daoArticle.insert(article);
+            daoArticle.insert(a);
         }catch (DALException e){
             throw new BLLException("Erreur ajout article",e);
         }
@@ -44,7 +46,7 @@ public class ArticleVenduManagerImpl implements ArticleVenduManager{
         try {
             ArticleVendu newArticle = new ArticleVendu();
             newArticle.setNoArticle(id);
-            daoArticle.delete(Integer.valueOf(id));
+            daoArticle.delete(id);
         } catch (DALException e) {
             e.printStackTrace();
             throw new BLLException("Erreur suppression pizza", e);
@@ -86,14 +88,6 @@ public class ArticleVenduManagerImpl implements ArticleVenduManager{
         }
         return listeArticle;
     }
-
-
-
-
-
-
-
-
 
 
 

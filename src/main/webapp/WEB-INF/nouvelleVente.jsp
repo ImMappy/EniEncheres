@@ -110,87 +110,75 @@
       <div class="img-article me-4">
         <img src="${pageContext.request.contextPath}/img/logo-ENI-full.png" width="200"/>
       </div>
-      <div class="details">
-        <ul class="list-unstyled">
-          <li>
-            <div class="d-flex my-2">
-          <%-- InputArticle    --%>
-              <label for="registerArticle" class="form-label h5 me-5">Article</label>
-              <input type="text" name="registerArticle" class="form-control" id="registerArticle">
-          </li>
-          <li>
-            <div class="d-flex my-2">
-        <%-- Input Description           --%>
-              <label for="registerDescription" name="registerDescription" class="form-label h5 me-1">Description</label>
-              <textarea class="form-control" id="registerDescription" rows="5" style="resize: none"></textarea>
-            </div>
-          </li>
-          <li>
-            <div class="d-flex my-2">
-        <%--  input catégories            --%>
-              <label class="form-label h5 me-5" name="registerCategorie" for="registerCategorie">Catégorie</label>
-              <select class="custom-select mr-sm-2" id="registerCategorie">
-                <option selected>Choose...</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
-              </select>
-            </div>
-          </li>
-          <li>
-            <div class="d-flex my-2">
-      <%--   input photo --%>
-              <label for="registerPhoto" name="registerPhoto" class="form-label h5 me-3">Photo article</label>
-              <input type="file" id="registerPhoto" name="avatar"/>
-            </div>
-          </li>
+
+      <!-- Debut Formulaire -->
+      <form action="${pageContext.request.contextPath}/venteArticleServlet" method="post">
+        <!-- Vente Article -->
+        <div class="d-flex my-2">
+          <label for="registerArticle" class="form-label h5 me-5">Article</label>
+          <input type="text" name="registerArticle" class="form-control" id="registerArticle">
+        </div>
+        <!-- Vente Description -->
+        <div class="d-flex my-2">
+          <label for="registerDescription" class="form-label h5 me-1">Description</label>
+          <textarea class="form-control" name="registerDescription" id="registerDescription" rows="5" style="resize: none"></textarea>
+        </div>
+        <!-- Vente Catégories -->
+        <div class="d-flex my-2">
+          <label class="form-label h5 me-5" for="registerCategorie">Catégorie</label>
+          <select class="custom-select mr-sm-2" name="registerCategorie" id="registerCategorie">
+            <option selected>Choose...</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+          </select>
+        </div>
+        <!-- Vente Photo Article -->
+        <div class="d-flex my-2">
+          <label for="registerPhoto" class="form-label h5 me-3">Photo article</label>
+          <input type="file" id="registerPhoto" name="registerPhoto"/>
+        </div>
+        <!-- Vente Mise à prix -->
+        <div class="d-flex my-2">
+          <label for="registerMisaAPrix" class="form-label h5 me-5">Mise à prix</label>
+          <input type="number" name="registerMisaAPrix" class="form-control" id="registerMisaAPrix">
+        </div>
+        <!-- Vente Date Début -->
+        <div class="d-flex my-2">
+          <label for="registerDateDebut" class="form-label h5 me-5">Début</label>
+          <input type="date" name="registerDateDebut" class="form-control" id="registerDateDebut">
+        </div>
+        <!-- Vente Date Fin -->
+        <div class="d-flex my-2">
+          <label for="registerDateFin" class="form-label h5 me-5">Fin</label>
+          <input type="date" name="registerDateFin" class="form-control" id="registerDateFin">
+        </div>
+
+        <!-- récupération info Vendeur -->
+        <fieldset class=" border p-2">
+          <legend class="scheduler-border">Retrait</legend>
           <div class="d-flex my-2">
-<%--            input mise a prix--%>
-            <label for="registerMisaAPrix" name="registerMiseAPrix" class="form-label h5 me-5">Mise à prix</label>
-            <input type="number" name="username" class="form-control" id="registerMisaAPrix">
+            <label for="InputRue" class="form-label h5 me-5">Rue</label>
+            <input type="text" name="username" class="form-control" id="InputRue" disabled>
           </div>
-          <li>
-            <div class="d-flex my-2">
-              <label for="registerDateDebut" name="registerDateDebut" class="form-label h5 me-5">Début</label>
-              <input type="date" name="username" class="form-control" id="registerDateDebut">
-            </div>
-          </li>
-          <li>
-            <div class="d-flex my-2">
-              <label for="registerDateFin" name="registerDateFin" class="form-label h5 me-5">Fin</label>
-              <input type="date" name="username" class="form-control" id="registerDateFin">
-            </div>
-          </li>
-          <li>
-            <form>
-              <fieldset class=" border p-2">
-                <legend class="scheduler-border">Retrait</legend>
-                <div class="d-flex my-2">
-                  <label for="InputRue" class="form-label h5 me-5">Rue</label>
-                  <input type="text" name="username" class="form-control" id="InputRue" disabled>
-                </div>
-                <div class="d-flex my-2">
-                  <label for="InputCp" class="form-label h5 me-5">Code postal</label>
-                  <input type="number" name="username" class="form-control" id="InputCp" disabled>
-                </div>
-                <div class="d-flex my-2">
-                  <label for="InputVille" class="form-label h5 me-5">Ville</label>
-                  <input type="text" name="username" class="form-control" id="InputVille" value="${empty }" disabled>
-                </div>
-              </fieldset>
-            </form>
-          </li>
-          <li>
-            <form method="post" action="">
-              <div class="me-5">
-                <button type="button" class="btn btn-primary">Enregistrer</button>
-                <button type="button" class="btn btn-primary">Annuler</button>
-               <a href="<%=request.getContextPath()%>"><button type="button" class="btn btn-primary">Annuler la vente</button></a>
-              </div>
-            </form>
-          </li>
-        </ul>
-      </div>
+          <div class="d-flex my-2">
+            <label for="InputCp" class="form-label h5 me-5">Code postal</label>
+            <input type="number" name="username" class="form-control" id="InputCp" disabled>
+          </div>
+          <div class="d-flex my-2">
+            <label for="InputVille" class="form-label h5 me-5">Ville</label>
+            <input type="text" name="username" class="form-control" id="InputVille" value="" disabled>
+          </div>
+        </fieldset>
+
+        <!-- Envoi Formulaire -->
+        <div class="me-5">
+          <button type="submit" class="btn btn-primary">Enregistrer</button>
+          <button type="reset" class="btn btn-primary">Annuler</button>
+          <a href="<%=request.getContextPath()%>"><button type="button" class="btn btn-primary">Annuler la vente</button></a>
+        </div>
+      </form>
+
     </div>
   </section>
 </main>
@@ -214,7 +202,6 @@
       <!-- Section: CTA -->
     </div>
     <!-- Grid container -->
-
     <!-- Copyright -->
     <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
       © 2022 Copyright : ROMAIN HELARD / DAVID DESTREE / LUIS MARIA</a>
