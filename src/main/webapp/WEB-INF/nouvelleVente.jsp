@@ -114,19 +114,22 @@
         <ul class="list-unstyled">
           <li>
             <div class="d-flex my-2">
-              <label for="InputArticle" class="form-label h5 me-5">Article</label>
-              <input type="text" name="username" class="form-control" id="InputArticle">
+          <%-- InputArticle    --%>
+              <label for="registerArticle" class="form-label h5 me-5">Article</label>
+              <input type="text" name="registerArticle" class="form-control" id="registerArticle">
           </li>
           <li>
             <div class="d-flex my-2">
-              <label for="Description" class="form-label h5 me-1">Description</label>
-              <textarea class="form-control" id="Description" rows="5" style="resize: none"></textarea>
+        <%-- Input Description           --%>
+              <label for="registerDescription" name="registerDescription" class="form-label h5 me-1">Description</label>
+              <textarea class="form-control" id="registerDescription" rows="5" style="resize: none"></textarea>
             </div>
           </li>
           <li>
             <div class="d-flex my-2">
-              <label class="form-label h5 me-5" for="inlineFormCustomSelect">Catégorie</label>
-              <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+        <%--  input catégories            --%>
+              <label class="form-label h5 me-5" name="registerCategorie" for="registerCategorie">Catégorie</label>
+              <select class="custom-select mr-sm-2" id="registerCategorie">
                 <option selected>Choose...</option>
                 <option value="1">One</option>
                 <option value="2">Two</option>
@@ -136,24 +139,26 @@
           </li>
           <li>
             <div class="d-flex my-2">
-              <label for="InputArticle" class="form-label h5 me-3">Photo article</label>
-              <input type="file" id="avatar" name="avatar"/>
+      <%--   input photo --%>
+              <label for="registerPhoto" name="registerPhoto" class="form-label h5 me-3">Photo article</label>
+              <input type="file" id="registerPhoto" name="avatar"/>
             </div>
           </li>
           <div class="d-flex my-2">
-            <label for="InputArticle" class="form-label h5 me-5">Mise à prix</label>
-            <input type="number" name="username" class="form-control" id="InputArticle">
+<%--            input mise a prix--%>
+            <label for="registerMisaAPrix" name="registerMiseAPrix" class="form-label h5 me-5">Mise à prix</label>
+            <input type="number" name="username" class="form-control" id="registerMisaAPrix">
           </div>
           <li>
             <div class="d-flex my-2">
-              <label for="datedebut" class="form-label h5 me-5">Début</label>
-              <input type="date" name="username" class="form-control" id="datedebut">
+              <label for="registerDateDebut" name="registerDateDebut" class="form-label h5 me-5">Début</label>
+              <input type="date" name="username" class="form-control" id="registerDateDebut">
             </div>
           </li>
           <li>
             <div class="d-flex my-2">
-              <label for="datefin" class="form-label h5 me-5">Fin</label>
-              <input type="date" name="username" class="form-control" id="datefin">
+              <label for="registerDateFin" name="registerDateFin" class="form-label h5 me-5">Fin</label>
+              <input type="date" name="username" class="form-control" id="registerDateFin">
             </div>
           </li>
           <li>
@@ -162,15 +167,15 @@
                 <legend class="scheduler-border">Retrait</legend>
                 <div class="d-flex my-2">
                   <label for="InputRue" class="form-label h5 me-5">Rue</label>
-                  <input type="text" name="username" class="form-control" id="InputRue">
+                  <input type="text" name="username" class="form-control" id="InputRue" disabled>
                 </div>
                 <div class="d-flex my-2">
                   <label for="InputCp" class="form-label h5 me-5">Code postal</label>
-                  <input type="number" name="username" class="form-control" id="InputCp">
+                  <input type="number" name="username" class="form-control" id="InputCp" disabled>
                 </div>
                 <div class="d-flex my-2">
                   <label for="InputVille" class="form-label h5 me-5">Ville</label>
-                  <input type="text" name="username" class="form-control" id="InputVille">
+                  <input type="text" name="username" class="form-control" id="InputVille" value="${empty }" disabled>
                 </div>
               </fieldset>
             </form>
