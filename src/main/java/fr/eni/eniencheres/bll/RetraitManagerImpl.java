@@ -67,4 +67,9 @@ public class RetraitManagerImpl implements RetraitManager{
         return retrait;
     }
 
+    @Override
+    public List<Retrait> selectAll() throws BLLException {
+        return null;
+    }
+
 }

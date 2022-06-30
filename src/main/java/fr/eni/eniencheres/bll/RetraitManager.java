@@ -8,6 +8,10 @@ public interface RetraitManager {
     //* ajout article
     void ajouterRetrait (Retrait retrait) throws BLLException;
 
+    //*supprimer article
+    //
+    void supprimerRetrait(Integer id) throws BLLException;
+
     //*modifier article
     void modifierRetrait(Retrait retrait) throws BLLException;
 
