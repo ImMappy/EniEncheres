@@ -31,7 +31,7 @@ public class Retrait {
         return noAtricle;
     }
 
-    public static void setNoAtricle(int noAtricle) {
+    public void setNoAtricle(int noAtricle) {
         this.noAtricle = noAtricle;
     }
 

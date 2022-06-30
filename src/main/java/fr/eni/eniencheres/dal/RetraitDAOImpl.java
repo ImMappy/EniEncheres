@@ -36,7 +36,7 @@ public class RetraitDAOImpl implements RetraitDAO {
             //* Renvoi en tableau de résultat
             ResultSet rs = stmt.getGeneratedKeys();
             if (rs.next()){
-                Retrait.setNoAtricle(rs.getInt(1));
+                retrait.setNoAtricle(rs.getInt(1));
             }
         } catch (SQLException e) {
             e.printStackTrace();
