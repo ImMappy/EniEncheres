@@ -107,7 +107,7 @@ public class UtilisateursDAOImpl implements UtilisateursDAO {
 
     public void updateUtilisateur(Utilisateurs user) throws DALException{
         try(Connection connection = ConnectionProvider.getConnection()){
-            PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_UTILISATEUR, Statement.RETURN_GENERATED_KEYS);
+            PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_UTILISATEUR);
             preparedStatement.setString(1,user.getPseudo());
             preparedStatement.setString(2,user.getNom());
             preparedStatement.setString(3,user.getPrenom());
@@ -119,6 +119,7 @@ public class UtilisateursDAOImpl implements UtilisateursDAO {
             preparedStatement.setString(9, user.getMotDePasse());
             preparedStatement.setInt(10,user.getNoUtilisateur());
             preparedStatement.executeUpdate();
+
         } catch (SQLException e){
             e.printStackTrace();
             throw new DALException("Erreur update",e);

@@ -1,9 +1,6 @@
 package fr.eni.eniencheres.dao;
 
-import fr.eni.eniencheres.dal.ArticleVenduDAO;
-import fr.eni.eniencheres.dal.ArticleVenduDAOImpl;
-import fr.eni.eniencheres.dal.UtilisateursDAO;
-import fr.eni.eniencheres.dal.UtilisateursDAOImpl;
+import fr.eni.eniencheres.dal.*;
 
 public class DaoFactory {
 public static UtilisateursDAO getUtilisateursDao(){
@@ -11,4 +8,9 @@ public static UtilisateursDAO getUtilisateursDao(){
     }
 public static ArticleVenduDAO getArticleVenduDAO() {
     return new ArticleVenduDAOImpl();}
+
+public static CategoriesDAO getCategoriesDAO(){
+    return new CategoriesDAOImpl();
+}
+
 }

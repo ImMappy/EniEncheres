@@ -1,3 +1,7 @@
+<%@ page import="java.util.List" %>
+<%@ page import="fr.eni.eniencheres.bo.Categories" %>
+<%@ page import="fr.eni.eniencheres.bll.CategoriesManager" %>
+<%@ page import="java.util.ArrayList" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
@@ -29,6 +33,7 @@
 
 </head>
 <body>
+
 <header id="top">
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-transparent shadow-0">
@@ -67,11 +72,11 @@
                     </ul>
                     </c:if>
                     <c:if test="${isAllowed}">
-                    <a href="${pageContext.request.contextPath}/connexion"><button type="button" class="btn btn-secondary px-3 ms-2 me-2 shadow-2">CONNEXION</button></a>
-                    <a href="${pageContext.request.contextPath}/connexion"><button type="button" class="btn btn-primary me-3 shadow-2">CREER UN COMPTE</button></a>
+                        <a href="${pageContext.request.contextPath}/connexion"><button type="button" class="btn btn-secondary px-3 ms-2 me-2 shadow-2">CONNEXION</button></a>
+                        <a href="${pageContext.request.contextPath}/connexion"><button type="button" class="btn btn-primary me-3 shadow-2">CREER UN COMPTE</button></a>
                     </c:if>
                     <c:if test="${!isAllowed}">
-                    <a href="${pageContext.request.contextPath}/connexion"><button type="button" class="btn btn-warning me-3 shadow-2">DECONNEXION</button></a>
+                        <a href="${pageContext.request.contextPath}/connexion"><button type="button" class="btn btn-warning me-3 shadow-2">DECONNEXION</button></a>
                     </c:if>
                 </div>
             </div>
@@ -97,10 +102,9 @@
                 </div>
                 <div class="col-11">
                     <select name="category" id="category" class="form-select ms-3 w-75">
-                        <option value="0">Informatique</option>
-                        <option value="1">Ameublement</option>
-                        <option value="2">Vetements</option>
-                        <option value="3">Sports & Loisirs</option>
+                        <c:forEach var = "cat" items="${categoriesList}">
+                        <option value="${cat.key}">${cat.value}</option>
+                        </c:forEach>
                     </select>
                 </div>
             </div>

@@ -18,18 +18,20 @@ public class ProfilUtilisateurServlet extends HttpServlet {
     }
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String action = request.getParameter("action");
-        if("supprimer".equals(action)){
-            doDelete(request,response);
-            return;
-        }
-        if("modifier".equals(action)){
-            doUpdate(request,response);
-            return;
-        }
         request.getRequestDispatcher("/WEB-INF/monProfil.jsp").forward(request,response);
     }
 
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        if(req.getParameter("supprimer") != null){
+            doDelete(req,resp);
+            return;
+        }
+        if(req.getParameter("modifier") != null){
+            doUpdate(req,resp);
+            return;
+        }
+    }
 
     protected void doUpdate(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Utilisateurs user = new Utilisateurs(req.getParameter("registerPseudo"),
