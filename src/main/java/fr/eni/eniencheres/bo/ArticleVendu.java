@@ -13,7 +13,6 @@ public class ArticleVendu {
     private int prixVente;
     private int noUtilisateur;
     private int noCategorie;
-
     private int etatVente;
 
     public ArticleVendu() {
