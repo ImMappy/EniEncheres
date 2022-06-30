@@ -2,10 +2,7 @@ package fr.eni.eniencheres.dal;
 
 import fr.eni.eniencheres.bo.Utilisateurs;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,10 +10,10 @@ public class UtilisateursDAOImpl implements UtilisateursDAO {
 
     private static final String INSERT_UTILISATEUR = "INSERT INTO UTILISATEURS (pseudo,nom,prenom,email,telephone,rue,code_postal,ville,mot_de_passe, administrateur, credit)" + "VALUES (?,?,?,?,?,?,?,?,?,?,?)";
     private static final String SELECT_UTILISATEUR_BY_ID = "SELECT * FROM UTILISATEURS WHERE no_utilisateur = ? ";
-    private static final String UPDATE_UTILISATEUR = "UPDATE UTILISATEURS SET pseudo = ?, nom = ?, prenom = ?, email = ?, telephone = ?, rue = ?, code_postal = ?, ville = ?, mot_de_passe = ?";
+    private static final String UPDATE_UTILISATEUR = "UPDATE UTILISATEURS SET pseudo = ?, nom = ?, prenom = ?, email = ?, telephone = ?, rue = ?, code_postal = ?, ville = ?, mot_de_passe = ? WHERE no_utilisateur = ?";
     private static final String SELECT_ALL_UTILISATEURS = "SELECT * FROM UTILISATEURS";
     private static final String DELETE_UTILISATEUR = "DELETE UTILISATEURS WHERE no_utilisateur = ?";
-    private static final String SELECT_INFOS_USER = "SELECT pseudo,mot_de_passe FROM UTILISATEURS WHERE pseudo = ? AND mot_de_passe = ?";
+    private static final String SELECT_INFOS_USER = "SELECT * FROM UTILISATEURS WHERE pseudo = ? AND mot_de_passe = ?";
 
 
     /**
@@ -34,7 +31,7 @@ public class UtilisateursDAOImpl implements UtilisateursDAO {
             ResultSet rs = preparedStatement.getResultSet();
             if(rs.next()){
 
-                user = new Utilisateurs(rs.getString("pseudo"),rs.getString("nom"),rs.getString("prenom"),rs.getString("email"),rs.getString("telephone"),rs.getString("rue"),rs.getString("codePostal"),rs.getString("ville"),rs.getString("motDePasse"),rs.getInt("credit"),rs.getByte("administrateur"));
+                user = new Utilisateurs(rs.getString("pseudo"),rs.getString("nom"),rs.getString("prenom"),rs.getString("email"),rs.getString("telephone"),rs.getString("rue"),rs.getString("code_postal"),rs.getString("ville"),rs.getString("mot_de_passe"),rs.getInt("credit"),rs.getByte("administrateur"));
 
             }
         } catch (SQLException e){
@@ -59,7 +56,7 @@ public class UtilisateursDAOImpl implements UtilisateursDAO {
             while(rs.next()){
                  utilisateursList= new ArrayList<>();
 
-                user = new Utilisateurs(rs.getString("pseudo"),rs.getString("nom"),rs.getString("prenom"),rs.getString("email"),rs.getString("telephone"),rs.getString("rue"),rs.getString("codePostal"),rs.getString("ville"),rs.getString("motDePasse"),rs.getInt("credit"),rs.getByte("administrateur"));
+                user = new Utilisateurs(rs.getString("pseudo"),rs.getString("nom"),rs.getString("prenom"),rs.getString("email"),rs.getString("telephone"),rs.getString("rue"),rs.getString("code_postal"),rs.getString("ville"),rs.getString("motDePasse"),rs.getInt("credit"),rs.getByte("administrateur"));
 
                 utilisateursList.add(user);
             }
@@ -109,9 +106,8 @@ public class UtilisateursDAOImpl implements UtilisateursDAO {
      */
 
     public void updateUtilisateur(Utilisateurs user) throws DALException{
-        Utilisateurs utilisateur = null;
         try(Connection connection = ConnectionProvider.getConnection()){
-            PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_UTILISATEUR);
+            PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_UTILISATEUR, Statement.RETURN_GENERATED_KEYS);
             preparedStatement.setString(1,user.getPseudo());
             preparedStatement.setString(2,user.getNom());
             preparedStatement.setString(3,user.getPrenom());
@@ -121,6 +117,7 @@ public class UtilisateursDAOImpl implements UtilisateursDAO {
             preparedStatement.setString(7,user.getCodePostal());
             preparedStatement.setString(8, user.getVille());
             preparedStatement.setString(9, user.getMotDePasse());
+            preparedStatement.setInt(10,user.getNoUtilisateur());
             preparedStatement.executeUpdate();
         } catch (SQLException e){
             e.printStackTrace();
@@ -153,7 +150,7 @@ public class UtilisateursDAOImpl implements UtilisateursDAO {
             preparedStatement.executeQuery();
             ResultSet rs = preparedStatement.getResultSet();
             if(rs.next()){
-                user= new Utilisateurs(rs.getString("pseudo"),rs.getString("mot_de_passe"));
+                user = new Utilisateurs(rs.getInt("no_utilisateur"),rs.getString("pseudo"),rs.getString("nom"),rs.getString("prenom"),rs.getString("email"),rs.getString("telephone"),rs.getString("rue"),rs.getString("code_postal"),rs.getString("ville"),rs.getString("mot_de_passe"),rs.getInt("credit"));
             }
         }catch (SQLException e){
             e.printStackTrace();

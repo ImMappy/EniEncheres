@@ -1,3 +1,4 @@
+<%@ page import="fr.eni.eniencheres.bo.Utilisateurs" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
@@ -32,6 +33,7 @@
 </head>
 <body>
 <body>
+<% Utilisateurs user = (Utilisateurs) session.getAttribute("user"); %>
 <header id="top">
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg container bg-transparent shadow-0">
@@ -108,7 +110,9 @@
     <!-- Navbar -->
 
 </header>
+${user}
 <main>
+
                 <div id="MonProfil" class="d-flex justify-content-center my-4">
                     <h2>Mon Profil</h2>
                 </div>
@@ -117,57 +121,57 @@
                         <div >
                             <div >
 
-                                <form class="w-25 mx-auto">
-
+                                <form class="w-25 mx-auto" method="post" action="${pageContext.request.contextPath}/profilServlet">
+                                    <input type="hidden" name="noUtilisateur" value="${user.noUtilisateur}"/>
                                     <!-- Username input -->
                                     <div class="col d-flex gap-4">
                                         <div class="form-outline mb-4">
-                                            <input type="text" name="registerPseudo" id="registerUsername" class="form-control" />
+                                            <input type="text" name="registerPseudo" id="registerUsername" class="form-control" value="${user.pseudo}" />
                                             <label class="form-label" for="registerUsername">Pseudo</label>
                                         </div>
 
                                         <!-- Name input -->
                                         <div class="form-outline mb-4">
-                                            <input type="text" name="registerNom" id="registerName" class="form-control" />
+                                            <input type="text" name="registerNom" id="registerName" class="form-control"value="${user.nom}"/>
                                             <label class="form-label" for="registerName">Nom</label>
                                         </div>
                                     </div>
                                     <!-- Surname input-->
                                     <div class="col d-flex gap-4">
                                         <div class="form-outline mb-4">
-                                            <input type="text" name="registerPrenom" id="registerSurname" class="form-control" />
+                                            <input type="text" name="registerPrenom" id="registerSurname" class="form-control" value="${user.prenom}"/>
                                             <label class="form-label" for="registerSurname">Prénom</label>
                                         </div>
 
                                         <!-- E-Mail input -->
                                         <div class="form-outline mb-4">
-                                            <input type="email" name="registerEmail" id="registerEmail" class="form-control" />
+                                            <input type="email" name="registerEmail" id="registerEmail" class="form-control" value="${user.email}" />
                                             <label class="form-label" for="registerEmail">E-mail</label>
                                         </div>
                                     </div>
                                     <!-- Phone input -->
                                     <div class="col d-flex gap-4">
                                         <div class="form-outline mb-4">
-                                            <input type="text" name="registerTelephone" id="registerTel" class="form-control" />
+                                            <input type="text" name="registerTelephone" id="registerTel" class="form-control" value="${user.telephone}" />
                                             <label class="form-label" for="registerTel">Téléphone</label>
                                         </div>
 
                                         <!-- Rue input -->
                                         <div class="form-outline mb-4">
-                                            <input type="text" name="registerRue" id="registerRue" class="form-control" />
+                                            <input type="text" name="registerRue" id="registerRue" class="form-control" value="${user.rue}" />
                                             <label class="form-label" for="registerRue">Rue</label>
                                         </div>
                                     </div>
                                     <!-- Code Postal input -->
                                     <div class="col d-flex gap-4">
                                         <div class="form-outline mb-4">
-                                            <input type="text" name="registerCodePostal" id="registerPostalCode" class="form-control" />
+                                            <input type="text" name="registerCodePostal" id="registerPostalCode" class="form-control" value="${user.codePostal}" />
                                             <label class="form-label" for="registerPostalCode">Code Postal</label>
                                         </div>
 
                                         <!-- Ville input -->
                                         <div class="form-outline mb-4">
-                                            <input type="text" name="registerVille" id="registerVille" class="form-control" />
+                                            <input type="text" name="registerVille" id="registerVille" class="form-control" value="${user.ville}" />
                                             <label class="form-label" for="registerVille">Ville</label>
                                         </div>
                                     </div>
@@ -175,7 +179,7 @@
                                     <!-- Password input -->
                                     <div class="col-12">
                                         <div class="form-outline mb-4">
-                                            <input type="password" name="registerPassword" id="registerPassword" class="form-control" />
+                                            <input type="password" name="registerPassword" id="registerPassword" class="form-control"/>
                                             <label class="form-label" for="registerPassword">Mot de Passe</label>
                                         </div>
                                     </div>
@@ -193,21 +197,19 @@
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label for="staticEmail" class="col-sm-2 col-form-label">Crédit</label>
+                                        <label for="Credit" class="col-sm-2 col-form-label">Crédit</label>
                                         <div class="col-sm-10">
-                                            <input type="text" readonly class="form-control-plaintext" id="Credit" >
+                                            <input type="text" readonly class="form-control-plaintext" id="Credit" value="${user.credit}" >
                                         </div>
                                     </div>
 
                                     <!-- Bouton Input -->
                                     <div class="col d-flex gap-4">
                                         <div class="form-outline mb-4">
-                                            <button type="submit" class="btn btn-primary btn-block mb-3">ENREGISTRER</button>
+                                            <button type="submit" class="btn btn-primary btn-block mb-3" >ENREGISTRER</button>
                                         </div>
-
-
                                         <div class="form-outline mb-4">
-                                            <button type="submit" class="btn btn-primary btn-block mb-3">SUPPRIMER</button>
+                                            <a href="/profilServlet?action=supprimer&noUtilisateur=${user.noUtilisateur}/profilServlet"><button type="submit" class="btn btn-primary btn-block mb-3" >SUPPRIMER</button></a>
                                         </div>
                                     </div>
                                 </form>

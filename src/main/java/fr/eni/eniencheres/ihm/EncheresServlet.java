@@ -10,8 +10,8 @@ public class EncheresServlet extends HttpServlet {
 
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-
         request.getRequestDispatcher("/WEB-INF/index.jsp").forward(request, response);
     }
+
 
 }
