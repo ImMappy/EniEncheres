@@ -1,9 +1,20 @@
 package fr.eni.eniencheres.bo;
 
 public class Retrait {
+    private int noAtricle;
     private String rue;
     private String codePostal;
     private String ville;
+
+    public Retrait() {
+    }
+
+    public Retrait(int noAtricle, String rue, String codePostal, String ville) {
+        this.noAtricle = noAtricle;
+        this.rue = rue;
+        this.codePostal = codePostal;
+        this.ville = ville;
+    }
 
     public Retrait(String rue, String codePostal, String ville) {
         this.rue = rue;
@@ -13,6 +24,15 @@ public class Retrait {
 
     public String getRue() {
         return rue;
+    }
+
+
+    public int getNoAtricle() {
+        return noAtricle;
+    }
+
+    public static void setNoAtricle(int noAtricle) {
+        this.noAtricle = noAtricle;
     }
 
     public String getCodePostal() {
@@ -38,7 +58,8 @@ public class Retrait {
     @Override
     public String toString() {
         return "Retrait{" +
-                "rue='" + rue + '\'' +
+                "noAtricle=" + noAtricle +
+                ", rue='" + rue + '\'' +
                 ", codePostal='" + codePostal + '\'' +
                 ", ville='" + ville + '\'' +
                 '}';

@@ -12,5 +12,7 @@ public static ArticleVenduDAO getArticleVenduDAO() {
 public static CategoriesDAO getCategoriesDAO(){
     return new CategoriesDAOImpl();
 }
+public static RetraitDAO getRetraitDAO() {return new RetraitDAOImpl();}
+
 
 }
