@@ -115,6 +115,7 @@
       <form action="${pageContext.request.contextPath}/venteArticleServlet" method="post">
         <!-- Vente Article -->
         <div class="d-flex my-2">
+          <input type="hidden" name="registerNoUtilisateur" value="1">
           <label for="registerArticle" class="form-label h5 me-5">Article</label>
           <input type="text" name="registerArticle" class="form-control" id="registerArticle">
         </div>
@@ -128,9 +129,10 @@
           <label class="form-label h5 me-5" for="registerCategorie">Catégorie</label>
           <select class="custom-select mr-sm-2" name="registerCategorie" id="registerCategorie">
             <option selected>Choose...</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
+            <option value="1">Informatique</option>
+            <option value="2">Ameublement</option>
+            <option value="3">Vetements</option>
+            <option value="4">Sports & Loisirs</option>
           </select>
         </div>
         <!-- Vente Photo Article -->
@@ -159,15 +161,15 @@
           <legend class="scheduler-border">Retrait</legend>
           <div class="d-flex my-2">
             <label for="InputRue" class="form-label h5 me-5">Rue</label>
-            <input type="text" name="username" class="form-control" id="InputRue" disabled>
+            <input type="text" name="username" class="form-control" id="InputRue" value="${user.rue}" disabled>
           </div>
           <div class="d-flex my-2">
             <label for="InputCp" class="form-label h5 me-5">Code postal</label>
-            <input type="number" name="username" class="form-control" id="InputCp" disabled>
+            <input type="number" name="username" class="form-control" id="InputCp" value="${user.codePostal}" disabled>
           </div>
           <div class="d-flex my-2">
             <label for="InputVille" class="form-label h5 me-5">Ville</label>
-            <input type="text" name="username" class="form-control" id="InputVille" value="" disabled>
+            <input type="text" name="username" class="form-control" id="InputVille" value="${user.ville}" disabled>
           </div>
         </fieldset>
 

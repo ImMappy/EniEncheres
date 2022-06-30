@@ -34,8 +34,10 @@ public class VenteArticleServlet extends HttpServlet {
                 req.getParameter("registerDescription"),
                 LocalDate.parse(req.getParameter("registerDateDebut")),
                 LocalDate.parse(req.getParameter("registerDateFin")),
-                Integer.parseInt(req.getParameter("registerCategorie")),
-                Integer.parseInt(req.getParameter("registerMisaAPrix"))
+                Integer.parseInt(req.getParameter("registerMisaAPrix")),
+                Integer.parseInt(req.getParameter("registerNoUtilisateur")),
+                Integer.parseInt(req.getParameter("registerCategorie"))
+
         );
 
         try {
