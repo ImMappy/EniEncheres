@@ -36,7 +36,8 @@
             <div class="col-sm-6 text-black">
                 <!-- Logo Login ENI -->
                 <div class="mt-5 mb-5 col-md-12 d-flex justify-content-center">
-                    <img src="img/logo-ENI-full.png" alt="logo eni" width="150vh">
+                    <a class="nav-link" href="${pageContext.request.contextPath}"> <img src="img/logo-ENI-full.png" alt="logo eni" width="150vh"></a>
+
                 </div>
                 <!-- Container Left Side -->
                 <div id="containerformulaire">

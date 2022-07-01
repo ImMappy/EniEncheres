@@ -108,7 +108,7 @@
                     </select>
                 </div>
             </div>
-            <c:if test="${isAllowed}">
+            <c:if test="${!isAllowed}">
             <div class="row">
                 <div class="col-6">
                     <input type="radio" name="filterRadio" id="achats">
