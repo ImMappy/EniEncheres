@@ -7,11 +7,12 @@ import fr.eni.eniencheres.dao.DaoFactory;
 
 import java.sql.Date;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 public class ArticleVenduManagerImpl implements ArticleVenduManager{
 
-    public static ArticleVenduManagerImpl instance;
+    private static ArticleVenduManagerImpl instance;
 
     private ArticleVenduDAO daoArticle;
 
@@ -21,8 +22,6 @@ public class ArticleVenduManagerImpl implements ArticleVenduManager{
         }
         return instance;
     }
-
-
 
     public ArticleVenduManagerImpl(){
         daoArticle = DaoFactory.getArticleVenduDAO();
@@ -79,12 +78,12 @@ public class ArticleVenduManagerImpl implements ArticleVenduManager{
 
 
     @Override
-    public List<ArticleVendu> selectAll() throws BLLException {
+    public List selectAll() throws BLLException {
         List<ArticleVendu> listeArticle;
         try {
             listeArticle = daoArticle.selectAll();
         } catch (DALException e) {
-            throw new BLLException("Erreur select pizzas all ",e);
+            throw new BLLException("Erreur select articles all ",e);
         }
         return listeArticle;
     }
