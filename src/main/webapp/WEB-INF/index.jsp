@@ -60,7 +60,7 @@
                 <div class="d-flex align-items-center">
                     <ul class="navbar-nav me-3 mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Encheres</a>
+                            <a class="nav-link" href="<%=request.getContextPath()%>">Encheres</a>
                         </li>
                         <c:if test="${isAllowed}">
                         <li class="nav-item">
@@ -185,7 +185,9 @@
                                 <div class="d-flex flex-column"><small class="text-muted mb-1">FIN DE L'ENCHERE</small><div class="d-flex flex-row"><h6 class="ml-1">${element.dateFinEncheres}</h6></div></div>
                             </div>
                             <div class="mx-3 mt-2 mb-2"><a href="${pageContext.request.contextPath}/articleDetail"><button type="button" class="btn btn-outline-danger btn-block"><small>DETAIL DE L'ARTICLE</small></button></a></div>
+                            <c:if test="${!isAllowed}">
                             <small class="d-flex justify-content-center text-muted">*enregistrez-vous pour enchèrir</small>
+                            </c:if>
                         </div>
                     </div>
                 </div>
