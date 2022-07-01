@@ -156,14 +156,14 @@ public class ArticleVenduDAOImpl implements ArticleVenduDAO{
             ResultSet rs =stmt.executeQuery(SELECT_ALL_ARTICLES);
 
             while (rs.next()){
-                ArticleVendu article = new ArticleVendu(rs.getString("nomArticle"),
+                ArticleVendu article = new ArticleVendu(rs.getInt("no_article"),rs.getString("nom_article"),
                                 rs.getString("description"),
                                 rs.getObject("date_debut_encheres",LocalDate.class),
                                 rs.getObject("date_fin_encheres",LocalDate.class),
-                                rs.getInt("prixInitial"),
-                                rs.getInt("prixVente"),
-                                rs.getInt("noUtilisateur"),
-                                rs.getInt("noCategorie")
+                                rs.getInt("prix_initial"),
+                                rs.getInt("prix_vente"),
+                                rs.getInt("no_utilisateur"),
+                                rs.getInt("no_categorie")
                 );
                 listeArticle.add(article);
             }
