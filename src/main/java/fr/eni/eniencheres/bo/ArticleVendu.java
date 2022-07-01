@@ -1,9 +1,10 @@
 package fr.eni.eniencheres.bo;
 
-import java.sql.Date;
 import java.time.LocalDate;
 
+
 public class ArticleVendu {
+
     private Integer noArticle;
     private String nomArticle;
     private String description;
@@ -14,17 +15,9 @@ public class ArticleVendu {
     private int noUtilisateur;
     private int noCategorie;
     private int etatVente;
+    private String pseudoUtilisateur;
 
     public ArticleVendu() {
-    }
-
-    public ArticleVendu(String nomArticle, String description, LocalDate dateDebutEncheres, LocalDate dateFinEncheres, int prixInitial, int noCategorie) {
-        this.nomArticle = nomArticle;
-        this.description = description;
-        this.dateDebutEncheres = dateDebutEncheres;
-        this.dateFinEncheres = dateFinEncheres;
-        this.prixInitial = prixInitial;
-        this.noCategorie = noCategorie;
     }
 
     public ArticleVendu(Integer noArticle, String nomArticle, String description, LocalDate dateDebutEncheres, LocalDate dateFinEncheres, int prixInitial, int prixVente, int noUtilisateur, int noCategorie, int etatVente) {
@@ -40,6 +33,20 @@ public class ArticleVendu {
         this.etatVente = etatVente;
     }
 
+    public ArticleVendu(Integer noArticle, String nomArticle, String description, LocalDate dateDebutEncheres, LocalDate dateFinEncheres, int prixInitial, int prixVente, int noUtilisateur, int noCategorie, String pseudoUtilisateur) {
+        this.noArticle = noArticle;
+        this.nomArticle = nomArticle;
+        this.description = description;
+        this.dateDebutEncheres = dateDebutEncheres;
+        this.dateFinEncheres = dateFinEncheres;
+        this.prixInitial = prixInitial;
+        this.prixVente = prixVente;
+        this.noUtilisateur = noUtilisateur;
+        this.noCategorie = noCategorie;
+        this.pseudoUtilisateur = pseudoUtilisateur;
+    }
+
+
     public ArticleVendu(Integer noArticle, String nomArticle, String description, LocalDate dateDebutEncheres, LocalDate dateFinEncheres, int prixInitial, int prixVente, int noUtilisateur, int noCategorie) {
         this.noArticle = noArticle;
         this.nomArticle = nomArticle;
@@ -50,18 +57,6 @@ public class ArticleVendu {
         this.prixVente = prixVente;
         this.noUtilisateur = noUtilisateur;
         this.noCategorie = noCategorie;
-    }
-
-    public ArticleVendu(String nomArticle, String description, LocalDate dateDebutEncheres, LocalDate dateFinEncheres, int prixInitial, int prixVente, int noUtilisateur, int noCategorie, int etatVente) {
-        this.nomArticle = nomArticle;
-        this.description = description;
-        this.dateDebutEncheres = dateDebutEncheres;
-        this.dateFinEncheres = dateFinEncheres;
-        this.prixInitial = prixInitial;
-        this.prixVente = prixVente;
-        this.noUtilisateur = noUtilisateur;
-        this.noCategorie = noCategorie;
-        this.etatVente = etatVente;
     }
 
     public ArticleVendu(String nomArticle, String description, LocalDate dateDebutEncheres, LocalDate dateFinEncheres, int prixInitial, int prixVente, int noUtilisateur, int noCategorie) {
@@ -163,6 +158,14 @@ public class ArticleVendu {
 
     public void setEtatVente(int etatVente) {
         this.etatVente = etatVente;
+    }
+
+    public String getPseudoUtilisateur() {
+        return pseudoUtilisateur;
+    }
+
+    public void setPseudoUtilisateur(String pseudoUtilisateur) {
+        this.pseudoUtilisateur = pseudoUtilisateur;
     }
 
     @Override
