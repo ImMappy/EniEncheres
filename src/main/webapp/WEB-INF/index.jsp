@@ -29,12 +29,13 @@
 
     <!-- Normalize CSS and Steelsheets -->
     <link href="css/normalize.css" rel="stylesheet" />
+    <link href="css/style.css" rel="stylesheet" />
     <title>ENI - ENCHERES</title>
 
 </head>
 <body>
 
-<header id="top">
+<header class="container">
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-transparent shadow-0">
         <!-- Container wrapper -->
@@ -56,7 +57,6 @@
                     </li>
                 </ul>
                 <!-- Left links -->
-
                 <div class="d-flex align-items-center">
                     <ul class="navbar-nav me-3 mb-2 mb-lg-0">
                         <li class="nav-item">
@@ -70,6 +70,8 @@
                             <a class="nav-link" href="${pageContext.request.contextPath}/profilServlet">Mon Profil</a>
                         </li>
                     </ul>
+                </div>
+                <div class="d-flex">
                     </c:if>
                     <c:if test="${isAllowed}">
                         <a href="${pageContext.request.contextPath}/connexion"><button type="button" class="btn btn-secondary px-3 ms-2 me-2 shadow-2">CONNEXION</button></a>
@@ -87,79 +89,81 @@
     <!-- Navbar -->
 </header>
 <main class="container">
-    <h2 class="text-center mt-5">Liste des encheres</h2>
-    <section id="filter" class="row w-75 mx-auto border border rounded p-3">
-        <form method="post" action="">
-            <span>Filtres :</span>
-            <div class="form-outline my-2">
-                <i class="fas fa-search trailing"></i>
-                <input type="text" name="articleIn" class="form-control" placeholder="Le nom de l'article contient"/>
-            </div>
 
-            <div class="row my-4">
-                <div class="col-1   ">
-                    <label for="category" class="mt-2">Categorie</label>
-                </div>
-                <div class="col-11">
-                    <select name="category" id="category" class="form-select ms-3 w-75">
-                        <c:forEach var = "cat" items="${categoriesList}">
-                        <option value="${cat.key}">${cat.value}</option>
-                        </c:forEach>
-                    </select>
-                </div>
-            </div>
-            <c:if test="${!isAllowed}">
-            <div class="row">
-                <div class="col-6">
-                    <input type="radio" name="filterRadio" id="achats">
-                    <label for="achats">Achats</label>
-                    <div>
-                        <div>
-                            <input type="checkbox" name="encheresOuvertes" id="encheresOuvertes">
-                            <label for="encheresOuvertes">Encheres ouvertes</label>
-                        </div>
-                        <div>
-                            <input type="checkbox" name="mesEncheres" id="mesEncheres">
-                            <label for="mesEncheres">Mes encheres</label>
-                        </div>
-                        <div>
-                            <input type="checkbox" name="encheresRemportees" id="encheresRemportees">
-                            <label for="encheresRemportees">Mes encheres remportees</label>
-                        </div>
-
+        <div class="container containerFilter mt-5 col-12 col-sm-12 col-md-8 col-lg-8 col-xl-6">
+            <section id="filter" class="mid2 row w-150 mx-auto border border rounded p-3 shadow-2">
+                <form method="post" action="">
+                    <span>Filtres :</span>
+                    <div class="form-outline my-2">
+                        <i class="fas fa-search trailing"></i>
+                        <input type="text" name="articleIn" class="form-control" placeholder="Le nom de l'article contient"/>
                     </div>
-                </div>
-                <div class="col-6">
-                    <input type="radio" name="filterRadio" id="ventes" ${disableRadio}>
-                    <label for="ventes">Mes ventes</label>
-                    <div>
-                        <div>
-                            <input type="checkbox" name="ventesEnCours" id="ventesEnCours">
-                            <label for="ventesEnCours">Mes ventes en cours</label>
+
+                    <div class="row my-4">
+                        <div class="col-12 col-md-3 d-flex justify-content-center">
+                            <label for="category" class="mt-1 mb-2">Categorie</label>
                         </div>
-                        <div>
-                            <input type="checkbox" name="ventesNonCommencees" id="ventesNonCommencees">
-                            <label for="ventesNonCommencees">Ventes non debutees</label>
-                        </div>
-                        <div>
-                            <input type="checkbox" name="ventesTerminees" id="ventesTerminees">
-                            <label for="ventesTerminees">Ventes terminees</label>
+                        <div class="col-12 col-md-9 d-flex justify-content-center">
+                            <select name="category" id="category" class="form-select ms-3 w-75">
+                                <c:forEach var = "cat" items="${categoriesList}">
+                                <option value="${cat.key}">${cat.value}</option>
+                                </c:forEach>
+                            </select>
                         </div>
                     </div>
-                </div>
-            </div>
-            </c:if>
-            <button type="button" class="btn btn-light w-100 text-center mt-5 shadow-2"><i class="fas fa-search trailing"></i> Rechercher</button>
-        </form>
-    </section>
 
+                    <c:if test="${!isAllowed}">
+                    <div class="row">
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 mb-3">
+                            <input type="radio" name="filterRadio" id="achats">
+                            <label for="achats">Achats</label>
+                            <div>
+                                <div>
+                                    <input type="checkbox" name="encheresOuvertes" id="encheresOuvertes">
+                                    <label for="encheresOuvertes">Encheres ouvertes</label>
+                                </div>
+                                <div>
+                                    <input type="checkbox" name="mesEncheres" id="mesEncheres">
+                                    <label for="mesEncheres">Mes encheres</label>
+                                </div>
+                                <div>
+                                    <input type="checkbox" name="encheresRemportees" id="encheresRemportees">
+                                    <label for="encheresRemportees">Mes encheres remportees</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 mb-3">
+                            <input type="radio" name="filterRadio" id="ventes" ${disableRadio}>
+                            <label for="ventes">Mes ventes</label>
+                            <div>
+                                <div>
+                                    <input type="checkbox" name="ventesEnCours" id="ventesEnCours">
+                                    <label for="ventesEnCours">Mes ventes en cours</label>
+                                </div>
+                                <div>
+                                    <input type="checkbox" name="ventesNonCommencees" id="ventesNonCommencees">
+                                    <label for="ventesNonCommencees">Ventes non debutees</label>
+                                </div>
+                                <div>
+                                    <input type="checkbox" name="ventesTerminees" id="ventesTerminees">
+                                    <label for="ventesTerminees">Ventes terminees</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </c:if>
+                    <button type="button" class="btn btn-light w-100 text-center mt-1 shadow-2"><i class="fas fa-search trailing"></i> Rechercher</button>
+                </form>
+            </section>
+        </div>
     <!-- CARD ARTICLES -->
     <div id="containerCard">
         <div class="container-fluid d-flex justify-content-center">
-            <div class="row mt-5">
+            <div class="row mt-4">
                 <div class="col-xl-3 col-lg-4 col-sm-6 col-md-6 col-12 mt-3">
                     <div class="card">
-                        <img src="img/articles-img/ASUSA15-TUF507RE-HN012W.png" class="card-img-top" width="100%">
+                        <img src="img/articles-img/informatique-1.png" class="card-img-top" width="100%">
                         <div class="card-body pt-0 px-0">
                             <div class="d-flex flex-row justify-content-between mb-0 px-3">
                                 <small class="text-muted mt-1">PRIX</small>
@@ -173,7 +177,7 @@
                                 <div class="d-flex flex-column"><small class="text-muted mb-1">VENDEUR</small><div class="d-flex flex-row"><div class="d-flex flex-column ml-1"><h6 class="ml-1">JOJO44</h6></div></div></div>
                                 <div class="d-flex flex-column"><small class="text-muted mb-1">FIN DE L'ENCHERE</small><div class="d-flex flex-row"><h6 class="ml-1">10/08/2022</h6></div></div>
                             </div>
-                            <div class="mx-3 mt-1 mb-2"><a href="${pageContext.request.contextPath}/articleDetail"><button type="button" class="btn btn-danger btn-block"><small>DETAIL DE L'ARTICLE</small></button></a></div>
+                            <div class="mx-3 mt-2 mb-2"><a href="${pageContext.request.contextPath}/articleDetail"><button type="button" class="btn btn-outline-danger btn-block"><small>DETAIL DE L'ARTICLE</small></button></a></div>
                             <small class="d-flex justify-content-center text-muted">*enregistrez-vous pour enchèrir</small>
                         </div>
                     </div>
@@ -181,7 +185,7 @@
 
                 <div class="col-xl-3 col-lg-4 col-sm-6 col-md-6 col-12 mt-3">
                     <div class="card">
-                        <img src="img/articles-img/ASUS-CHROMEBOOK-PRO-C436FFA-E10309.png" class="card-img-top" width="100%">
+                        <img src="img/articles-img/informatique-2.png" class="card-img-top" width="100%">
                         <div class="card-body pt-0 px-0">
                             <div class="d-flex flex-row justify-content-between mb-0 px-3">
                                 <small class="text-muted mt-1">PRIX</small>
@@ -189,13 +193,13 @@
                             </div>
                             <hr class="mt-2 mx-3">
                             <div class="d-flex flex-row justify-content-between px-3 pb-2">
-                                <div class="d-flex flex-column"><span class="text-muted">ASUS Pro Flip 14 C436FFA-E10309</span><small class="text-muted">Intel Core i5-10210U 16 Go SSD 128 Go 14" LED Tactile Full HD Wi-Fi AX/Bluetooth Webcam Chrome OS Fréquence 75 Hz - Autonomie 18 Heures</small></div>
+                                <div class="d-flex flex-column"><span class="text-muted">ASUS Pro Flip 14 C436FFA-E10309</span><small class="text-muted">Intel Core i5-10210U 16 Go SSD 128 Go 14" LED Tactile Full HD Wi-Fi AX/Bluetooth Webcam Chrome OS Fréquence 75 Hz</small></div>
                             </div>
                             <div class="d-flex flex-row justify-content-between p-3 mid">
                                 <div class="d-flex flex-column"><small class="text-muted mb-1">VENDEUR</small><div class="d-flex flex-row"><div class="d-flex flex-column ml-1"><h6 class="ml-1">DADA85</h6></div></div></div>
                                 <div class="d-flex flex-column"><small class="text-muted mb-1">FIN DE L'ENCHERE</small><div class="d-flex flex-row"><h6 class="ml-1">17/10/2022</h6></div></div>
                             </div>
-                            <div class="mx-3 mt-1 mb-2"><a href="${pageContext.request.contextPath}/articleDetail"><button type="button" class="btn btn-danger btn-block"><small>DETAIL DE L'ARTICLE</small></button></a></div>
+                            <div class="mx-3 mt-2 mb-2"><a href="${pageContext.request.contextPath}/articleDetail"><button type="button" class="btn btn-outline-danger btn-block"><small>DETAIL DE L'ARTICLE</small></button></a></div>
                             <small class="d-flex justify-content-center text-muted">*enregistrez-vous pour enchèrir</small>
                         </div>
                     </div>
@@ -203,7 +207,7 @@
 
                 <div class="col-xl-3 col-lg-4 col-sm-6 col-md-6 col-12 mt-3">
                     <div class="card">
-                        <img src="img/articles-img/STEELSERIES-AEROX-3-WIRELESS.png" class="card-img-top" width="100%">
+                        <img src="img/articles-img/informatique-4.png" class="card-img-top" width="100%">
                         <div class="card-body pt-0 px-0">
                             <div class="d-flex flex-row justify-content-between mb-0 px-3">
                                 <small class="text-muted mt-1">PRIX</small>
@@ -217,7 +221,7 @@
                                 <div class="d-flex flex-column"><small class="text-muted mb-1">VENDEUR</small><div class="d-flex flex-row"><div class="d-flex flex-column ml-1"><h6 class="ml-1">RORO44</h6></div></div></div>
                                 <div class="d-flex flex-column"><small class="text-muted mb-1">FIN DE L'ENCHERE</small><div class="d-flex flex-row"><h6 class="ml-1">03/11/2022</h6></div></div>
                             </div>
-                            <div class="mx-3 mt-1 mb-2"><a href="${pageContext.request.contextPath}/articleDetail"><button type="button" class="btn btn-danger btn-block"><small>DETAIL DE L'ARTICLE</small></button></a></div>
+                            <div class="mx-3 mt-2 mb-2"><a href="${pageContext.request.contextPath}/articleDetail"><button type="button" class="btn btn-outline-danger btn-block"><small>DETAIL DE L'ARTICLE</small></button></a></div>
                             <small class="d-flex justify-content-center text-muted">*enregistrez-vous pour enchèrir</small>
                         </div>
                     </div>
@@ -225,7 +229,7 @@
 
                 <div class="col-xl-3 col-lg-4 col-sm-6 col-md-6 col-12 mt-3">
                     <div class="card">
-                        <img src="img/articles-img/Brother-DCP-1612WVB.png" class="card-img-top" width="100%">
+                        <img src="img/articles-img/informatique-3.png" class="card-img-top" width="100%">
                         <div class="card-body pt-0 px-0">
                             <div class="d-flex flex-row justify-content-between mb-0 px-3">
                                 <small class="text-muted mt-1">PRIX</small>
@@ -233,13 +237,13 @@
                             </div>
                             <hr class="mt-2 mx-3">
                             <div class="d-flex flex-row justify-content-between px-3 pb-2">
-                                <div class="d-flex flex-column"><span class="text-muted">Brother DCP-1612WVB All In Box</span><small class="text-muted">Imprimante multifonction laser monochrome 3-en-1 (USB 2.0/Wi-Fi) / Idéale pour les professionnels qui travaillent chez eux ainsi que pour les petites entreprises</small></div>
+                                <div class="d-flex flex-column"><span class="text-muted">Brother DCP-1612WVB All In Box</span><small class="text-muted">Imprimante multifonction laser monochrome 3-en-1 (USB 2.0/Wi-Fi) / Idéale pour les professionnels qui travaillent chez eux</small></div>
                             </div>
                             <div class="d-flex flex-row justify-content-between p-3 mid">
                                 <div class="d-flex flex-column"><small class="text-muted mb-1">VENDEUR</small><div class="d-flex flex-row"><div class="d-flex flex-column ml-1"><h6 class="ml-1">LUIS95</h6></div></div></div>
                                 <div class="d-flex flex-column"><small class="text-muted mb-1">FIN DE L'ENCHERE</small><div class="d-flex flex-row"><h6 class="ml-1">21/07/2022</h6></div></div>
                             </div>
-                            <div class="mx-3 mt-1 mb-2"><button type="button" class="btn btn-danger btn-block"><small>DETAIL DE L'ARTICLE</small></button></div>
+                            <div class="mx-3 mt-2 mb-2"><button type="button" class="btn btn-outline-danger btn-block"><small>DETAIL DE L'ARTICLE</small></button></div>
                             <small class="d-flex justify-content-center text-muted">*enregistrez-vous pour enchèrir</small>
                         </div>
                     </div>
@@ -252,7 +256,7 @@
     <!-- FOOTER -->
     <section class="">
         <!-- Footer -->
-        <footer class="text-center text-white rounded-2 mb-2" style="background-color: #0a4275;">
+        <footer class="text-center text-white rounded-2 mb-2" style="background-color: #A1A0A0FF;">
             <!-- Grid container -->
             <div class="container p-4 pb-0 mt-5">
                 <!-- Section: CTA -->
@@ -279,9 +283,6 @@
         <!-- Footer -->
     </section>
     <!-- FIN FOOTER -->
-
-
-
 </main>
 
 <!-- Bootstrap JS -->

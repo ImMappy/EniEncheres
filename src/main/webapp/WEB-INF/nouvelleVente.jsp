@@ -22,6 +22,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
   <!-- Normalize CSS and Steelsheets -->
   <link href="css/normalize.css" rel="stylesheet" />
+  <link href="css/style.css" rel="stylesheet" />
   <title>Detail de l'article</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
   <link href="${pageContext.request.contextPath}/css/style.css">
@@ -49,7 +50,6 @@
           </li>
         </ul>
         <!-- Left links -->
-
         <div class="d-flex align-items-center">
           <ul class="navbar-nav me-3 mb-2 mb-lg-0">
             <li class="nav-item">
@@ -63,6 +63,8 @@
               <a class="nav-link" href="${pageContext.request.contextPath}/profilServlet">Mon Profil</a>
             </li>
           </ul>
+        </div>
+        <div class="d-flex">
           </c:if>
           <c:if test="${isAllowed}">
             <a href="${pageContext.request.contextPath}/connexion"><button type="button" class="btn btn-secondary px-3 ms-2 me-2 shadow-2">CONNEXION</button></a>
@@ -159,36 +161,38 @@
 
     </div>
   </section>
+
+  <!-- FOOTER -->
+  <section class="container">
+    <!-- Footer -->
+    <footer class="text-center text-white rounded-2 mb-2" style="background-color: #A1A0A0FF;">
+      <!-- Grid container -->
+      <div class="container p-4 pb-0 mt-5">
+        <!-- Section: CTA -->
+        <c:if test="${isAllowed}">
+          <section class="">
+            <p class="d-flex justify-content-center align-items-center">
+              <span class="me-3">Enregistrez-vous Gratuitement</span>
+              <a class="h2 text-primary mx-3" href="${pageContext.request.contextPath}/connexion"><button type="button" class="btn btn-outline-light btn-rounded">
+                CREER MON COMPTE
+              </button></a>
+            </p>
+          </section>
+        </c:if>
+        <!-- Section: CTA -->
+      </div>
+      <!-- Grid container -->
+      <!-- Copyright -->
+      <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+        © 2022 Copyright : ROMAIN HELARD / DAVID DESTREE / LUIS MARIA</a>
+      </div>
+      <!-- Copyright -->
+    </footer>
+    <!-- Footer -->
+  </section>
+  <!-- FIN FOOTER -->
 </main>
-<!-- FOOTER -->
-<section class="container">
-  <!-- Footer -->
-  <footer class="text-center text-white rounded-2 mb-2" style="background-color: #0a4275;">
-    <!-- Grid container -->
-    <div class="container p-4 pb-0 mt-5">
-      <!-- Section: CTA -->
-      <c:if test="${isAllowed}">
-        <section class="">
-          <p class="d-flex justify-content-center align-items-center">
-            <span class="me-3">Enregistrez-vous Gratuitement</span>
-            <a class="h2 text-primary mx-3" href="${pageContext.request.contextPath}/connexion"><button type="button" class="btn btn-outline-light btn-rounded">
-              CREER MON COMPTE
-            </button></a>
-          </p>
-        </section>
-      </c:if>
-      <!-- Section: CTA -->
-    </div>
-    <!-- Grid container -->
-    <!-- Copyright -->
-    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-      © 2022 Copyright : ROMAIN HELARD / DAVID DESTREE / LUIS MARIA</a>
-    </div>
-    <!-- Copyright -->
-  </footer>
-  <!-- Footer -->
-</section>
-<!-- FIN FOOTER -->
+
 <!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 <!-- MDB -->
