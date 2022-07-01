@@ -5,6 +5,7 @@ import fr.eni.eniencheres.bll.FactoryBLL;
 import fr.eni.eniencheres.bll.UtilisateursManager;
 import fr.eni.eniencheres.bo.Utilisateurs;
 
+
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
@@ -17,24 +18,23 @@ public class ProfilUtilisateurServlet extends HttpServlet {
         utilisateursManager = FactoryBLL.getUtilisateursManager();
     }
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getRequestDispatcher("/WEB-INF/monProfil.jsp").forward(request,response);
-    }
-
-    @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        if(req.getParameter("supprimer") != null){
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        if(req.getParameter("supprimer") !=null){
             doDelete(req,resp);
             return;
         }
-        if(req.getParameter("modifier") != null){
-            doUpdate(req,resp);
-            return;
-        }
+//        if(req.getParameter("modifier") != null){
+//            doUpdate(req,resp);
+//            return;
+//        }
+
+        req.getRequestDispatcher("/WEB-INF/monProfil.jsp").forward(req,resp);
     }
 
-    protected void doUpdate(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        Utilisateurs user = new Utilisateurs(req.getParameter("registerPseudo"),
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws  IOException {
+        Utilisateurs user;
+        user =new Utilisateurs(req.getParameter("registerPseudo"),
                 req.getParameter("registerNom"),
                 req.getParameter("registerPrenom"),
                 req.getParameter("registerEmail"),
@@ -43,17 +43,35 @@ public class ProfilUtilisateurServlet extends HttpServlet {
                 req.getParameter("registerCodePostal"),
                 req.getParameter("registerVille"),
                 req.getParameter("registerMotDePasse"));
-        Integer id = Integer.parseInt(req.getParameter("noUtilisateur"));
-        try{
-            user = utilisateursManager.getUtilisateurById(id);
-            utilisateursManager.modifierUtilisateur(user);
 
-            resp.sendRedirect(req.getContextPath()+ "/profilServlet");
+        Integer id = Integer.parseInt(req.getParameter("noUtilisateur"));
+
+        req.getParameter("noUtilisateur").isBlank();
+        try {
+            utilisateursManager.ajouterUtilisateur(user);
+
         } catch (BLLException e) {
             e.printStackTrace();
         }
+        resp.sendRedirect(req.getContextPath() + "/eniencheres");
 
     }
+
+
+//    protected void doUpdate(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+//
+//        Integer id = Integer.parseInt(req.getParameter("noUtilisateur"));
+//        Utilisateurs user = null;
+//
+//        try {
+//            user = utilisateursManager.getUtilisateurById(id);
+//        }catch (BLLException e){
+//            e.printStackTrace();
+//        }
+//        req.setAttribute("user", user);
+//
+//        req.getRequestDispatcher("/WEB-INF/monProfil.jsp").forward(req, resp);
+//    }
 
     @Override
     protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -64,6 +82,7 @@ public class ProfilUtilisateurServlet extends HttpServlet {
         } catch (BLLException e) {
             e.printStackTrace();
         }
+        resp.sendRedirect(req.getContextPath()+"/profilServlet");
     }
 
 
