@@ -23,6 +23,7 @@ public class ConnexionServlet extends HttpServlet {
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
+        // ?action=deconnexion
         String action=request.getParameter("action");
         if ("deconnexion".equals(action)) {
             doDeconnexion(request, response);
@@ -61,7 +62,7 @@ public class ConnexionServlet extends HttpServlet {
 
     }
 
-    void doDeconnexion(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+    protected void doDeconnexion(HttpServletRequest req, HttpServletResponse resp) throws IOException {
                 session.invalidate();
 
                 this.getServletContext().setAttribute("isAllowed", false);
