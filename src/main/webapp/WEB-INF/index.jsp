@@ -62,7 +62,7 @@
                         <li class="nav-item">
                             <a class="nav-link" href="#">Encheres</a>
                         </li>
-                        <c:if test="${!isAllowed}">
+                        <c:if test="${isAllowed}">
                         <li class="nav-item">
                             <a class="nav-link" href="${pageContext.request.contextPath}/venteArticleServlet">Vendre un Article</a>
                         </li>
@@ -73,11 +73,12 @@
                 </div>
                 <div class="d-flex">
                     </c:if>
-                    <c:if test="${isAllowed}">
+                    <c:if test="${!isAllowed}">
                         <a href="${pageContext.request.contextPath}/connexion"><button type="button" class="btn btn-secondary px-3 ms-2 me-2 shadow-2">CONNEXION</button></a>
                         <a href="${pageContext.request.contextPath}/connexion"><button type="button" class="btn btn-primary me-3 shadow-2">CREER UN COMPTE</button></a>
                     </c:if>
-                    <c:if test="${!isAllowed}">
+                    <c:if test="${isAllowed}">
+                        <a class="nav-link" href="${pageContext.request.contextPath}/profilServlet"><button type="button" class="btn btn-outline-success me-3 shadow-2">${user.pseudo}, ${user.credit} Crédits</button></a>
                         <a href="${pageContext.request.contextPath}/connexion"><button type="button" class="btn btn-warning me-3 shadow-2">DECONNEXION</button></a>
                     </c:if>
                 </div>
@@ -112,7 +113,7 @@
                         </div>
                     </div>
 
-                    <c:if test="${!isAllowed}">
+                    <c:if test="${isAllowed}">
                     <div class="row">
                         <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 mb-3">
                             <input type="radio" name="filterRadio" id="achats">
@@ -189,9 +190,9 @@
                     </div>
                 </div>
                 </c:forEach>
+            </div>
         </div>
     </div>
-
     <!-- FOOTER -->
     <section class="">
         <!-- Footer -->
@@ -199,7 +200,7 @@
             <!-- Grid container -->
             <div class="container p-4 pb-0 mt-5">
                 <!-- Section: CTA -->
-                <c:if test="${isAllowed}">
+                <c:if test="${!isAllowed}">
                     <section class="">
                         <p class="d-flex justify-content-center align-items-center">
                             <span class="me-3">Enregistrez-vous Gratuitement</span>
@@ -223,6 +224,7 @@
     </section>
     <!-- FIN FOOTER -->
 </main>
+
 
 <!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>

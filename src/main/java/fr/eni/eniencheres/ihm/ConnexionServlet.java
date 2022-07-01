@@ -15,8 +15,6 @@ public class ConnexionServlet extends HttpServlet {
 
     private final UtilisateursManager utilisateursManager;
 
-    public boolean isAllowed;
-
     public ConnexionServlet(){
         utilisateursManager = FactoryBLL.getUtilisateursManager();
     }
@@ -35,12 +33,13 @@ public class ConnexionServlet extends HttpServlet {
 
             if(user != null){
                 req.getSession().setAttribute("user", user);
+
+                this.getServletContext().setAttribute("isAllowed", true);
                 this.getServletContext().setAttribute("isNotAllowed", false);
                 this.getServletContext().setAttribute("errorPassword", false);
                 resp.sendRedirect(req.getContextPath() + "/eniencheres");
-                return;
             } else {
-                req.setAttribute("isAllowed",false);
+                req.setAttribute("isAllowed", false);
                 this.getServletContext().setAttribute("isNotAllowed", true);
                 resp.sendRedirect(req.getContextPath() + "/connexion");
             }

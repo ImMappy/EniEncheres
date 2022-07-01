@@ -3,7 +3,6 @@ package fr.eni.eniencheres.ihm;
 
 import fr.eni.eniencheres.bll.ArticleVenduManager;
 import fr.eni.eniencheres.bll.BLLException;
-import fr.eni.eniencheres.bll.CategoriesManager;
 import fr.eni.eniencheres.bll.FactoryBLL;
 
 import javax.servlet.*;
