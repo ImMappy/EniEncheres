@@ -12,6 +12,12 @@ body{
     color: #FFCBD2;
 }
 
+#nullArticle {
+    color: brown;
+    text-align: center;
+    text-transform: uppercase;
+}
+
 .card-img-top{
     border-top-right-radius: 10px;
     border-top-left-radius: 10px;
@@ -54,4 +60,8 @@ small.justify-content-center{
     font-size: 12px;
     cursor: pointer;
     text-decoration: underline;
+}
+
+.pseudoUtilisateur {
+    text-transform: uppercase;
 }

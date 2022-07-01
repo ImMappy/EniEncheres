@@ -10,6 +10,7 @@ import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 @WebServlet("/venteArticleServlet")
 public class VenteArticleServlet extends HttpServlet {
@@ -28,6 +29,7 @@ public class VenteArticleServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
+
         // Récupération Paramètres Formulaire Articles
         ArticleVendu newArticle = new ArticleVendu(
                 req.getParameter("registerArticle"),
@@ -36,7 +38,9 @@ public class VenteArticleServlet extends HttpServlet {
                 LocalDate.parse(req.getParameter("registerDateFin")),
                 Integer.parseInt(req.getParameter("registerMisaAPrix")),
                 Integer.parseInt(req.getParameter("registerNoUtilisateur")),
-                Integer.parseInt(req.getParameter("registerCategorie"))
+                Integer.parseInt(req.getParameter("registerCategorie")),
+                req.getParameter("registerPhoto"),
+                req.getParameter("registerPseudo")
 
         );
 

@@ -3,18 +3,20 @@ package fr.eni.eniencheres.dal;
 import fr.eni.eniencheres.bo.ArticleVendu;
 
 import java.sql.*;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
 
 public class ArticleVenduDAOImpl implements ArticleVenduDAO{
-    private static final String INSERT = "insert into ARTICLES_VENDUS (nom_article, description, date_debut_encheres, date_fin_encheres, prix_initial, prix_vente, no_utilisateur, no_categorie)" + "values (?,?,?,?,?,?,?,?)";
+    private static final String INSERT = "insert into ARTICLES_VENDUS (nom_article, description, date_debut_encheres, date_fin_encheres, prix_initial, prix_vente, no_utilisateur, no_categorie, url_photo)" + "values (?,?,?,?,?,?,?,?,?)";
     private static final String SELECT_ID = "SELECT * FROM ARTICLES_VENDUS WHERE no_article = ?";
     private static final String DELETE = "DELETE FROM ARTICLES_VENDUS WHERE no_article = ?";
-    private static final String UPDATE = "UPDATE ARTICLES_VENDUS SET nom_article=?, description=?, date_debut_encheres=?, date_fin_encheres=?,prix_initial=?,prix_vente=? WHERE no_article = ?";
+    private static final String UPDATE = "UPDATE ARTICLES_VENDUS SET nom_article=?, description=?, date_debut_encheres=?, date_fin_encheres=?,prix_initial=?,prix_vente=?,url_photo=? WHERE no_article = ?";
 
-    private static final String SELECT_ALL_ARTICLES = "SELECT * FROM Articles_Vendus";
+    private static final String SELECT_ALL_ARTICLES = "SELECT a.no_article,a.nom_article,a.description,a.date_debut_encheres,a.date_fin_encheres,a.prix_initial,a.prix_vente,a.no_categorie,a.no_utilisateur,a.url_photo,u.pseudo FROM ARTICLES_VENDUS a, UTILISATEURS u WHERE a.no_utilisateur = u.no_utilisateur";
 
 
     //* partie INSERT
@@ -34,6 +36,7 @@ public class ArticleVenduDAOImpl implements ArticleVenduDAO{
         stmt.setInt(6, articleVendu.getPrixVente());
         stmt.setInt(7, articleVendu.getNoUtilisateur());
         stmt.setInt(8, articleVendu.getNoCategorie());
+        stmt.setString(9, articleVendu.getUrlPhoto());
 
             //* Exécuter la requête
             stmt.executeUpdate();
@@ -77,7 +80,9 @@ public class ArticleVenduDAOImpl implements ArticleVenduDAO{
                             rs.getInt(articleVendu.getPrixInitial()),
                             rs.getInt(articleVendu.getPrixVente()),
                             rs.getInt(articleVendu.getNoUtilisateur()),
-                            rs.getInt(articleVendu.getNoCategorie())
+                            rs.getInt(articleVendu.getNoCategorie()),
+                            rs.getString(articleVendu.getUrlPhoto()),
+                            rs.getString(articleVendu.getPseudoUtilisateur())
 
                     );
                 }
@@ -131,6 +136,7 @@ public class ArticleVenduDAOImpl implements ArticleVenduDAO{
             stmt.setDate( 4, Date.valueOf(articleVendu.getDateFinEncheres()));
             stmt.setInt(5, articleVendu.getPrixInitial());
             stmt.setInt(6, articleVendu.getPrixVente());
+            stmt.setString(7, articleVendu.getUrlPhoto());
 
 
             //* Exécuter la Mise à jour
@@ -156,14 +162,16 @@ public class ArticleVenduDAOImpl implements ArticleVenduDAO{
             ResultSet rs =stmt.executeQuery(SELECT_ALL_ARTICLES);
 
             while (rs.next()){
-                ArticleVendu article = new ArticleVendu(rs.getString("nomArticle"),
+                ArticleVendu article = new ArticleVendu(rs.getString("nom_article"),
                                 rs.getString("description"),
                                 rs.getObject("date_debut_encheres",LocalDate.class),
                                 rs.getObject("date_fin_encheres",LocalDate.class),
-                                rs.getInt("prixInitial"),
-                                rs.getInt("prixVente"),
-                                rs.getInt("noUtilisateur"),
-                                rs.getInt("noCategorie")
+                                rs.getInt("prix_initial"),
+                                rs.getInt("prix_vente"),
+                                rs.getInt("no_utilisateur"),
+                                rs.getInt("no_categorie"),
+                                rs.getString("url_photo"),
+                                rs.getString("pseudo")
                 );
                 listeArticle.add(article);
             }

@@ -157,99 +157,38 @@
                 </form>
             </section>
         </div>
+
     <!-- CARD ARTICLES -->
     <div id="containerCard">
         <div class="container-fluid d-flex justify-content-center">
             <div class="row mt-4">
+            <!-- CARD ARTICLES C:IF -->
+                <c:if test="${empty article}">
+                    <p id="nullArticle">Le catalogue ne contient aucun Article</p>
+                </c:if>
+                <c:forEach var="element"  items="${article}" >
                 <div class="col-xl-3 col-lg-4 col-sm-6 col-md-6 col-12 mt-3">
                     <div class="card">
-                        <img src="img/articles-img/informatique-1.png" class="card-img-top" width="100%">
+                        <img src="${pageContext.request.contextPath}/${element.urlPhoto}" class="card-img-top" width="100%">
                         <div class="card-body pt-0 px-0">
                             <div class="d-flex flex-row justify-content-between mb-0 px-3">
                                 <small class="text-muted mt-1">PRIX</small>
-                                <h6>210 POINTS</h6>
+                                <h6>${element.prixInitial} POINTS</h6>
                             </div>
                             <hr class="mt-2 mx-3">
                             <div class="d-flex flex-row justify-content-between px-3 pb-2">
-                                <div class="d-flex flex-column"><span class="text-muted">ASUS A15 TUF507RE-HN012W</span><small class="text-muted">AMD Ryzen 7 6800H 16 Go SSD 512 Go 15.6" LED Full HD 144 Hz NVIDIA GeForce RTX 3050 Ti 4 Go Wi-Fi 6/Bluetooth Webcam Windows 11 Famille</small></div>
+                                <div class="d-flex flex-column"><span class="text-muted">${element.nomArticle}</span><small class="text-muted">${element.description}</small></div>
                             </div>
                             <div class="d-flex flex-row justify-content-between p-3 mid">
-                                <div class="d-flex flex-column"><small class="text-muted mb-1">VENDEUR</small><div class="d-flex flex-row"><div class="d-flex flex-column ml-1"><h6 class="ml-1">JOJO44</h6></div></div></div>
-                                <div class="d-flex flex-column"><small class="text-muted mb-1">FIN DE L'ENCHERE</small><div class="d-flex flex-row"><h6 class="ml-1">10/08/2022</h6></div></div>
+                                <div class="d-flex flex-column"><small class="text-muted mb-1">VENDEUR</small><div class="d-flex flex-row"><div class="d-flex flex-column ml-1"><h6 class="pseudoUtilisateur ml-1">${element.pseudoUtilisateur}</h6></div></div></div>
+                                <div class="d-flex flex-column"><small class="text-muted mb-1">FIN DE L'ENCHERE</small><div class="d-flex flex-row"><h6 class="ml-1">${element.dateFinEncheres}</h6></div></div>
                             </div>
                             <div class="mx-3 mt-2 mb-2"><a href="${pageContext.request.contextPath}/articleDetail"><button type="button" class="btn btn-outline-danger btn-block"><small>DETAIL DE L'ARTICLE</small></button></a></div>
                             <small class="d-flex justify-content-center text-muted">*enregistrez-vous pour enchèrir</small>
                         </div>
                     </div>
                 </div>
-
-                <div class="col-xl-3 col-lg-4 col-sm-6 col-md-6 col-12 mt-3">
-                    <div class="card">
-                        <img src="img/articles-img/informatique-2.png" class="card-img-top" width="100%">
-                        <div class="card-body pt-0 px-0">
-                            <div class="d-flex flex-row justify-content-between mb-0 px-3">
-                                <small class="text-muted mt-1">PRIX</small>
-                                <h6>420 POINTS</h6>
-                            </div>
-                            <hr class="mt-2 mx-3">
-                            <div class="d-flex flex-row justify-content-between px-3 pb-2">
-                                <div class="d-flex flex-column"><span class="text-muted">ASUS Pro Flip 14 C436FFA-E10309</span><small class="text-muted">Intel Core i5-10210U 16 Go SSD 128 Go 14" LED Tactile Full HD Wi-Fi AX/Bluetooth Webcam Chrome OS Fréquence 75 Hz</small></div>
-                            </div>
-                            <div class="d-flex flex-row justify-content-between p-3 mid">
-                                <div class="d-flex flex-column"><small class="text-muted mb-1">VENDEUR</small><div class="d-flex flex-row"><div class="d-flex flex-column ml-1"><h6 class="ml-1">DADA85</h6></div></div></div>
-                                <div class="d-flex flex-column"><small class="text-muted mb-1">FIN DE L'ENCHERE</small><div class="d-flex flex-row"><h6 class="ml-1">17/10/2022</h6></div></div>
-                            </div>
-                            <div class="mx-3 mt-2 mb-2"><a href="${pageContext.request.contextPath}/articleDetail"><button type="button" class="btn btn-outline-danger btn-block"><small>DETAIL DE L'ARTICLE</small></button></a></div>
-                            <small class="d-flex justify-content-center text-muted">*enregistrez-vous pour enchèrir</small>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-xl-3 col-lg-4 col-sm-6 col-md-6 col-12 mt-3">
-                    <div class="card">
-                        <img src="img/articles-img/informatique-4.png" class="card-img-top" width="100%">
-                        <div class="card-body pt-0 px-0">
-                            <div class="d-flex flex-row justify-content-between mb-0 px-3">
-                                <small class="text-muted mt-1">PRIX</small>
-                                <h6>60 POINTS</h6>
-                            </div>
-                            <hr class="mt-2 mx-3">
-                            <div class="d-flex flex-row justify-content-between px-3 pb-2">
-                                <div class="d-flex flex-column"><span class="text-muted">SteelSeries Aerox 3 Wireless</span><small class="text-muted">Souris sans fil pour gamer - droitier - Bluetooth/RF 2.4 GHz - capteur optique 18000 dpi - 6 boutons programmables - rétro-éclairage RGB</small></div>
-                            </div>
-                            <div class="d-flex flex-row justify-content-between p-3 mid">
-                                <div class="d-flex flex-column"><small class="text-muted mb-1">VENDEUR</small><div class="d-flex flex-row"><div class="d-flex flex-column ml-1"><h6 class="ml-1">RORO44</h6></div></div></div>
-                                <div class="d-flex flex-column"><small class="text-muted mb-1">FIN DE L'ENCHERE</small><div class="d-flex flex-row"><h6 class="ml-1">03/11/2022</h6></div></div>
-                            </div>
-                            <div class="mx-3 mt-2 mb-2"><a href="${pageContext.request.contextPath}/articleDetail"><button type="button" class="btn btn-outline-danger btn-block"><small>DETAIL DE L'ARTICLE</small></button></a></div>
-                            <small class="d-flex justify-content-center text-muted">*enregistrez-vous pour enchèrir</small>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-xl-3 col-lg-4 col-sm-6 col-md-6 col-12 mt-3">
-                    <div class="card">
-                        <img src="img/articles-img/informatique-3.png" class="card-img-top" width="100%">
-                        <div class="card-body pt-0 px-0">
-                            <div class="d-flex flex-row justify-content-between mb-0 px-3">
-                                <small class="text-muted mt-1">PRIX</small>
-                                <h6>125 POINTS</h6>
-                            </div>
-                            <hr class="mt-2 mx-3">
-                            <div class="d-flex flex-row justify-content-between px-3 pb-2">
-                                <div class="d-flex flex-column"><span class="text-muted">Brother DCP-1612WVB All In Box</span><small class="text-muted">Imprimante multifonction laser monochrome 3-en-1 (USB 2.0/Wi-Fi) / Idéale pour les professionnels qui travaillent chez eux</small></div>
-                            </div>
-                            <div class="d-flex flex-row justify-content-between p-3 mid">
-                                <div class="d-flex flex-column"><small class="text-muted mb-1">VENDEUR</small><div class="d-flex flex-row"><div class="d-flex flex-column ml-1"><h6 class="ml-1">LUIS95</h6></div></div></div>
-                                <div class="d-flex flex-column"><small class="text-muted mb-1">FIN DE L'ENCHERE</small><div class="d-flex flex-row"><h6 class="ml-1">21/07/2022</h6></div></div>
-                            </div>
-                            <div class="mx-3 mt-2 mb-2"><button type="button" class="btn btn-outline-danger btn-block"><small>DETAIL DE L'ARTICLE</small></button></div>
-                            <small class="d-flex justify-content-center text-muted">*enregistrez-vous pour enchèrir</small>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- FIN CARD ARTICLES -->
+                </c:forEach>
         </div>
     </div>
 
