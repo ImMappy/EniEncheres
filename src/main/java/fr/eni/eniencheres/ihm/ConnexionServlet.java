@@ -15,11 +15,22 @@ public class ConnexionServlet extends HttpServlet {
 
     private final UtilisateursManager utilisateursManager;
 
+    HttpSession session;
+
     public ConnexionServlet(){
         utilisateursManager = FactoryBLL.getUtilisateursManager();
     }
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+
+        String action=request.getParameter("action");
+        if ("deconnexion".equals(action)) {
+            doDeconnexion(request, response);
+            return;
+        }
+
+
+
         request.getRequestDispatcher("/WEB-INF/connexion.jsp").forward(request, response);
     }
 
@@ -32,7 +43,8 @@ public class ConnexionServlet extends HttpServlet {
             user = utilisateursManager.getUser(req.getParameter("pseudo"), req.getParameter("password"));
 
             if(user != null){
-                req.getSession().setAttribute("user", user);
+                session = req.getSession();
+                session.setAttribute("user", user);
 
                 this.getServletContext().setAttribute("isAllowed", true);
                 this.getServletContext().setAttribute("isNotAllowed", false);
@@ -48,4 +60,14 @@ public class ConnexionServlet extends HttpServlet {
         }
 
     }
+
+    void doDeconnexion(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+                session.invalidate();
+
+                this.getServletContext().setAttribute("isAllowed", false);
+
+                resp.sendRedirect(req.getContextPath() + "/connexion");
+
+    }
+
 }
