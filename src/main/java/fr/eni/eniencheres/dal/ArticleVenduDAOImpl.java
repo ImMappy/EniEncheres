@@ -13,8 +13,7 @@ public class ArticleVenduDAOImpl implements ArticleVenduDAO{
     private static final String SELECT_ID = "SELECT * FROM ARTICLES_VENDUS WHERE no_article = ?";
     private static final String DELETE = "DELETE FROM ARTICLES_VENDUS WHERE no_article = ?";
     private static final String UPDATE = "UPDATE ARTICLES_VENDUS SET nom_article=?, description=?, date_debut_encheres=?, date_fin_encheres=?,prix_initial=?,prix_vente=? WHERE no_article = ?";
-
-    private static final String SELECT_ALL_ARTICLES = "SELECT * FROM Articles_Vendus";
+    private static final String SELECT_ALL_ARTICLES = "SELECT a.no_article,a.nom_article,a.description,a.date_debut_encheres,a.date_fin_encheres,a.prix_initial,a.prix_vente,a.no_categorie,a.no_utilisateur,u.pseudo FROM ARTICLES_VENDUS a, UTILISATEURS u WHERE a.no_utilisateur = u.no_utilisateur";
 
 
     //* partie INSERT
@@ -82,7 +81,6 @@ public class ArticleVenduDAOImpl implements ArticleVenduDAO{
                     );
                 }
             }
-
             //*message d'erreur si un problème est rencontré
             catch (SQLException e) {
                 System.out.println(e.getMessage());
@@ -136,7 +134,7 @@ public class ArticleVenduDAOImpl implements ArticleVenduDAO{
             //* Exécuter la Mise à jour
             stmt.executeUpdate();
 
-            //*message d'erreur si un problème est rencontré
+               //*message d'erreur si un problème est rencontré
         } catch (SQLException e) {
             e.printStackTrace();
             throw new DALException("Erreur a la modification d'un article");
@@ -156,14 +154,17 @@ public class ArticleVenduDAOImpl implements ArticleVenduDAO{
             ResultSet rs =stmt.executeQuery(SELECT_ALL_ARTICLES);
 
             while (rs.next()){
-                ArticleVendu article = new ArticleVendu(rs.getInt("no_article"),rs.getString("nom_article"),
+                ArticleVendu article = new ArticleVendu(
+                                rs.getInt("no_article"),
+                                rs.getString("nom_article"),
                                 rs.getString("description"),
                                 rs.getObject("date_debut_encheres",LocalDate.class),
                                 rs.getObject("date_fin_encheres",LocalDate.class),
                                 rs.getInt("prix_initial"),
                                 rs.getInt("prix_vente"),
                                 rs.getInt("no_utilisateur"),
-                                rs.getInt("no_categorie")
+                                rs.getInt("no_categorie"),
+                                rs.getString("pseudo")
                 );
                 listeArticle.add(article);
             }
