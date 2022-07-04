@@ -13,6 +13,8 @@ import java.io.IOException;
 
 @WebServlet("/profilServlet")
 public class ProfilUtilisateurServlet extends HttpServlet {
+
+    HttpSession session;
     private UtilisateursManager utilisateursManager;
     public ProfilUtilisateurServlet(){
         utilisateursManager = FactoryBLL.getUtilisateursManager();
@@ -20,7 +22,7 @@ public class ProfilUtilisateurServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        // ?action=deconnexion
+        // ?action=supprimer
         String action =req.getParameter("action");
         if("supprimer".equals(action)){
             doDelete(req,resp);
@@ -47,7 +49,7 @@ public class ProfilUtilisateurServlet extends HttpServlet {
         Integer id = Integer.parseInt(req.getParameter("noUtilisateur"));
 
         try {
-            utilisateursManager.supprimerUtilisateur(id);
+            utilisateursManager.ajouterUtilisateur(user);
 
         } catch (BLLException e) {
             e.printStackTrace();
@@ -57,15 +59,18 @@ public class ProfilUtilisateurServlet extends HttpServlet {
     }
 
     @Override
-    protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        Integer id = Integer.parseInt(req.getParameter("noUtilisateur"));
+    protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        int id = Integer.parseInt(req.getParameter("noUtilisateur"));
+
         try{
             utilisateursManager.supprimerUtilisateur(id);
-            resp.sendRedirect(req.getContextPath() + "/eniencheres");
+            session = req.getSession();
+            session.invalidate();
+            this.getServletContext().setAttribute("isAllowed", false);
         } catch (BLLException e) {
             e.printStackTrace();
         }
-        resp.sendRedirect(req.getContextPath()+"/profilServlet");
+        resp.sendRedirect(req.getContextPath() + "/connexion");
     }
 
 

@@ -177,7 +177,7 @@
                         </div>
                         <div class="col-12 col-sm-8 col-lg-9 text-center">
                             <div class="form-outline">
-                                <a href="${pageContext.request.contextPath}/profilServlet?action=supprimer"><button type="submit" class="btn btn-outline-danger btn-block shadow-1" name="supprimer" >SUPPRIMER</button></a>
+                                <a href="${pageContext.request.contextPath}/profilServlet?action=supprimer&noUtilisateur=${user.noUtilisateur}"><button type="button" class="btn btn-outline-danger btn-block shadow-1">SUPPRIMER</button></a>
                             </div>
                         </div>
                     </div>

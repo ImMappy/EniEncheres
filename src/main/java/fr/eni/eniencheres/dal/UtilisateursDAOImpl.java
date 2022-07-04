@@ -14,7 +14,6 @@ public class UtilisateursDAOImpl implements UtilisateursDAO {
     private static final String SELECT_ALL_UTILISATEURS = "SELECT * FROM UTILISATEURS";
     private static final String DELETE_UTILISATEUR = "DELETE FROM UTILISATEURS WHERE no_utilisateur = ?";
     private static final String SELECT_INFOS_USER = "SELECT * FROM UTILISATEURS WHERE pseudo = ? AND mot_de_passe = ?";
-
     private static final String SELECT_USER_PSEUDO = "SELECT pseudo from UTILISATEURS u, ARTICLES_VENDUS a, RETRAITS r WHERE u.no_utilisateur = a.no_utilisateur AND r.no_article = a.no_article AND a.no_article=?";
 
 
@@ -51,7 +50,7 @@ public class UtilisateursDAOImpl implements UtilisateursDAO {
         List<Utilisateurs> utilisateursList = null;
         Utilisateurs user;
         try(Connection connection = ConnectionProvider.getConnection()){
-//            TODO: Exécution script SQL SELECT_ALL_UTILISATEUR
+//
             PreparedStatement preparedStatement = connection.prepareStatement(SELECT_ALL_UTILISATEURS);
             preparedStatement.executeQuery();
             ResultSet rs = preparedStatement.getResultSet();
@@ -137,6 +136,7 @@ public class UtilisateursDAOImpl implements UtilisateursDAO {
         try(Connection connection = ConnectionProvider.getConnection()){
             PreparedStatement preparedStatement = connection.prepareStatement(DELETE_UTILISATEUR);
             preparedStatement.setInt(1,id);
+            preparedStatement.executeUpdate();
         } catch (SQLException e){
             e.printStackTrace();
             throw new DALException("Erreur delete",e);
