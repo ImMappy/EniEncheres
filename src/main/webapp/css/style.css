@@ -66,3 +66,11 @@ small.justify-content-center{
 .pseudoUtilisateur {
     text-transform: uppercase;
 }
+
+.img-article {
+    margin: 0 auto;
+}
+
+.titleNouvelleArticle {
+    color: #0a4275;
+}

@@ -83,85 +83,91 @@
   <!-- Navbar -->
 </header>
 <main>
-  <h2 class="text-center my-5">Nouvelle vente</h2>
-  <section class="container">
-    <div class="d-flex w-75 mx-auto justify-content-around border border rounded p-4">
-      <div class="img-article me-4">
-        <img src="${pageContext.request.contextPath}/img/logo-ENI-full.png" width="200"/>
-      </div>
+  <div class="container img-article mt-3 d-flex justify-content-center">
+    <img src="${pageContext.request.contextPath}/img/logo-ENI-full.png" width="200"/>
+  </div>
+  <p class="h4 my-3 text-center">AJOUTER UN ARTICLE</p>
+  <div class="container col-12 col-sm-6 col-md-5 col-lg-4 w-responsive">
+    <section class="container d-flex justify-content-center border rounded-2 p-4 bg-white shadow-1">
 
-      <!-- Debut Formulaire -->
+        <!-- Formulaire Nouvelle Vente -->
       <form action="${pageContext.request.contextPath}/venteArticleServlet" method="post">
-        <!-- Vente Article -->
-        <div class="d-flex my-2">
-          <input type="hidden" name="registerNoUtilisateur" value="${user.noUtilisateur}">
-          <label for="registerArticle" class="form-label h5 me-5">Article</label>
-          <input type="text" name="registerArticle" class="form-control" id="registerArticle">
-        </div>
-        <!-- Vente Description -->
-        <div class="d-flex my-2">
-          <label for="registerDescription" class="form-label h5 me-1">Description</label>
-          <textarea class="form-control" name="registerDescription" id="registerDescription" rows="5" style="resize: none"></textarea>
-        </div>
-        <!-- Vente Catégories -->
-        <div class="d-flex my-2">
-          <label class="form-label h5 me-5" for="registerCategorie">Catégorie</label>
-          <select class="custom-select mr-sm-2" name="registerCategorie" id="registerCategorie">
-            <option selected>Choose...</option>
-            <option value="1">Informatique</option>
-            <option value="2">Ameublement</option>
-            <option value="3">Vetements</option>
-            <option value="4">Sports & Loisirs</option>
-          </select>
-        </div>
-        <!-- Vente Photo Article -->
-        <div class="d-flex my-2">
-          <label for="registerPhoto" class="form-label h5 me-3">Photo article</label>
-          <input type="text" id="registerPhoto" class="form-control" name="registerPhoto"/>
-        </div>
-        <!-- Vente Mise à prix -->
-        <div class="d-flex my-2">
-          <label for="registerMisaAPrix" class="form-label h5 me-5">Mise à prix</label>
-          <input type="number" name="registerMisaAPrix" class="form-control" id="registerMisaAPrix">
-        </div>
-        <!-- Vente Date Début -->
-        <div class="d-flex my-2">
-          <label for="registerDateDebut" class="form-label h5 me-5">Début</label>
-          <input type="date" name="registerDateDebut" class="form-control" id="registerDateDebut">
-        </div>
-        <!-- Vente Date Fin -->
-        <div class="d-flex my-2">
-          <label for="registerDateFin" class="form-label h5 me-5">Fin</label>
-          <input type="date" name="registerDateFin" class="form-control" id="registerDateFin">
+        <div class="d-flex flex-column">
+
+            <div class="col-12">
+                <input type="hidden" name="registerNoUtilisateur" value="${user.noUtilisateur}">
+
+                <div class="form-outline mb-3">
+                  <input type="text" id="formNomArticle" class="form-control" />
+                  <label class="form-label" name="registerArticle" for="formNomArticle">Article</label>
+                </div>
+
+                <div class="form-outline mb-3">
+                  <textarea class="form-control" id="textAreaDescription" rows="4"></textarea>
+                  <label class="form-label" name="registerDescription" for="textAreaDescription">Description</label>
+                </div>
+
+                <div class="form-group mb-3">
+                  <select class="form-select" name="registerCategorie" aria-label="Default select example">
+                    <option selected>Catégories</option>
+                    <option value="1">Informatique</option>
+                    <option value="2">Ameublement</option>
+                    <option value="3">Vêtements</option>
+                    <option value="4">Sport & Loisirs</option>
+                  </select>
+                </div>
+
+                <div class="form-outline mb-3">
+                  <input type="text" id="textAreaURLPhoto" class="form-control" />
+                  <label class="form-label" name="registerPhoto" for="textAreaURLPhoto">URL Photo Article</label>
+                </div>
+
+                <div class="form-outline mb-3">
+                  <input type="number" id="typeNumber" class="form-control" />
+                  <label class="form-label" name="registerMisaAPrix" for="typeNumber">Mise à prix</label>
+                </div>
+
+                <div class="form-outline mb-3">
+                  <input type="date" id="typeDateDebut" class="form-control" />
+                  <label class="form-label" name="registerDateDebut" for="typeDateDebut">Date Début Enchère</label>
+                </div>
+
+                <div class="form-outline mb-3">
+                  <input type="date" id="typeDateFin" class="form-control" />
+                  <label class="form-label" name="registerDateFin" for="typeDateFin">Date Fin Enchère</label>
+                </div>
+            </div>
+              <div class="col-12">
+
+                <p class="h4 my-3 text-center">ADRESSE DE RETRAIT</p>
+
+                <div class="form-outline mb-3">
+                  <input type="text" id="formRetraitRue" class="form-control"  value="${user.rue}" disabled/>
+                  <label class="form-label" name="registerRetraitRue" for="formRetraitRue">Rue</label>
+                </div>
+
+                <div class="form-outline mb-3">
+                  <input type="number" id="formRetraitCodePostal" class="form-control" value="${user.codePostal}" disabled/>
+                  <label class="form-label" name="registerRetraitCodePostal" for="formRetraitCodePostal">Code Postal</label>
+                </div>
+
+                <div class="form-outline mb-3">
+                  <input type="text" id="formRetraitVille" class="form-control" value="${user.ville}" disabled/>
+                  <label class="form-label" name="registerRetraitVille" for="formRetraitVille">Ville</label>
+                </div>
+              </div>
+
+              <div class="col-12 mt-3 text-center">
+                <button type="submit" class="btn btn-primary shadow-1 mb-2">Enregistrer</button>
+                <button type="reset" class="btn btn-secondary shadow-1 mb-2">Annuler</button>
+                <a href="<%=request.getContextPath()%>"><button type="button" class="btn btn-danger shadow-1 mb-2">Annuler la vente</button></a>
+              </div>
+
         </div>
 
-        <!-- récupération info Vendeur -->
-        <fieldset class=" border p-2">
-          <legend class="scheduler-border">Retrait</legend>
-          <div class="d-flex my-2">
-            <label for="InputRue" class="form-label h5 me-5">Rue</label>
-            <input type="text" name="username" class="form-control" id="InputRue" value="${user.rue}" disabled>
-          </div>
-          <div class="d-flex my-2">
-            <label for="InputCp" class="form-label h5 me-5">Code postal</label>
-            <input type="number" name="username" class="form-control" id="InputCp" value="${user.codePostal}" disabled>
-          </div>
-          <div class="d-flex my-2">
-            <label for="InputVille" class="form-label h5 me-5">Ville</label>
-            <input type="text" name="username" class="form-control" id="InputVille" value="${user.ville}" disabled>
-          </div>
-        </fieldset>
-
-        <!-- Envoi Formulaire -->
-        <div class="me-5">
-          <button type="submit" class="btn btn-primary">Enregistrer</button>
-          <button type="reset" class="btn btn-secondary">Annuler</button>
-          <a href="<%=request.getContextPath()%>"><button type="button" class="btn btn-danger">Annuler la vente</button></a>
-        </div>
       </form>
-
-    </div>
-  </section>
+    </section>
+  </div>
 
   <!-- FOOTER -->
   <section class="container">
