@@ -98,17 +98,17 @@
                 <input type="hidden" name="registerNoUtilisateur" value="${user.noUtilisateur}">
 
                 <div class="form-outline mb-3">
-                  <input type="text" id="formNomArticle" class="form-control" />
+                  <input type="text" id="formNomArticle" class="form-control" required/>
                   <label class="form-label" name="registerArticle" for="formNomArticle">Article</label>
                 </div>
 
                 <div class="form-outline mb-3">
-                  <textarea class="form-control" id="textAreaDescription" rows="4"></textarea>
+                  <textarea class="form-control" id="textAreaDescription" rows="4" required></textarea>
                   <label class="form-label" name="registerDescription" for="textAreaDescription">Description</label>
                 </div>
 
                 <div class="form-group mb-3">
-                  <select class="form-select" name="registerCategorie" aria-label="Default select example">
+                  <select class="form-select" name="registerCategorie" aria-label="Default select example" required>
                     <option selected>Catégories</option>
                     <option value="1">Informatique</option>
                     <option value="2">Ameublement</option>
@@ -118,22 +118,22 @@
                 </div>
 
                 <div class="form-outline mb-3">
-                  <input type="text" id="textAreaURLPhoto" class="form-control" />
+                  <input type="text" id="textAreaURLPhoto" class="form-control" required/>
                   <label class="form-label" name="registerPhoto" for="textAreaURLPhoto">URL Photo (local : img/articles-img/image.png)</label>
                 </div>
 
                 <div class="form-outline mb-3">
-                  <input type="number" id="typeNumber" class="form-control" />
+                  <input type="number" id="typeNumber" class="form-control" required/>
                   <label class="form-label" name="registerMisaAPrix" for="typeNumber">Mise à prix</label>
                 </div>
 
                 <div class="form-outline mb-3">
-                  <input type="date" id="typeDateDebut" class="form-control" />
+                  <input type="date" id="typeDateDebut" class="form-control" required/>
                   <label class="form-label" name="registerDateDebut" for="typeDateDebut">Date Début Enchère</label>
                 </div>
 
                 <div class="form-outline mb-3">
-                  <input type="date" id="typeDateFin" class="form-control" />
+                  <input type="date" id="typeDateFin" class="form-control" required/>
                   <label class="form-label" name="registerDateFin" for="typeDateFin">Date Fin Enchère</label>
                 </div>
             </div>
