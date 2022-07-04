@@ -119,7 +119,7 @@
 
                 <div class="form-outline mb-3">
                   <input type="text" id="textAreaURLPhoto" class="form-control" />
-                  <label class="form-label" name="registerPhoto" for="textAreaURLPhoto">URL Photo Article</label>
+                  <label class="form-label" name="registerPhoto" for="textAreaURLPhoto">URL Photo (local : img/articles-img/image.png)</label>
                 </div>
 
                 <div class="form-outline mb-3">
