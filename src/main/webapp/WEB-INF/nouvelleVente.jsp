@@ -67,7 +67,7 @@
         <div class="d-flex">
           </c:if>
           <c:if test="${!isAllowed}">
-            <a href="${pageContext.request.contextPath}/connexion"><button type="button" class="btn btn-secondary px-3 ms-2 me-2 shadow-2">CONNEXION</button></a>
+            <a href="${pageContext.request.contextPath}/connexion"><button type="button" class="btn btn-secondary me-3 mb-2 shadow-2">CONNEXION</button></a>
             <a href="${pageContext.request.contextPath}/connexion"><button type="button" class="btn btn-primary me-3 shadow-2">CREER UN COMPTE</button></a>
           </c:if>
           <c:if test="${isAllowed}">

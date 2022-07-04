@@ -73,7 +73,7 @@
                 <div class="d-flex">
                     </c:if>
                     <c:if test="${!isAllowed}">
-                        <a href="${pageContext.request.contextPath}/connexion"><button type="button" class="btn btn-secondary px-3 ms-2 me-2 shadow-2">CONNEXION</button></a>
+                        <a href="${pageContext.request.contextPath}/connexion"><button type="button" class="btn btn-secondary me-3 mb-2 shadow-2">CONNEXION</button></a>
                         <a href="${pageContext.request.contextPath}/connexion"><button type="button" class="btn btn-primary me-3 shadow-2">CREER UN COMPTE</button></a>
                     </c:if>
                     <c:if test="${isAllowed}">
@@ -88,122 +88,112 @@
     </nav>
     <!-- Navbar -->
 </header>
-${user}
 <main>
 
-                <div id="MonProfil" class="d-flex justify-content-center my-4">
-                    <h2>Mon Profil</h2>
-                </div>
-                <section class="vh-100">
-                    <div class="container-fluid">
-                        <div >
-                            <div >
+    <div class="container img-article mt-3 d-flex justify-content-center">
+        <img src="${pageContext.request.contextPath}/img/logo-ENI-full.png" width="200"/>
+    </div>
+        <p class="h4 my-3 text-center">MON PROFIL</p>
 
-                                <form class="w-25 mx-auto" method="post" action="${pageContext.request.contextPath}/profilServlet">
-                                    <input type="hidden" name="noUtilisateur" value="${user.noUtilisateur}"/>
-                                    <!-- Username input -->
-                                    <div class="col d-flex gap-4">
-                                        <div class="form-outline mb-4">
-                                            <input type="text" name="registerPseudo" id="registerUsername" class="form-control" value="${user.pseudo}" />
-                                            <label class="form-label" for="registerUsername">Pseudo</label>
-                                        </div>
-
-                                        <!-- Name input -->
-                                        <div class="form-outline mb-4">
-                                            <input type="text" name="registerNom" id="registerName" class="form-control"value="${user.nom}"/>
-                                            <label class="form-label" for="registerName">Nom</label>
-                                        </div>
-                                    </div>
-                                    <!-- Surname input-->
-                                    <div class="col d-flex gap-4">
-                                        <div class="form-outline mb-4">
-                                            <input type="text" name="registerPrenom" id="registerSurname" class="form-control" value="${user.prenom}"/>
-                                            <label class="form-label" for="registerSurname">Prénom</label>
-                                        </div>
-
-                                        <!-- E-Mail input -->
-                                        <div class="form-outline mb-4">
-                                            <input type="email" name="registerEmail" id="registerEmail" class="form-control" value="${user.email}" />
-                                            <label class="form-label" for="registerEmail">E-mail</label>
-                                        </div>
-                                    </div>
-                                    <!-- Phone input -->
-                                    <div class="col d-flex gap-4">
-                                        <div class="form-outline mb-4">
-                                            <input type="text" name="registerTelephone" id="registerTel" class="form-control" value="${user.telephone}" />
-                                            <label class="form-label" for="registerTel">Téléphone</label>
-                                        </div>
-
-                                        <!-- Rue input -->
-                                        <div class="form-outline mb-4">
-                                            <input type="text" name="registerRue" id="registerRue" class="form-control" value="${user.rue}" />
-                                            <label class="form-label" for="registerRue">Rue</label>
-                                        </div>
-                                    </div>
-                                    <!-- Code Postal input -->
-                                    <div class="col d-flex gap-4">
-                                        <div class="form-outline mb-4">
-                                            <input type="text" name="registerCodePostal" id="registerPostalCode" class="form-control" value="${user.codePostal}" />
-                                            <label class="form-label" for="registerPostalCode">Code Postal</label>
-                                        </div>
-
-                                        <!-- Ville input -->
-                                        <div class="form-outline mb-4">
-                                            <input type="text" name="registerVille" id="registerVille" class="form-control" value="${user.ville}" />
-                                            <label class="form-label" for="registerVille">Ville</label>
-                                        </div>
-                                    </div>
-
-                                    <!-- Password input -->
-                                    <div class="col-12">
-                                        <div class="form-outline mb-4">
-                                            <input type="password" name="registerPassword" id="registerPassword" class="form-control"/>
-                                            <label class="form-label" for="registerPassword">Mot de Passe</label>
-                                        </div>
-                                    </div>
-                                    <!-- New Password input -->
-                                    <div class="col d-flex gap-4">
-                                        <div class="form-outline mb-4">
-                                            <input type="password" name="registerPassword" id="registerPassword" class="form-control" />
-                                            <label class="form-label" for="registerPassword">Nouveau Mot de Passe</label>
-                                        </div>
-
-                                        <!-- Check new password input -->
-                                        <div class="form-outline mb-4">
-                                            <input type="password" name="registerPassword" id="registerPassword" class="form-control" />
-                                            <label class="form-label" for="registerPassword">Confirmation</label>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <div class="form-group row">
-                                            <a><button type="button" class="btn btn-outline-primary disabled me-3 shadow-1">Crédits : ${user.credit}</button></a>
-                                            </a>
-                                        </div>
-                                    </div>
-
-                                    <!-- Bouton Input -->
-                                    <div class="col d-flex gap-4">
-                                        <div class="form-outline mb-4">
-                                            <button type="submit" class="btn btn-primary btn-block mb-3 shadow-1" name="modifier" >ENREGISTRER</button>
-                                        </div>
-                                        <div class="form-outline mb-4">
-                                            <button type="submit" class="btn btn-secondary btn-block mb-3 shadow-1" name="supprimer" >SUPPRIMER</button>
-                                        </div>
-                                    </div>
-                                </form>
+    <div class="container col-12 col-sm-10 col-md-8 col-lg-7 col-xl-4">
+        <section class="d-flex justify-content-center border rounded-2 p-4 bg-white shadow-1">
+            <div class="col-12 col-lg-10">
+                <form class="d-flex flex-column align-items-center" method="post" action="${pageContext.request.contextPath}/profilServlet">
+                    <input type="hidden" name="noUtilisateur" value="${user.noUtilisateur}"/>
+                    <!-- Username input -->
+                    <div class="d-flex col-12 col-sm-11 col-md-11 justify-content-between gap-2">
+                        <div class="form-outline mb-4">
+                            <input type="text" name="registerPseudo" id="registerUsername" class="form-control" value="${user.pseudo}" required/>
+                            <label class="form-label" for="registerUsername">Pseudo</label>
+                        </div>
+                        <!-- Name input -->
+                        <div class="form-outline mb-4 justify-content-between">
+                            <input type="text" name="registerNom" id="registerName" class="form-control"value="${user.nom}" required/>
+                            <label class="form-label" for="registerName">Nom</label>
+                        </div>
+                    </div>
+                    <!-- Surname input-->
+                    <div class="col-12 col-sm-11 col-md-11">
+                        <div class="form-outline mb-4">
+                            <input type="text" name="registerPrenom" id="registerSurname" class="form-control" value="${user.prenom}" required/>
+                            <label class="form-label" for="registerSurname">Prénom</label>
+                        </div>
+                        <!-- E-Mail input -->
+                        <div class="form-outline mb-4">
+                            <input type="email" name="registerEmail" id="registerEmail" class="form-control" value="${user.email}" required/>
+                            <label class="form-label" for="registerEmail">E-mail</label>
+                        </div>
+                    </div>
+                    <!-- Phone input -->
+                    <div class="col-12 col-sm-11 col-md-11">
+                        <div class="form-outline mb-4">
+                            <input type="text" name="registerTelephone" id="registerTel" class="form-control" value="${user.telephone}" required/>
+                            <label class="form-label" for="registerTel">Téléphone</label>
+                        </div>
+                        <!-- Rue input -->
+                        <div class="form-outline mb-4">
+                            <input type="text" name="registerRue" id="registerRue" class="form-control" value="${user.rue}" required/>
+                            <label class="form-label" for="registerRue">Rue</label>
+                        </div>
+                    </div>
+                    <!-- Code Postal input -->
+                    <div class="d-flex justify-content-between col-12 col-sm-11 col-md-11 gap-2">
+                        <div class="form-outline mb-4">
+                            <input type="text" name="registerCodePostal" id="registerPostalCode" class="form-control" value="${user.codePostal}" required/>
+                            <label class="form-label" for="registerPostalCode">Code Postal</label>
+                        </div>
+                        <!-- Ville input -->
+                        <div class="form-outline mb-4">
+                            <input type="text" name="registerVille" id="registerVille" class="form-control" value="${user.ville}" required/>
+                            <label class="form-label" for="registerVille">Ville</label>
+                        </div>
+                    </div>
+                    <!-- Password input -->
+                        <div class="form-outline mb-4 col-12 col-sm-11 col-md-11">
+                            <input type="password" name="registerPassword" id="registerPassword" class="form-control" required/>
+                            <label class="form-label" for="registerPassword">Mot de Passe</label>
+                        </div>
+                    <!-- New Password input -->
+                    <div class="col-12 col-sm-11 col-md-11">
+                        <div class="form-outline mb-4">
+                            <input type="password" name="registerPassword" id="registerNewPassword" class="form-control" required/>
+                            <label class="form-label" for="registerNewPassword">Nouveau Mot de Passe</label>
+                        </div>
+                        <!-- Check new password input -->
+                        <div class="form-outline mb-4">
+                            <input type="password" name="registerPassword" id="registerPasswordConf" class="form-control" required/>
+                            <label class="form-label" for="registerPasswordConf">Confirmation</label>
+                        </div>
+                    </div>
+                        <div class="text-center mb-2">
+                            <button type="button" class="btn btn-light btn mb-3 shadow-1">Crédits : ${user.credit}</button>
+                        </div>
+                    <!-- Bouton Input -->
+                    <div class="d-flex flex-column align-items-center col-12 gap-4 text-center">
+                        <div class="col-12 col-sm-8 col-lg-9 text-center">
+                            <div class="form-outline">
+                                <button type="submit" class="btn btn-primary btn-block shadow-1" name="modifier" >ENREGISTRER</button>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-8 col-lg-9 text-center">
+                            <div class="form-outline">
+                                <button type="submit" class="btn btn-secondary btn-block shadow-1" name="supprimer" >SUPPRIMER</button>
                             </div>
                         </div>
                     </div>
-                </section >
+                </form>
+            </div>
+        </section>
+    </div>
 </main>
 <!-- FOOTER -->
-<section class="">
+<section class="container">
     <!-- Footer -->
-    <footer class="text-center text-white rounded-2 mb-2" style="background-color: #0a4275;">
+    <footer class="text-center text-white rounded-2 mb-2" style="background-color: #A1A0A0FF;">
         <!-- Grid container -->
         <div class="container p-4 pb-0 mt-5">
             <!-- Section: CTA -->
-            <c:if test="${isAllowed}">
+            <c:if test="${!isAllowed}">
                 <section class="">
                     <p class="d-flex justify-content-center align-items-center">
                         <span class="me-3">Enregistrez-vous Gratuitement</span>
@@ -216,18 +206,18 @@ ${user}
             <!-- Section: CTA -->
         </div>
         <!-- Grid container -->
-
         <!-- Copyright -->
         <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
             © 2022 Copyright : ROMAIN HELARD / DAVID DESTREE / LUIS MARIA</a>
         </div>
         <!-- Copyright -->
     </footer>
-
-
-                <!-- Bootstrap JS -->
-                <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
-                <!-- MDB -->
-                <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.2.0/mdb.min.js"></script>
+    <!-- Footer -->
+</section>
+<!-- FIN FOOTER -->
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+<!-- MDB -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.2.0/mdb.min.js"></script>
 </body>
 </html>
