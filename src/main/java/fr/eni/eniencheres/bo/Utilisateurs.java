@@ -94,6 +94,10 @@ public class Utilisateurs {
         this.motDePasse = motDePasse;
     }
 
+    public Utilisateurs(String pseudo) {
+        this.pseudo = pseudo;
+    }
+
     public Integer getNoUtilisateur() {
         return noUtilisateur;
     }
@@ -145,6 +149,8 @@ public class Utilisateurs {
     public void setNoUtilisateur(Integer noUtilisateur) {
         this.noUtilisateur = noUtilisateur;
     }
+
+
 
     public void setPseudo(String pseudo) {
         this.pseudo = pseudo;

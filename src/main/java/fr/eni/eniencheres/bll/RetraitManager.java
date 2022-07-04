@@ -15,8 +15,7 @@ public interface RetraitManager {
     //*modifier article
     void modifierRetrait(Retrait retrait) throws BLLException;
 
-    //*SelectById
-    Retrait selectById(Integer id) throws BLLException;
+    List<Retrait> selectAllRetraits() throws BLLException;
 
-    List<Retrait> selectAll() throws BLLException;
+    Retrait selectRetrait(int id) throws BLLException;
 }

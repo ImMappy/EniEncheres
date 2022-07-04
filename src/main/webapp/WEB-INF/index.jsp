@@ -184,7 +184,7 @@
                                 <div class="d-flex flex-column"><small class="text-muted mb-1">VENDEUR</small><div class="d-flex flex-row"><div class="d-flex flex-column ml-1"><h6 class="pseudoUtilisateur ml-1">${element.pseudoUtilisateur}</h6></div></div></div>
                                 <div class="d-flex flex-column"><small class="text-muted mb-1">FIN DE L'ENCHERE</small><div class="d-flex flex-row"><h6 class="ml-1">${element.dateFinEncheres}</h6></div></div>
                             </div>
-                            <div class="mx-3 mt-2 mb-2"><a href="${pageContext.request.contextPath}/articleDetail"><button type="button" class="btn btn-outline-danger btn-block"><small>DETAIL DE L'ARTICLE</small></button></a></div>
+                            <div class="mx-3 mt-2 mb-2"><a href="<%=request.getContextPath()%>/articleDetail?action=getDetail&noArticle=${element.noArticle}"><button type="button" class="btn btn-outline-danger btn-block"><small>DETAIL DE L'ARTICLE</small></button></a></div>
                             <c:if test="${!isAllowed}">
                             <small class="d-flex justify-content-center text-muted">*enregistrez-vous pour enchèrir</small>
                             </c:if>

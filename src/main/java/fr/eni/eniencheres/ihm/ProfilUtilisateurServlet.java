@@ -19,14 +19,13 @@ public class ProfilUtilisateurServlet extends HttpServlet {
     }
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        if(req.getParameter("supprimer") !=null){
+
+        // ?action=deconnexion
+        String action =req.getParameter("action");
+        if("supprimer".equals(action)){
             doDelete(req,resp);
             return;
         }
-//        if(req.getParameter("modifier") != null){
-//            doUpdate(req,resp);
-//            return;
-//        }
 
         req.getRequestDispatcher("/WEB-INF/monProfil.jsp").forward(req,resp);
     }
@@ -34,44 +33,28 @@ public class ProfilUtilisateurServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws  IOException {
         Utilisateurs user;
-        user =new Utilisateurs(req.getParameter("registerPseudo"),
-                req.getParameter("registerNom"),
-                req.getParameter("registerPrenom"),
-                req.getParameter("registerEmail"),
-                req.getParameter("registerTelephone"),
-                req.getParameter("registerRue"),
-                req.getParameter("registerCodePostal"),
-                req.getParameter("registerVille"),
-                req.getParameter("registerMotDePasse"));
+        user =new Utilisateurs(req.getParameter("profilPseudo"),
+                req.getParameter("profilNom"),
+                req.getParameter("profilPrenom"),
+                req.getParameter("profilEmail"),
+                req.getParameter("profilTelephone"),
+                req.getParameter("profilRue"),
+                req.getParameter("profilCodePostal"),
+                req.getParameter("profilVille"),
+                req.getParameter("profilMotDePasse"));
+                req.getParameter("noUtilisateur").isEmpty();
 
         Integer id = Integer.parseInt(req.getParameter("noUtilisateur"));
 
-        req.getParameter("noUtilisateur").isEmpty();
         try {
-            utilisateursManager.ajouterUtilisateur(user);
+            utilisateursManager.supprimerUtilisateur(id);
 
         } catch (BLLException e) {
             e.printStackTrace();
         }
-        resp.sendRedirect(req.getContextPath() + "/eniencheres");
+        resp.sendRedirect(req.getContextPath() + "/connexion");
 
     }
-
-
-//    protected void doUpdate(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-//
-//        Integer id = Integer.parseInt(req.getParameter("noUtilisateur"));
-//        Utilisateurs user = null;
-//
-//        try {
-//            user = utilisateursManager.getUtilisateurById(id);
-//        }catch (BLLException e){
-//            e.printStackTrace();
-//        }
-//        req.setAttribute("user", user);
-//
-//        req.getRequestDispatcher("/WEB-INF/monProfil.jsp").forward(req, resp);
-//    }
 
     @Override
     protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

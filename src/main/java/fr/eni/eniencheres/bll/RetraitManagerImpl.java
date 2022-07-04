@@ -1,13 +1,15 @@
 package fr.eni.eniencheres.bll;
 
+
 import fr.eni.eniencheres.bo.Retrait;
 import fr.eni.eniencheres.dal.DALException;
 import fr.eni.eniencheres.dal.RetraitDAO;
 import fr.eni.eniencheres.dao.DaoFactory;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class RetraitManagerImpl implements RetraitManager{
+public class RetraitManagerImpl implements RetraitManager {
     public static RetraitManagerImpl instance;
     private RetraitDAO daoRetrait;
 
@@ -54,22 +56,25 @@ public class RetraitManagerImpl implements RetraitManager{
         }
     }
 
-    //*SelectById
-    @Override
-    public Retrait selectById(Integer id) throws BLLException {
-        Retrait retrait;
-        try {
-            retrait = daoRetrait.selectById(id);
-        } catch (DALException e) {
+    public List<Retrait> selectAllRetraits() throws BLLException {
+        List<Retrait> retraitList = new ArrayList<>();
+        try{
+            retraitList = daoRetrait.selectAll();
+        } catch (DALException e){
             e.printStackTrace();
-            throw new BLLException("Erreur select by id",e);
+            throw new BLLException("Erreur all retrait",e);
+        }
+        return retraitList;
+    }
+    public Retrait selectRetrait(int id)throws BLLException{
+        Retrait retrait = null;
+        try {
+            retrait = daoRetrait.selectRetrait(id);
+        }catch (DALException e){
+            e.printStackTrace();
+            throw new BLLException("Erreur select retrait ",e);
         }
         return retrait;
-    }
-
-    @Override
-    public List<Retrait> selectAll() throws BLLException {
-        return null;
     }
 
 }

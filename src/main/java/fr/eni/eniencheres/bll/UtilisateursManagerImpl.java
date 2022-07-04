@@ -46,8 +46,6 @@ public class UtilisateursManagerImpl implements UtilisateursManager{
 
     public void supprimerUtilisateur(int id)throws BLLException{
         try{
-            Utilisateurs user = new Utilisateurs();
-            user.setNoUtilisateur(id);
             userDao.deleteUtilisateur(id);
         }catch (DALException e){
             e.printStackTrace();
@@ -117,7 +115,16 @@ public class UtilisateursManagerImpl implements UtilisateursManager{
         return user;
     }
 
-
+    public Utilisateurs getPseudo(int id)throws BLLException{
+        Utilisateurs user;
+        try{
+            user = userDao.selectPseudo(id);
+        }catch (DALException e){
+            e.printStackTrace();
+            throw new BLLException("Erreur get pseudo",e);
+        }
+        return user;
+    }
 
 
 

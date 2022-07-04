@@ -50,7 +50,6 @@
             >
                 <i class="fas fa-bars"></i>
             </button>
-
             <!-- Collapsible wrapper -->
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <!-- Navbar brand -->
@@ -59,7 +58,6 @@
                 </a>
             </div>
             <!-- Collapsible wrapper -->
-
             <!-- Right elements -->
             <div class="d-flex align-items-center">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
@@ -95,8 +93,8 @@
                         />
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuAvatar">
-                        <li><a class="dropdown-item" href="#">Vendre un article</a></li>
-                        <li><a class="dropdown-item" href="#">Mon profil</a></li>
+                        <li><a class="dropdown-item" href="${pageContext.request.contextPath}/venteArticleServlet">Vendre un article</a></li>
+                        <li><a class="dropdown-item" href="${pageContext.request.contextPath}/profilServlet">Mon profil</a></li>
                         <li><a class="dropdown-item" href="#">Deconnexion</a></li>
                     </ul>
                 </div>
@@ -107,7 +105,6 @@
         <!-- Container wrapper -->
     </nav>
     <!-- Navbar -->
-
 </header>
 <main>
     <h2 class="text-center">Detail de la vente</h2>
@@ -128,9 +125,8 @@
                     </div>
                     <div class="col-12 col-sm-7">
                         <div class="w-75">
-                            <p>TEXT TEXT TEXT TEXTTEXT TEXTTEXT TEXTTEXT TEXTTEXT TEXT</p>
+                            <p>${article.description}</p>
                         </div>
-
                     </div>
                 </div>
                 <div class="row ">
@@ -138,7 +134,7 @@
                         <span class="h5">Meilleure offre</span>
                     </div>
                     <div class="col-12 col-sm-7">
-                        <span>210 points</span>
+                        <span>${article.prixVente}</span>
                     </div>
                 </div>
                 <div class="row">
@@ -146,7 +142,7 @@
                         <span class="h5">Mise a prix :</span>
                     </div>
                     <div class="col-12 col-sm-7">
-                       <span>185 points</span>
+                        <span>${article.prixInitial}</span>
                     </div>
                 </div>
             </div>
@@ -158,16 +154,17 @@
                         <span class="h5">Fin de l'enchere</span>
                     </div>
                     <div class="col-12 col-sm-7">
-                        <p>09/10/2018</p>
+                        <p>${article.dateFinEncheres}</p>
                     </div>
                 </div>
-
                 <div class="row">
                     <div class="col-12 col-sm-5">
                         <span class="h5">Retrait</span>
                     </div>
                     <div class="col-12 col-sm-7">
-                        <p>10 Allee des Alouettes 44800 Saint Herblain</p>
+                        <p>${retrait.rue}</p>
+                        <p>${retrait.codePostal}</p>
+                        <p>${retrait.ville}</p>
                     </div>
                 </div>
                 <div class="row">
@@ -175,26 +172,25 @@
                         <span class="h5">Vendeur</span>
                     </div>
                     <div class="col-12 col-sm-7">
-                        <span>Jojo44</span>
+                        <span>${userPseudo.pseudo}</span>
                     </div>
                 </div>
                 <div class="row">
-                       <form action="${pageContext.request.contextPath}/articleDetail">
-                           <div class="d-flex my-3">
-                               <div class="col-12 col-sm-5">
-                                   <label class="form-label" for="proposition">Proposition</label>
-                               </div>
-                               <div class="col-12 col-sm-7">
-                                    <input class="form-control w-50" type="number" name="proposition" id="proposition"/>
-                               </div>
-                           </div>
-                           <button type="button" class="btn btn-primary" name="enchere">Encherir</button>
-                       </form>
-                   </div>
+                    <form action="${pageContext.request.contextPath}/articleDetail">
+                        <div class="d-flex my-3">
+                            <div class="col-12 col-sm-5">
+                                <label class="form-label" for="proposition">Proposition</label>
+                            </div>
+                            <div class="col-12 col-sm-7">
+                                <input class="form-control w-50" type="number" name="proposition" id="proposition"/>
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-primary" name="enchere">Encherir</button>
+                    </form>
                 </div>
             </div>
         </div>
-
+        </div>
     </section>
 </main>
 <!-- FOOTER -->
@@ -217,7 +213,6 @@
             <!-- Section: CTA -->
         </div>
         <!-- Grid container -->
-
         <!-- Copyright -->
         <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
             © 2022 Copyright : ROMAIN HELARD / DAVID DESTREE / LUIS MARIA</a>

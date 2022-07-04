@@ -103,65 +103,65 @@
                     <!-- Username input -->
                     <div class="d-flex col-12 col-sm-11 col-md-11 justify-content-between gap-2">
                         <div class="form-outline mb-4">
-                            <input type="text" name="registerPseudo" id="registerUsername" class="form-control" value="${user.pseudo}" required/>
+                            <input type="text" name="profilPseudo" id="registerUsername" class="form-control" value="${user.pseudo}"/>
                             <label class="form-label" for="registerUsername">Pseudo</label>
                         </div>
                         <!-- Name input -->
                         <div class="form-outline mb-4 justify-content-between">
-                            <input type="text" name="registerNom" id="registerName" class="form-control"value="${user.nom}" required/>
+                            <input type="text" name="profilNom" id="registerName" class="form-control"value="${user.nom}"/>
                             <label class="form-label" for="registerName">Nom</label>
                         </div>
                     </div>
                     <!-- Surname input-->
                     <div class="col-12 col-sm-11 col-md-11">
                         <div class="form-outline mb-4">
-                            <input type="text" name="registerPrenom" id="registerSurname" class="form-control" value="${user.prenom}" required/>
+                            <input type="text" name="profilPrenom" id="registerSurname" class="form-control" value="${user.prenom}"/>
                             <label class="form-label" for="registerSurname">Prénom</label>
                         </div>
                         <!-- E-Mail input -->
                         <div class="form-outline mb-4">
-                            <input type="email" name="registerEmail" id="registerEmail" class="form-control" value="${user.email}" required/>
+                            <input type="email" name="profilEmail" id="registerEmail" class="form-control" value="${user.email}"/>
                             <label class="form-label" for="registerEmail">E-mail</label>
                         </div>
                     </div>
                     <!-- Phone input -->
                     <div class="col-12 col-sm-11 col-md-11">
                         <div class="form-outline mb-4">
-                            <input type="text" name="registerTelephone" id="registerTel" class="form-control" value="${user.telephone}" required/>
+                            <input type="text" name="profilTelephone" id="registerTel" class="form-control" value="${user.telephone}"/>
                             <label class="form-label" for="registerTel">Téléphone</label>
                         </div>
                         <!-- Rue input -->
                         <div class="form-outline mb-4">
-                            <input type="text" name="registerRue" id="registerRue" class="form-control" value="${user.rue}" required/>
+                            <input type="text" name="profilRue" id="registerRue" class="form-control" value="${user.rue}"/>
                             <label class="form-label" for="registerRue">Rue</label>
                         </div>
                     </div>
                     <!-- Code Postal input -->
                     <div class="d-flex justify-content-between col-12 col-sm-11 col-md-11 gap-2">
                         <div class="form-outline mb-4">
-                            <input type="text" name="registerCodePostal" id="registerPostalCode" class="form-control" value="${user.codePostal}" required/>
+                            <input type="text" name="profilCodePostal" id="registerPostalCode" class="form-control" value="${user.codePostal}"/>
                             <label class="form-label" for="registerPostalCode">Code Postal</label>
                         </div>
                         <!-- Ville input -->
                         <div class="form-outline mb-4">
-                            <input type="text" name="registerVille" id="registerVille" class="form-control" value="${user.ville}" required/>
+                            <input type="text" name="profilVille" id="registerVille" class="form-control" value="${user.ville}"/>
                             <label class="form-label" for="registerVille">Ville</label>
                         </div>
                     </div>
                     <!-- Password input -->
                         <div class="form-outline mb-4 col-12 col-sm-11 col-md-11">
-                            <input type="password" name="registerPassword" id="registerPassword" class="form-control" required/>
+                            <input type="password" name="profilPassword" id="registerPassword" class="form-control"/>
                             <label class="form-label" for="registerPassword">Mot de Passe</label>
                         </div>
                     <!-- New Password input -->
                     <div class="col-12 col-sm-11 col-md-11">
                         <div class="form-outline mb-4">
-                            <input type="password" name="registerPassword" id="registerNewPassword" class="form-control" required/>
+                            <input type="password" name="profilnewPassword" id="registerNewPassword" class="form-control"/>
                             <label class="form-label" for="registerNewPassword">Nouveau Mot de Passe</label>
                         </div>
                         <!-- Check new password input -->
                         <div class="form-outline mb-4">
-                            <input type="password" name="registerPassword" id="registerPasswordConf" class="form-control" required/>
+                            <input type="password" name="profilPasswordConf" id="registerPasswordConf" class="form-control"/>
                             <label class="form-label" for="registerPasswordConf">Confirmation</label>
                         </div>
                     </div>
@@ -177,7 +177,7 @@
                         </div>
                         <div class="col-12 col-sm-8 col-lg-9 text-center">
                             <div class="form-outline">
-                                <button type="submit" class="btn btn-secondary btn-block shadow-1" name="supprimer" >SUPPRIMER</button>
+                                <a href="${pageContext.request.contextPath}/profilServlet?action=supprimer"><button type="submit" class="btn btn-outline-danger btn-block shadow-1" name="supprimer" >SUPPRIMER</button></a>
                             </div>
                         </div>
                     </div>

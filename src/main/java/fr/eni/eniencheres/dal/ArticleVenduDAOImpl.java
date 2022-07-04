@@ -73,16 +73,16 @@ public class ArticleVenduDAOImpl implements ArticleVenduDAO{
                 if (rs.next()){
 
                     articleVendu = new ArticleVendu(
-                            rs.getString(articleVendu.getNomArticle()),
-                            rs.getString(articleVendu.getDescription()),
+                            rs.getInt("no_article"),
+                            rs.getString("nom_article"),
+                            rs.getString("description"),
                             rs.getObject("date_debut_encheres",LocalDate.class),
                             rs.getObject("date_fin_encheres",LocalDate.class),
-                            rs.getInt(articleVendu.getPrixInitial()),
-                            rs.getInt(articleVendu.getPrixVente()),
-                            rs.getInt(articleVendu.getNoUtilisateur()),
-                            rs.getInt(articleVendu.getNoCategorie()),
-                            rs.getString(articleVendu.getUrlPhoto()),
-                            rs.getString(articleVendu.getPseudoUtilisateur())
+                            rs.getInt("prix_initial"),
+                            rs.getInt("prix_vente"),
+                            rs.getInt("no_utilisateur"),
+                            rs.getInt("no_categorie"),
+                            rs.getString("url_photo")
 
                     );
                 }
@@ -162,7 +162,9 @@ public class ArticleVenduDAOImpl implements ArticleVenduDAO{
             ResultSet rs =stmt.executeQuery(SELECT_ALL_ARTICLES);
 
             while (rs.next()){
-                ArticleVendu article = new ArticleVendu(rs.getString("nom_article"),
+                ArticleVendu article = new ArticleVendu(
+                                rs.getInt("no_article"),
+                                rs.getString("nom_article"),
                                 rs.getString("description"),
                                 rs.getObject("date_debut_encheres",LocalDate.class),
                                 rs.getObject("date_fin_encheres",LocalDate.class),

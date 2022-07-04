@@ -95,6 +95,20 @@ public class ArticleVendu {
         this.pseudoUtilisateur = pseudoUtilisateur;
     }
 
+    public ArticleVendu(Integer noArticle, String nomArticle, String description, LocalDate dateDebutEncheres, LocalDate dateFinEncheres, int prixInitial, int prixVente, int noUtilisateur, int noCategorie, String urlPhoto, String pseudoUtilisateur) {
+        this.noArticle = noArticle;
+        this.nomArticle = nomArticle;
+        this.description = description;
+        this.dateDebutEncheres = dateDebutEncheres;
+        this.dateFinEncheres = dateFinEncheres;
+        this.prixInitial = prixInitial;
+        this.prixVente = prixVente;
+        this.noUtilisateur = noUtilisateur;
+        this.noCategorie = noCategorie;
+        this.urlPhoto = urlPhoto;
+        this.pseudoUtilisateur = pseudoUtilisateur;
+    }
+
     public Integer getNoArticle() {
         return noArticle;
     }

@@ -10,8 +10,8 @@ import java.util.List;
 public class RetraitDAOImpl implements RetraitDAO {
 
         private static final String INSERT ="insert into RETRAITS (rue, code_postal, ville)"+"values (?,?,?)";
-        private static final String SELECT_ID = "SELECT * FROM RETRAITS WHERE no_article =?";
-        private static final String DELETE = "DELETE FROM RETRAITS WHERE no_article = ?";
+        private static final String SELECT_ID = "SELECT rue,code_postal,ville FROM RETRAITS WHERE no_article =?";
+    private static final String DELETE = "DELETE FROM RETRAITS WHERE no_article = ?";
         private static final String UPDATE = "UPDATE RETRAITS SET rue=?, code_postal=?, ville=?";
         private static final String SELECT_ALL_RETRAITS = "SELECT * FROM RETRAITS";
 
@@ -43,38 +43,6 @@ public class RetraitDAOImpl implements RetraitDAO {
             throw new DALException("erreur insert", e);
         }
     }
-
-    @Override
-    public Retrait selectById(Integer i) throws DALException{
-        //*Initialisation d'un Retrait
-        Retrait retrait = null;
-        //* se connecter à la Base de donnée
-        try (Connection conn = ConnectionProvider.getConnection()) {
-
-            //*Préparation de la Requête SQL SELECT_ID
-            PreparedStatement stmt = conn.prepareStatement(SELECT_ID);
-
-            //* Valoriser les paramètres  SELECT_ID
-            stmt.setInt(1,i);
-
-
-            //* Récupération de l'article by ID
-            ResultSet rs = stmt.executeQuery();
-            if (rs.next()){
-                retrait = new Retrait(
-                        rs.getString("rue"),
-                        rs.getString("code_postal"),
-                        rs.getString("ville")
-                );
-            }
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-            throw new DALException("Erreur a la selection d'un article by id");
-        }
-        // *Return l'article Sélectionné
-        return retrait;
-    }
-
 
     @Override
     //* Partie Delete
@@ -122,7 +90,7 @@ public class RetraitDAOImpl implements RetraitDAO {
     }
 
     //* SelectALL
-    public List<Retrait> selectAll()  throws DALException {
+    public List selectAll() throws DALException {
         //*création Liste article
         List<Retrait> listeRetraits = new ArrayList<>();
 
@@ -146,7 +114,22 @@ public class RetraitDAOImpl implements RetraitDAO {
 
         } return listeRetraits;
     }
-
+public Retrait selectRetrait(int id ) throws DALException{
+        Retrait retrait = null;
+        try(Connection connection = ConnectionProvider.getConnection()){
+            PreparedStatement statement = connection.prepareStatement(SELECT_ID);
+            statement.setInt(1,id);
+            statement.executeQuery();
+            ResultSet rs = statement.getResultSet();
+            if(rs.next()){
+                retrait = new Retrait(rs.getString("rue"),rs.getString("code_postal"),rs.getString("ville"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new DALException("Erreur select infos retraits",e);
+        }
+        return retrait;
+}
 
 
 }

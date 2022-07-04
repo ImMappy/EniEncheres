@@ -8,11 +8,15 @@ public interface RetraitDAO {
 
     void insert(Retrait retrait)throws DALException;
 
-    Retrait selectById(Integer i) throws DALException;
+    Retrait selectRetrait(int id) throws  DALException;
+
+    List selectAll() throws DALException;
 
     void delete(Integer id) throws DALException;
 
     void update(Retrait retrait) throws DALException;
+
+
 
 
 }

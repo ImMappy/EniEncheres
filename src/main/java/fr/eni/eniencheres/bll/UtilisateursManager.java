@@ -11,4 +11,6 @@ public interface UtilisateursManager {
     public List getAllUtilisateurs() throws BLLException;
     public Utilisateurs getUtilisateurById(int id) throws BLLException;
     Utilisateurs getUser(String pseudo, String motDePasse) throws BLLException;
+
+    Utilisateurs getPseudo(int id) throws BLLException;
 }

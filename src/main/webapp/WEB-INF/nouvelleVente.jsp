@@ -162,7 +162,7 @@
               <div class="col-12 mt-3 text-center">
                 <button type="submit" class="btn btn-primary shadow-1 mb-2">Enregistrer</button>
                 <button type="reset" class="btn btn-secondary shadow-1 mb-2">Effacer</button>
-                <a href="<%=request.getContextPath()%>"><button type="button" class="btn btn-danger shadow-1 mb-2">Annuler la vente</button></a>
+                <a href="<%=request.getContextPath()%>"><button type="button" class="btn btn-outline-danger shadow-1 mb-2">Annuler la vente</button></a>
               </div>
 
         </div>

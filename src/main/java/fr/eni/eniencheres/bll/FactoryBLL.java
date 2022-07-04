@@ -7,4 +7,6 @@ public class FactoryBLL {
     }
 
     public static ArticleVenduManager getArticleVenduManager(){return new ArticleVenduManagerImpl();}
+
+    public  static RetraitManager getRetraitManager(){return new RetraitManagerImpl();}
 }
