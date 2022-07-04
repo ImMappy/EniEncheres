@@ -177,7 +177,7 @@
                         </div>
                         <div class="col-12 col-sm-8 col-lg-9 text-center">
                             <div class="form-outline">
-                                <button type="submit" class="btn btn-secondary btn-block shadow-1" name="supprimer" >SUPPRIMER</button>
+                                <button type="submit" class="btn btn-outline-danger btn-block shadow-1" name="supprimer" >SUPPRIMER</button>
                             </div>
                         </div>
                     </div>
