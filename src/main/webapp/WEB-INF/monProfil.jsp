@@ -175,19 +175,19 @@ ${user}
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label for="Credit" class="col-sm-2 col-form-label">Crédit</label>
-                                        <div class="col-sm-10">
-                                            <input type="text" readonly class="form-control-plaintext" id="Credit" value="${user.credit}" >
+                                        <div class="form-group row">
+                                            <a><button type="button" class="btn btn-outline-primary disabled me-3 shadow-1">Crédits : ${user.credit}</button></a>
+                                            </a>
                                         </div>
                                     </div>
 
                                     <!-- Bouton Input -->
                                     <div class="col d-flex gap-4">
                                         <div class="form-outline mb-4">
-                                            <button type="submit" class="btn btn-primary btn-block mb-3" name="modifier" >ENREGISTRER</button>
+                                            <button type="submit" class="btn btn-primary btn-block mb-3 shadow-1" name="modifier" >ENREGISTRER</button>
                                         </div>
                                         <div class="form-outline mb-4">
-                                            <button type="submit" class="btn btn-primary btn-block mb-3" name="supprimer" >SUPPRIMER</button>
+                                            <button type="submit" class="btn btn-secondary btn-block mb-3 shadow-1" name="supprimer" >SUPPRIMER</button>
                                         </div>
                                     </div>
                                 </form>
