@@ -26,7 +26,7 @@
 
     <!-- Normalize CSS and Steelsheets -->
     <link href="css/normalize.css" rel="stylesheet" />
-    <link href="css/styles.css" rel="stylesheet"/>
+    <link href="css/style.css" rel="stylesheet" />
     <title>Mon Profil</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 
@@ -34,7 +34,7 @@
 <body>
 <body>
 <% Utilisateurs user = (Utilisateurs) session.getAttribute("user"); %>
-<header id="top">
+<header class="container">
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-transparent shadow-0">
         <!-- Container wrapper -->
@@ -56,13 +56,12 @@
                     </li>
                 </ul>
                 <!-- Left links -->
-
                 <div class="d-flex align-items-center">
                     <ul class="navbar-nav me-3 mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Encheres</a>
+                            <a class="nav-link" href="<%=request.getContextPath()%>">Encheres</a>
                         </li>
-                        <c:if test="${!isAllowed}">
+                        <c:if test="${isAllowed}">
                         <li class="nav-item">
                             <a class="nav-link" href="${pageContext.request.contextPath}/venteArticleServlet">Vendre un Article</a>
                         </li>
@@ -70,13 +69,16 @@
                             <a class="nav-link" href="${pageContext.request.contextPath}/profilServlet">Mon Profil</a>
                         </li>
                     </ul>
+                </div>
+                <div class="d-flex">
                     </c:if>
-                    <c:if test="${isAllowed}">
+                    <c:if test="${!isAllowed}">
                         <a href="${pageContext.request.contextPath}/connexion"><button type="button" class="btn btn-secondary px-3 ms-2 me-2 shadow-2">CONNEXION</button></a>
                         <a href="${pageContext.request.contextPath}/connexion"><button type="button" class="btn btn-primary me-3 shadow-2">CREER UN COMPTE</button></a>
                     </c:if>
-                    <c:if test="${!isAllowed}">
-                        <a href="${pageContext.request.contextPath}/connexion"><button type="button" class="btn btn-warning me-3 shadow-2">DECONNEXION</button></a>
+                    <c:if test="${isAllowed}">
+                        <a class="nav-link" href="${pageContext.request.contextPath}/profilServlet"><button type="button" class="btn btn-outline-success me-3 shadow-2">${user.pseudo}, ${user.credit} Crédits</button></a>
+                        <a href="${pageContext.request.contextPath}/connexion?action=deconnexion"><button type="button" class="btn btn-warning me-3 shadow-2">DECONNEXION</button></a>
                     </c:if>
                 </div>
             </div>

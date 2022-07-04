@@ -35,9 +35,13 @@
         <div class="row">
             <div class="col-sm-6 text-black">
                 <!-- Logo Login ENI -->
-                <div class="mt-5 mb-5 col-md-12 d-flex justify-content-center">
+                <div class="mt-5 mb-3 col-md-12 d-flex justify-content-center">
                     <a class="nav-link" href="${pageContext.request.contextPath}"> <img src="img/logo-ENI-full.png" alt="logo eni" width="150vh"></a>
-
+                </div>
+                <div class="container d-flex justify-content-center">
+                    <a class="nav-link" href="${pageContext.request.contextPath}">
+                     <button type="submit" class="btn btn-light btn mb-3 shadow-1  " name="modifier" >ACCES ENCHERES</button>
+                    </a>
                 </div>
                 <!-- Container Left Side -->
                 <div id="containerformulaire">
@@ -51,6 +55,7 @@
                             <li class="nav-item" role="presentation">
                                 <a class="nav-link" id="tab-register" data-mdb-toggle="pill" href="#pills-register" role="tab"
                                    aria-controls="pills-register" aria-selected="false">Créer un compte</a>
+
                             </li>
                         </ul>
                         <!-- Pills navs -->
