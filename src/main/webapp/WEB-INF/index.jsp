@@ -35,7 +35,7 @@
 </head>
 <body>
 
-<header class="container">
+<header>
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-transparent shadow-0">
         <!-- Container wrapper -->

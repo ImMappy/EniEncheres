@@ -127,18 +127,18 @@
                   <label class="form-label" name="registerMisaAPrix" for="typeNumber">Mise à prix</label>
                 </div>
 
-                <div class="form-outline mb-3">
-                  <input type="date" id="typeDateDebut" class="form-control" required/>
-                  <label class="form-label" name="registerDateDebut" for="typeDateDebut">Date Début Enchère</label>
-                </div>
+                  <div class="form-outline mb-3">
+                    <input type="date" id="typeDateDebut" class="form-control" required/>
+                    <label class="form-label" name="registerDateDebut" for="typeDateDebut">Date Début Enchère</label>
+                  </div>
 
-                <div class="form-outline mb-3">
-                  <input type="date" id="typeDateFin" class="form-control" required/>
-                  <label class="form-label" name="registerDateFin" for="typeDateFin">Date Fin Enchère</label>
-                </div>
+                  <div class="form-outline mb-3">
+                    <input type="date" id="typeDateFin" class="form-control" required/>
+                    <label class="form-label" name="registerDateFin" for="typeDateFin">Date Fin Enchère</label>
+                  </div>
             </div>
-              <div class="col-12">
 
+              <div class="col-12">
                 <p class="h4 my-3 text-center">ADRESSE DE RETRAIT</p>
 
                 <div class="form-outline mb-3">
@@ -146,20 +146,22 @@
                   <label class="form-label" name="registerRetraitRue" for="formRetraitRue">Rue</label>
                 </div>
 
-                <div class="form-outline mb-3">
-                  <input type="number" id="formRetraitCodePostal" class="form-control" value="${user.codePostal}" disabled/>
-                  <label class="form-label" name="registerRetraitCodePostal" for="formRetraitCodePostal">Code Postal</label>
-                </div>
+                <div class="d-flex gap-2">
+                  <div class="form-outline mb-3">
+                    <input type="number" id="formRetraitCodePostal" class="form-control" value="${user.codePostal}" disabled/>
+                    <label class="form-label" name="registerRetraitCodePostal" for="formRetraitCodePostal">Code Postal</label>
+                  </div>
 
-                <div class="form-outline mb-3">
-                  <input type="text" id="formRetraitVille" class="form-control" value="${user.ville}" disabled/>
-                  <label class="form-label" name="registerRetraitVille" for="formRetraitVille">Ville</label>
+                  <div class="form-outline mb-3">
+                    <input type="text" id="formRetraitVille" class="form-control" value="${user.ville}" disabled/>
+                    <label class="form-label" name="registerRetraitVille" for="formRetraitVille">Ville</label>
+                  </div>
                 </div>
               </div>
 
               <div class="col-12 mt-3 text-center">
                 <button type="submit" class="btn btn-primary shadow-1 mb-2">Enregistrer</button>
-                <button type="reset" class="btn btn-secondary shadow-1 mb-2">Annuler</button>
+                <button type="reset" class="btn btn-secondary shadow-1 mb-2">Effacer</button>
                 <a href="<%=request.getContextPath()%>"><button type="button" class="btn btn-danger shadow-1 mb-2">Annuler la vente</button></a>
               </div>
 

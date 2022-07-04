@@ -34,7 +34,7 @@
 <body>
 <body>
 <% Utilisateurs user = (Utilisateurs) session.getAttribute("user"); %>
-<header class="container">
+<header>
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-transparent shadow-0">
         <!-- Container wrapper -->
@@ -169,7 +169,7 @@
                             <button type="button" class="btn btn-light btn mb-3 shadow-1">Crédits : ${user.credit}</button>
                         </div>
                     <!-- Bouton Input -->
-                    <div class="d-flex flex-column align-items-center col-12 gap-4 text-center">
+                    <div class="d-flex flex-column align-items-center justify-content-center col-12 gap-4 text-center">
                         <div class="col-12 col-sm-8 col-lg-9 text-center">
                             <div class="form-outline">
                                 <button type="submit" class="btn btn-primary btn-block shadow-1" name="modifier" >ENREGISTRER</button>
