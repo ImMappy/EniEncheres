@@ -1,4 +1,4 @@
-package fr.eni.eniencheres.dal;
+package fr.eni.eniencheres.dal.UtilisateurDAL;
 
 import fr.eni.eniencheres.Exceptions.DALException;
 import fr.eni.eniencheres.bo.Utilisateurs;

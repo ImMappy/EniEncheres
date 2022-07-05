@@ -6,7 +6,7 @@ import fr.eni.eniencheres.bll.CategoriesBLL.CategoriesManager;
 import fr.eni.eniencheres.bll.CategoriesBLL.CategoriesManagerImpl;
 import fr.eni.eniencheres.bll.RetraitBLL.RetraitManager;
 import fr.eni.eniencheres.bll.RetraitBLL.RetraitManagerImpl;
-import fr.eni.eniencheres.bll.UtilisateursManager;
+import fr.eni.eniencheres.bll.UtilisateursBLL.UtilisateursManager;
 
 import fr.eni.eniencheres.bll.UtilisateursBLL.UtilisateursManagerImpl;
 

@@ -3,7 +3,6 @@ package fr.eni.eniencheres.dal.UtilisateurDAL;
 import fr.eni.eniencheres.Exceptions.DALException;
 import fr.eni.eniencheres.bo.Utilisateurs;
 import fr.eni.eniencheres.dal.ConnectionProvider;
-import fr.eni.eniencheres.dal.UtilisateursDAO;
 
 import java.sql.*;
 import java.util.ArrayList;

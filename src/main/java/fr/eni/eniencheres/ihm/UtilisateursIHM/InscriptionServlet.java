@@ -2,7 +2,7 @@ package fr.eni.eniencheres.ihm.UtilisateursIHM;
 
 import fr.eni.eniencheres.Exceptions.BLLException;
 import fr.eni.eniencheres.bll.FactoryBLL;
-import fr.eni.eniencheres.bll.UtilisateursManager;
+import fr.eni.eniencheres.bll.UtilisateursBLL.UtilisateursManager;
 import fr.eni.eniencheres.bo.Utilisateurs;
 
 import javax.servlet.*;

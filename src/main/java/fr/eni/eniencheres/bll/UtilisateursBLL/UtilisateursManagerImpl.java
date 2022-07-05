@@ -1,10 +1,9 @@
 package fr.eni.eniencheres.bll.UtilisateursBLL;
 
 import fr.eni.eniencheres.Exceptions.BLLException;
-import fr.eni.eniencheres.bll.UtilisateursManager;
 import fr.eni.eniencheres.bo.Utilisateurs;
 import fr.eni.eniencheres.Exceptions.DALException;
-import fr.eni.eniencheres.dal.UtilisateursDAO;
+import fr.eni.eniencheres.dal.UtilisateurDAL.UtilisateursDAO;
 import fr.eni.eniencheres.dao.DaoFactory;
 
 import java.util.ArrayList;
