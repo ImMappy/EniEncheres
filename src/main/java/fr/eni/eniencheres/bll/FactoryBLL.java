@@ -1,5 +1,13 @@
 package fr.eni.eniencheres.bll;
 
+import fr.eni.eniencheres.bll.ArticleVenduBLL.ArticleVenduManager;
+import fr.eni.eniencheres.bll.ArticleVenduBLL.ArticleVenduManagerImpl;
+import fr.eni.eniencheres.bll.RetraitBLL.RetraitManager;
+import fr.eni.eniencheres.bll.RetraitBLL.RetraitManagerImpl;
+import fr.eni.eniencheres.bll.UtilisateursManager;
+
+import fr.eni.eniencheres.bll.UtilisateursBLL.UtilisateursManagerImpl;
+
 public class FactoryBLL {
 
     public static UtilisateursManager getUtilisateursManager() {

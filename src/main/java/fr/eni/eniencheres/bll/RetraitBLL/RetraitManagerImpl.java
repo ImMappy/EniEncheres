@@ -1,9 +1,9 @@
-package fr.eni.eniencheres.bll;
+package fr.eni.eniencheres.bll.RetraitBLL;
 
-
+import fr.eni.eniencheres.Exceptions.BLLException;
 import fr.eni.eniencheres.bo.Retrait;
-import fr.eni.eniencheres.dal.DALException;
-import fr.eni.eniencheres.dal.RetraitDAO;
+import fr.eni.eniencheres.Exceptions.DALException;
+import fr.eni.eniencheres.dal.RetraitDAL.RetraitDAO;
 import fr.eni.eniencheres.dao.DaoFactory;
 
 import java.util.ArrayList;

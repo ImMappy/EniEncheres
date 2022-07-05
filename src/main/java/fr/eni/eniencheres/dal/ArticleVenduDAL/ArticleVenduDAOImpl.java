@@ -1,16 +1,16 @@
-package fr.eni.eniencheres.dal;
+package fr.eni.eniencheres.dal.ArticleVenduDAL;
 
+import fr.eni.eniencheres.Exceptions.DALException;
 import fr.eni.eniencheres.bo.ArticleVendu;
+import fr.eni.eniencheres.dal.ConnectionProvider;
 
 import java.sql.*;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
 
-public class ArticleVenduDAOImpl implements ArticleVenduDAO{
+public class ArticleVenduDAOImpl implements ArticleVenduDAO {
     private static final String INSERT = "insert into ARTICLES_VENDUS (nom_article, description, date_debut_encheres, date_fin_encheres, prix_initial, prix_vente, no_utilisateur, no_categorie, url_photo)" + "values (?,?,?,?,?,?,?,?,?)";
     private static final String SELECT_ID = "SELECT * FROM ARTICLES_VENDUS WHERE no_article = ?";
     private static final String DELETE = "DELETE FROM ARTICLES_VENDUS WHERE no_article = ?";
@@ -21,7 +21,6 @@ public class ArticleVenduDAOImpl implements ArticleVenduDAO{
 
     //* partie INSERT
     //* se connecter à la Base de donnée
-    @Override
     public void insert(ArticleVendu articleVendu)throws DALException {
         try (Connection conn = ConnectionProvider.getConnection()) {
 
@@ -120,7 +119,6 @@ public class ArticleVenduDAOImpl implements ArticleVenduDAO{
     }
 
     //*Partie UPDATE
-    @Override
     public void update(ArticleVendu articleVendu) throws DALException {
 
         // *Connection à la base de donnée

@@ -1,5 +1,6 @@
 package fr.eni.eniencheres.bll;
 
+import fr.eni.eniencheres.Exceptions.BLLException;
 import fr.eni.eniencheres.bo.Utilisateurs;
 
 import java.util.List;

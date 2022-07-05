@@ -1,5 +1,6 @@
 package fr.eni.eniencheres.dal;
 
+import fr.eni.eniencheres.Exceptions.DALException;
 import fr.eni.eniencheres.bo.Utilisateurs;
 
 import java.util.List;

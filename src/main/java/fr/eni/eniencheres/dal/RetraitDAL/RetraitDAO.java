@@ -1,6 +1,7 @@
-package fr.eni.eniencheres.dal;
+package fr.eni.eniencheres.dal.RetraitDAL;
 
 import fr.eni.eniencheres.bo.Retrait;
+import fr.eni.eniencheres.Exceptions.DALException;
 
 import java.util.List;
 

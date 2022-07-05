@@ -1,7 +1,9 @@
-package fr.eni.eniencheres.dal;
+package fr.eni.eniencheres.dal.CategoriesDAL;
 
 
 import fr.eni.eniencheres.bo.Categories;
+import fr.eni.eniencheres.dal.ConnectionProvider;
+import fr.eni.eniencheres.Exceptions.DALException;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -14,7 +16,7 @@ public class CategoriesDAOImpl implements CategoriesDAO {
     private final String SELECT_ALL_CATEGORIES = "SELECT * FROM Categories";
     private final String SELECT_CATEGORIE_BY_ID = "SELECT * FROM Categories WHERE no_categorie = ?";
 
-    public List selectAllCategories() throws DALException{
+    public List selectAllCategories() throws DALException {
         List<Categories> listCategories = null;
         try(Connection connection = ConnectionProvider.getConnection()){
             PreparedStatement preparedStatement = connection.prepareStatement(SELECT_ALL_CATEGORIES);

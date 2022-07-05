@@ -1,16 +1,14 @@
-package fr.eni.eniencheres.bll;
+package fr.eni.eniencheres.bll.ArticleVenduBLL;
 
+import fr.eni.eniencheres.Exceptions.BLLException;
 import fr.eni.eniencheres.bo.ArticleVendu;
-import fr.eni.eniencheres.dal.ArticleVenduDAO;
-import fr.eni.eniencheres.dal.DALException;
+import fr.eni.eniencheres.dal.ArticleVenduDAL.ArticleVenduDAO;
+import fr.eni.eniencheres.Exceptions.DALException;
 import fr.eni.eniencheres.dao.DaoFactory;
 
-import java.sql.Date;
-import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
 
-public class ArticleVenduManagerImpl implements ArticleVenduManager{
+public class ArticleVenduManagerImpl implements ArticleVenduManager {
 
     private static ArticleVenduManagerImpl instance;
 
@@ -29,7 +27,7 @@ public class ArticleVenduManagerImpl implements ArticleVenduManager{
 
     @Override
     //* ajout article
-    public void ajouterArticle (ArticleVendu a) throws BLLException{
+    public void ajouterArticle (ArticleVendu a) throws BLLException {
         try {
             daoArticle.insert(a);
         }catch (DALException e){

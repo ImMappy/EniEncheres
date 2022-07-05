@@ -1,8 +1,9 @@
-package fr.eni.eniencheres.bll;
+package fr.eni.eniencheres.bll.CategoriesBLL;
 
+import fr.eni.eniencheres.Exceptions.BLLException;
 import fr.eni.eniencheres.bo.Categories;
-import fr.eni.eniencheres.dal.CategoriesDAO;
-import fr.eni.eniencheres.dal.DALException;
+import fr.eni.eniencheres.dal.CategoriesDAL.CategoriesDAO;
+import fr.eni.eniencheres.Exceptions.DALException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,7 +20,7 @@ public class CategoriesManagerImpl implements CategoriesManager {
         return instance;
     }
 
-    public List getAllCategories() throws BLLException{
+    public List getAllCategories() throws BLLException {
         List<Categories> categoriesList =new ArrayList<>() ;
         try{
             categoriesList = categoriesDAO.selectAllCategories();
