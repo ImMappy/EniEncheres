@@ -109,11 +109,9 @@
 
                 <div class="form-group mb-3">
                   <select class="form-select" name="registerCategorie" aria-label="Default select example" required>
-                    <option selected>Catégories</option>
-                    <option value="1">Informatique</option>
-                    <option value="2">Ameublement</option>
-                    <option value="3">Vêtements</option>
-                    <option value="4">Sport & Loisirs</option>
+                    <c:forEach var="cat" items="${categorie}">
+                      <option value="${cat.noCategorie}">${cat.libelle}</option>
+                    </c:forEach>
                   </select>
                 </div>
 

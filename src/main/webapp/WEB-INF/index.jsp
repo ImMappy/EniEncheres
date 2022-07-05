@@ -1,7 +1,4 @@
-<%@ page import="java.util.List" %>
-<%@ page import="fr.eni.eniencheres.bo.Categories" %>
-<%@ page import="fr.eni.eniencheres.bll.CategoriesManager" %>
-<%@ page import="java.util.ArrayList" %>
+
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
@@ -106,8 +103,8 @@
                         </div>
                         <div class="col-12 col-md-9 d-flex justify-content-center">
                             <select name="category" id="category" class="form-select ms-3 w-75">
-                                <c:forEach var = "cat" items="${categoriesList}">
-                                <option value="${cat.key}">${cat.value}</option>
+                                <c:forEach var="cat" items="${categorie}">
+                                <option value="${cat.noCategorie}">${cat.libelle}</option>
                                 </c:forEach>
                             </select>
                         </div>

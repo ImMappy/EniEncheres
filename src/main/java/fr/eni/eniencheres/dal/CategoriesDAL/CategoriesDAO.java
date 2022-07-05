@@ -6,6 +6,6 @@ import fr.eni.eniencheres.Exceptions.DALException;
 import java.util.List;
 
 public interface CategoriesDAO {
-    public List selectAllCategories() throws DALException;
+    public List<Categories> selectAllCategories() throws DALException;
     public Categories selectCategorieById(int id) throws DALException;
 }

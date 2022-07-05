@@ -4,6 +4,7 @@ import fr.eni.eniencheres.Exceptions.BLLException;
 import fr.eni.eniencheres.bo.Categories;
 import fr.eni.eniencheres.dal.CategoriesDAL.CategoriesDAO;
 import fr.eni.eniencheres.Exceptions.DALException;
+import fr.eni.eniencheres.dao.DaoFactory;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,9 +20,12 @@ public class CategoriesManagerImpl implements CategoriesManager {
         }
         return instance;
     }
+    public CategoriesManagerImpl(){
+        categoriesDAO = DaoFactory.getCategoriesDAO();
+    }
 
-    public List getAllCategories() throws BLLException {
-        List<Categories> categoriesList =new ArrayList<>() ;
+    public List<Categories> getAllCategories() throws BLLException {
+        List<Categories> categoriesList;
         try{
             categoriesList = categoriesDAO.selectAllCategories();
         }catch (DALException e){

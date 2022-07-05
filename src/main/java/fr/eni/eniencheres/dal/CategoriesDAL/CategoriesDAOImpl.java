@@ -13,18 +13,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CategoriesDAOImpl implements CategoriesDAO {
-    private final String SELECT_ALL_CATEGORIES = "SELECT * FROM Categories";
-    private final String SELECT_CATEGORIE_BY_ID = "SELECT * FROM Categories WHERE no_categorie = ?";
+    private final String SELECT_ALL_CATEGORIES = "SELECT no_categorie,libelle FROM Categories";
+    private final String SELECT_CATEGORIE_BY_ID = "SELECT no_categorie,libelle FROM Categories WHERE no_categorie = ?";
 
-    public List selectAllCategories() throws DALException {
-        List<Categories> listCategories = null;
+    public List<Categories> selectAllCategories() throws DALException {
+        List<Categories> listCategories = new ArrayList<>();
         try(Connection connection = ConnectionProvider.getConnection()){
-            PreparedStatement preparedStatement = connection.prepareStatement(SELECT_ALL_CATEGORIES);
+            PreparedStatement preparedStatement = connection.prepareStatement(SELECT_ALL_CATEGORIES,PreparedStatement.RETURN_GENERATED_KEYS);
             preparedStatement.executeQuery();
             ResultSet rs = preparedStatement.getResultSet();
             while (rs.next()){
-                listCategories = new ArrayList<>();
                 Categories categories = new Categories(rs.getInt("no_categorie"),rs.getString("libelle"));
+
                 listCategories.add(categories);
             }
         }catch (SQLException e) {
@@ -37,8 +37,9 @@ public class CategoriesDAOImpl implements CategoriesDAO {
     public Categories selectCategorieById(int id) throws DALException{
         Categories categorie = null;
         try(Connection connection = ConnectionProvider.getConnection()){
-            PreparedStatement preparedStatement = connection.prepareStatement(SELECT_CATEGORIE_BY_ID);
+            PreparedStatement preparedStatement = connection.prepareStatement(SELECT_CATEGORIE_BY_ID,PreparedStatement.RETURN_GENERATED_KEYS);
             preparedStatement.setInt(1,id);
+            preparedStatement.executeQuery();
             ResultSet rs = preparedStatement.getResultSet();
             if(rs.next()){
                 categorie = new Categories(rs.getInt("no_categorie"),rs.getString("libelle"));
