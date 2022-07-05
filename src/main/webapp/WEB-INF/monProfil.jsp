@@ -94,7 +94,11 @@
         <img src="${pageContext.request.contextPath}/img/logo-ENI-full.png" width="200"/>
     </div>
         <p class="h4 my-3 text-center">MON PROFIL</p>
-
+    <c:if test="${errorPasswordProfil}">
+        <div class="alert alert-danger container d-flex align-items-center" type="alert">
+                <p autofocus>Merci de rentrer le bon mot de passe</p>
+        </div>
+    </c:if>
     <div class="container col-12 col-sm-10 col-md-8 col-lg-7 col-xl-4">
         <section class="d-flex justify-content-center border rounded-2 p-4 bg-white shadow-1">
             <div class="col-12 col-lg-10">
@@ -156,7 +160,7 @@
                     <!-- New Password input -->
                     <div class="col-12 col-sm-11 col-md-11">
                         <div class="form-outline mb-4">
-                            <input type="password" name="profilnewPassword" id="registerNewPassword" class="form-control"/>
+                            <input type="password" name="profilNewPassword" id="registerNewPassword" class="form-control"/>
                             <label class="form-label" for="registerNewPassword">Nouveau Mot de Passe</label>
                         </div>
                         <!-- Check new password input -->
@@ -167,6 +171,7 @@
                     </div>
                         <div class="text-center mb-2">
                             <button type="button" class="btn btn-light btn mb-3 shadow-1">Crédits : ${user.credit}</button>
+                            <input type="hidden" name="profilCredit" value="${user.credit}"/>
                         </div>
                     <!-- Bouton Input -->
                     <div class="d-flex flex-column align-items-center justify-content-center col-12 gap-4 text-center">

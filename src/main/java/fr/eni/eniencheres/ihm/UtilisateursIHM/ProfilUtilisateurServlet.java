@@ -48,19 +48,31 @@ public class ProfilUtilisateurServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         try {
             user = utilisateursManager.getUtilisateurById(Integer.parseInt(req.getParameter("noUtilisateur")));
-        } catch (BLLException e) {
-            e.printStackTrace();
-        }
-        user = new Utilisateurs(Integer.parseInt(req.getParameter("noUtilisateur")),req.getParameter("profilPseudo"),req.getParameter("profilNom"),req.getParameter("profilPrenom"),req.getParameter("profilEmail"),req.getParameter("profilTelephone"),req.getParameter("profilRue"),req.getParameter("profilCodePostal"),req.getParameter("profilVille"),req.getParameter("profilPassword"),Integer.parseInt(req.getParameter("profilCredit")));
-        try {
-            utilisateursManager.modifierUtilisateur(user);
             session = req.getSession();
-            session.setAttribute("user",user);
-            this.getServletContext().setAttribute("user",user);
-            resp.sendRedirect(req.getContextPath() + "/eniencheres");
         } catch (BLLException e) {
             e.printStackTrace();
         }
+        try {
+            if(!user.getMotDePasse().equals(req.getParameter("profilPassword")) || !req.getParameter("profilNewPassword").equals(req.getParameter("profilPasswordConf"))){
+                System.out.println(req.getParameter("profilPassword"));
+
+                this.getServletContext().setAttribute("errorPasswordProfil",true);
+                System.out.println(user.getMotDePasse());
+                resp.sendRedirect(req.getContextPath() + "/profilServlet");
+            }else{
+                user = new Utilisateurs(Integer.parseInt(req.getParameter("noUtilisateur")),req.getParameter("profilPseudo"),req.getParameter("profilNom"),req.getParameter("profilPrenom"),req.getParameter("profilEmail"),req.getParameter("profilTelephone"),req.getParameter("profilRue"),req.getParameter("profilCodePostal"),req.getParameter("profilVille"),req.getParameter("profilNewPassword"),Integer.parseInt(req.getParameter("profilCredit")));
+                utilisateursManager.modifierUtilisateur(user);
+                this.getServletContext().setAttribute("errorPasswordProfil",false);
+
+                session.setAttribute("user",user);
+                resp.sendRedirect(req.getContextPath() + "/eniencheres");
+            }
+
+        } catch (BLLException e) {
+            e.printStackTrace();
+        }
+
+
 
     }
 
