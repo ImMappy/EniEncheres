@@ -102,7 +102,7 @@
                 <div class="col-12 col-sm-12 col-md-6 mb-4">
                 </c:if>
                 <c:if test="${!isAllowed}">
-                <div class="col-12 col-sm-12 mb-4">
+                <div class="col-12 col-sm-12 col-md-6 offset-md-3 mb-4">
                 </c:if>
                     <div class="card">
                         <img src="${pageContext.request.contextPath}/${article.urlPhoto}" class="card-img-top" width="100%">
