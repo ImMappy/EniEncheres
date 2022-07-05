@@ -107,17 +107,9 @@
                     <div class="card">
                         <img src="${pageContext.request.contextPath}/${article.urlPhoto}" class="card-img-top" width="100%">
                         <div class="card-body pt-0 px-0">
-                            <div class="d-flex flex-row justify-content-between mb-0 px-3">
-                                <small class="text-muted mt-1">PRIX</small>
-                                <h6>${article.prixInitial} POINTS</h6>
-                            </div>
                             <hr class="mt-2 mx-3">
                             <div class="d-flex flex-row justify-content-between px-3 pb-2">
                                 <div class="d-flex flex-column"><span class="text-muted">${article.nomArticle}</span><small class="text-muted">${article.description}</small></div>
-                            </div>
-                            <div class="d-flex flex-row justify-content-between p-3 mid">
-                                <div class="d-flex flex-column"><small class="text-muted mb-1">VENDEUR</small><div class="d-flex flex-row"><div class="d-flex flex-column ml-1"><h6 class="pseudoUtilisateur ml-1">${userPseudo.pseudo}</h6></div></div></div>
-                                <div class="d-flex flex-column"><small class="text-muted mb-1">FIN DE L'ENCHERE</small><div class="d-flex flex-row"><h6 class="ml-1">${article.dateFinEncheres}</h6></div></div>
                             </div>
                             <c:if test="${!isAllowed}">
                                 <small class="d-flex justify-content-center text-muted">*enregistrez-vous pour enchèrir</small>
@@ -129,14 +121,15 @@
                 <c:if test="${isAllowed}">
                         <div class="col-12 col-sm-12 col-md-6">
                             <div class="card w-responsive">
+                                <button type="button" class="btn btn-secondary shadow-1" disabled><h4 class="text-center pt-2">PRIX ACTUEL : ${article.prixInitial} POINTS</h4></button>
                                 <div class="card-body pt-0 px-0">
                                     <div class="d-flex flex-row justify-content-between mb-0 px-3 mt-2">
-                                        <small class="text-muted mt-1">ADRESSE DE RETRAIT</small>
+                                        <small class="text-muted mt-1">FIN DE L'ENCHÈRE <strong>${article.dateFinEncheres}</strong></small>
                                         <small class="text-muted mt-1 pseudoUtilisateur">VENDU PAR : ${userPseudo.pseudo}</small>
                                     </div>
                                     <hr class="mt-2 mx-3">
                                     <div class="d-flex flex-row justify-content-between px-3 pb-2">
-                                        <div class="d-flex flex-column"><span class="text-muted pseudoUtilisateur"><h6>${retrait.rue} ${retrait.codePostal} ${retrait.ville}</h6></span></div>
+                                        <div class="d-flex"><span class="text-muted pseudoUtilisateur">ADRESSE DE RETRAIT :<br><strong> ${retrait.rue} ${retrait.codePostal} ${retrait.ville}</strong></span></div>
                                     </div>
                                     <div class="d-flex flex-row justify-content-between p-3 mid">
                                         <form action="" method="post" class="row g-3 align-items-center">
