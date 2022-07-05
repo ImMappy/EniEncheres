@@ -1,4 +1,4 @@
-package fr.eni.eniencheres.bll;
+package fr.eni.eniencheres.bll.UtilisateursBLL;
 
 import fr.eni.eniencheres.Exceptions.BLLException;
 import fr.eni.eniencheres.bo.Utilisateurs;

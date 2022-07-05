@@ -120,6 +120,8 @@
                         </div>
                     </div>
                 </div>
+
+                <c:if test="${isAllowed}">
                         <div class="col-12 col-sm-12 col-md-6">
                             <div class="card w-responsive">
                                 <div class="card-body pt-0 px-0">
@@ -145,12 +147,10 @@
                                             </div>
                                         </form>
                                     </div>
-                                    <c:if test="${!isAllowed}">
-                                        <small class="d-flex justify-content-center text-muted">*enregistrez-vous pour enchèrir</small>
-                                    </c:if>
                                 </div>
                             </div>
                         </div>
+                </c:if>
             </div>
         </div>
     </div>

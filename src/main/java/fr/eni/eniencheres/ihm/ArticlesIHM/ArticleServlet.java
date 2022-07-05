@@ -4,7 +4,7 @@ import fr.eni.eniencheres.bll.ArticleVenduBLL.ArticleVenduManager;
 import fr.eni.eniencheres.Exceptions.BLLException;
 import fr.eni.eniencheres.bll.FactoryBLL;
 import fr.eni.eniencheres.bll.RetraitBLL.RetraitManager;
-import fr.eni.eniencheres.bll.UtilisateursManager;
+import fr.eni.eniencheres.bll.UtilisateursBLL.UtilisateursManager;
 import fr.eni.eniencheres.bo.ArticleVendu;
 import fr.eni.eniencheres.bo.Retrait;
 import fr.eni.eniencheres.bo.Utilisateurs;

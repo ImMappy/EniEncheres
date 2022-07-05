@@ -6,8 +6,8 @@ import fr.eni.eniencheres.dal.CategoriesDAL.CategoriesDAO;
 import fr.eni.eniencheres.dal.CategoriesDAL.CategoriesDAOImpl;
 import fr.eni.eniencheres.dal.RetraitDAL.RetraitDAO;
 import fr.eni.eniencheres.dal.RetraitDAL.RetraitDAOImpl;
+import fr.eni.eniencheres.dal.UtilisateurDAL.UtilisateursDAO;
 import fr.eni.eniencheres.dal.UtilisateurDAL.UtilisateursDAOImpl;
-import fr.eni.eniencheres.dal.UtilisateursDAO;
 
 public class DaoFactory {
 public static UtilisateursDAO getUtilisateursDao(){
