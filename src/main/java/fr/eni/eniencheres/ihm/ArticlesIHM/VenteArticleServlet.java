@@ -4,7 +4,6 @@ import fr.eni.eniencheres.bll.ArticleVenduBLL.ArticleVenduManager;
 import fr.eni.eniencheres.Exceptions.BLLException;
 import fr.eni.eniencheres.bll.FactoryBLL;
 import fr.eni.eniencheres.bo.ArticleVendu;
-import fr.eni.eniencheres.bo.Retrait;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -29,7 +28,6 @@ public class VenteArticleServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
 
         // Récupération Paramètres Formulaire Articles
         ArticleVendu newArticle = new ArticleVendu(
