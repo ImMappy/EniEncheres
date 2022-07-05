@@ -98,12 +98,12 @@
                 <input type="hidden" name="registerNoUtilisateur" value="${user.noUtilisateur}">
 
                 <div class="form-outline mb-3">
-                  <input type="text" id="formNomArticle" class="form-control" required/>
+                  <input type="text" id="formNomArticle" name="registerArticle" class="form-control" required/>
                   <label class="form-label" name="registerArticle" for="formNomArticle">Article</label>
                 </div>
 
                 <div class="form-outline mb-3">
-                  <textarea class="form-control" id="textAreaDescription" rows="4" required></textarea>
+                  <textarea class="form-control" id="textAreaDescription" name="registerDescription" rows="4" required></textarea>
                   <label class="form-label" name="registerDescription" for="textAreaDescription">Description</label>
                 </div>
 
@@ -116,22 +116,22 @@
                 </div>
 
                 <div class="form-outline mb-3">
-                  <input type="text" id="textAreaURLPhoto" class="form-control" required/>
+                  <input type="text" id="textAreaURLPhoto" name="registerPhoto" class="form-control" required/>
                   <label class="form-label" name="registerPhoto" for="textAreaURLPhoto">URL Photo (local : img/articles-img/image.png)</label>
                 </div>
 
                 <div class="form-outline mb-3">
-                  <input type="number" id="typeNumber" class="form-control" required/>
+                  <input type="number" id="typeNumber" name="registerMisaAPrix" class="form-control" required/>
                   <label class="form-label" name="registerMisaAPrix" for="typeNumber">Mise à prix</label>
                 </div>
 
                   <div class="form-outline mb-3">
-                    <input type="date" id="typeDateDebut" class="form-control" required/>
+                    <input type="date" id="typeDateDebut" name="registerDateDebut" class="form-control" required/>
                     <label class="form-label" name="registerDateDebut" for="typeDateDebut">Date Début Enchère</label>
                   </div>
 
                   <div class="form-outline mb-3">
-                    <input type="date" id="typeDateFin" class="form-control" required/>
+                    <input type="date" id="typeDateFin" name="registerDateFin" class="form-control" required/>
                     <label class="form-label" name="registerDateFin" for="typeDateFin">Date Fin Enchère</label>
                   </div>
             </div>
@@ -140,18 +140,18 @@
                 <p class="h4 my-3 text-center">ADRESSE DE RETRAIT</p>
 
                 <div class="form-outline mb-3">
-                  <input type="text" id="formRetraitRue" class="form-control"  value="${user.rue}" disabled/>
+                  <input type="text" id="formRetraitRue" name="registerRetraitRue" class="form-control"  value="${user.rue}" disabled/>
                   <label class="form-label" name="registerRetraitRue" for="formRetraitRue">Rue</label>
                 </div>
 
                 <div class="d-flex gap-2">
                   <div class="form-outline mb-3">
-                    <input type="number" id="formRetraitCodePostal" class="form-control" value="${user.codePostal}" disabled/>
+                    <input type="number" id="formRetraitCodePostal" name="registerRetraitCodePostal" class="form-control" value="${user.codePostal}" disabled/>
                     <label class="form-label" name="registerRetraitCodePostal" for="formRetraitCodePostal">Code Postal</label>
                   </div>
 
                   <div class="form-outline mb-3">
-                    <input type="text" id="formRetraitVille" class="form-control" value="${user.ville}" disabled/>
+                    <input type="text" id="formRetraitVille" name="registerRetraitVille" class="form-control" value="${user.ville}" disabled/>
                     <label class="form-label" name="registerRetraitVille" for="formRetraitVille">Ville</label>
                   </div>
                 </div>
