@@ -37,6 +37,7 @@ public class ProfilUtilisateurServlet extends HttpServlet {
             utilisateursManager.supprimerUtilisateur(id);
             session = req.getSession();
             session.invalidate();
+            this.getServletContext().setAttribute("isAllowed", false);
 
         } catch (BLLException e) {
             e.printStackTrace();
