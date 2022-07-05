@@ -1,9 +1,8 @@
-package fr.eni.eniencheres.bll;
+package fr.eni.eniencheres.bll.ArticleVenduBLL;
 
+import fr.eni.eniencheres.Exceptions.BLLException;
 import fr.eni.eniencheres.bo.ArticleVendu;
 
-import java.sql.Date;
-import java.time.LocalDate;
 import java.util.List;
 
 public interface ArticleVenduManager {

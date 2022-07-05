@@ -1,6 +1,7 @@
-package fr.eni.eniencheres.dal;
+package fr.eni.eniencheres.dal.CategoriesDAL;
 
 import fr.eni.eniencheres.bo.Categories;
+import fr.eni.eniencheres.Exceptions.DALException;
 
 import java.util.List;
 

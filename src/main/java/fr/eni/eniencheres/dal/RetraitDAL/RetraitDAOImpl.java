@@ -1,7 +1,8 @@
-package fr.eni.eniencheres.dal;
-
-
+package fr.eni.eniencheres.dal.RetraitDAL;
+import fr.eni.eniencheres.Exceptions.DALException;
 import fr.eni.eniencheres.bo.Retrait;
+import fr.eni.eniencheres.dal.ConnectionProvider;
+import fr.eni.eniencheres.dal.RetraitDAL.RetraitDAOImpl;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -114,7 +115,7 @@ public class RetraitDAOImpl implements RetraitDAO {
 
         } return listeRetraits;
     }
-public Retrait selectRetrait(int id ) throws DALException{
+public Retrait selectRetrait(int id ) throws DALException {
         Retrait retrait = null;
         try(Connection connection = ConnectionProvider.getConnection()){
             PreparedStatement statement = connection.prepareStatement(SELECT_ID);

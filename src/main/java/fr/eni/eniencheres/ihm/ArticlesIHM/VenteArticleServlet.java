@@ -1,16 +1,16 @@
-package fr.eni.eniencheres.ihm;
+package fr.eni.eniencheres.ihm.ArticlesIHM;
 
-import fr.eni.eniencheres.bll.ArticleVenduManager;
-import fr.eni.eniencheres.bll.BLLException;
+import fr.eni.eniencheres.bll.ArticleVenduBLL.ArticleVenduManager;
+import fr.eni.eniencheres.Exceptions.BLLException;
 import fr.eni.eniencheres.bll.FactoryBLL;
 import fr.eni.eniencheres.bo.ArticleVendu;
+import fr.eni.eniencheres.bo.Retrait;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 
 @WebServlet("/venteArticleServlet")
 public class VenteArticleServlet extends HttpServlet {
@@ -20,6 +20,7 @@ public class VenteArticleServlet extends HttpServlet {
     public VenteArticleServlet() {
         articleManager = FactoryBLL.getArticleVenduManager();
     }
+    HttpSession session;
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -43,6 +44,9 @@ public class VenteArticleServlet extends HttpServlet {
                 req.getParameter("registerPseudo")
 
         );
+
+        session = req.getSession();
+        session.setAttribute("article",newArticle);
 
         try {
             articleManager.ajouterArticle(newArticle);

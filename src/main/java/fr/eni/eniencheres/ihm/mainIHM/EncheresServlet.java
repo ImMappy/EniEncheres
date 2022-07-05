@@ -1,8 +1,8 @@
-package fr.eni.eniencheres.ihm;
+package fr.eni.eniencheres.ihm.mainIHM;
 
 
-import fr.eni.eniencheres.bll.ArticleVenduManager;
-import fr.eni.eniencheres.bll.BLLException;
+import fr.eni.eniencheres.bll.ArticleVenduBLL.ArticleVenduManager;
+import fr.eni.eniencheres.Exceptions.BLLException;
 import fr.eni.eniencheres.bll.FactoryBLL;
 
 import javax.servlet.*;
@@ -13,6 +13,7 @@ import java.io.IOException;
 @WebServlet({"/eniencheres",""})
 public class EncheresServlet extends HttpServlet {
     private ArticleVenduManager articleVenduManager;
+    HttpSession session;
 
     public EncheresServlet (){
         articleVenduManager = FactoryBLL.getArticleVenduManager();
@@ -21,7 +22,8 @@ public class EncheresServlet extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
         try {
-            request.setAttribute("article",articleVenduManager.selectAll());
+            session = request.getSession();
+            session.setAttribute("article",articleVenduManager.selectAll());
             request.getRequestDispatcher("/WEB-INF/index.jsp").forward(request, response);
 
         } catch (BLLException e) {

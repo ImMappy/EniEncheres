@@ -1,6 +1,6 @@
-package fr.eni.eniencheres.ihm;
+package fr.eni.eniencheres.ihm.UtilisateursIHM;
 
-import fr.eni.eniencheres.bll.BLLException;
+import fr.eni.eniencheres.Exceptions.BLLException;
 import fr.eni.eniencheres.bll.FactoryBLL;
 import fr.eni.eniencheres.bll.UtilisateursManager;
 import fr.eni.eniencheres.bo.Utilisateurs;

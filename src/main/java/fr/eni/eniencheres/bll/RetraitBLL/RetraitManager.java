@@ -1,5 +1,6 @@
-package fr.eni.eniencheres.bll;
+package fr.eni.eniencheres.bll.RetraitBLL;
 
+import fr.eni.eniencheres.Exceptions.BLLException;
 import fr.eni.eniencheres.bo.Retrait;
 
 import java.util.List;

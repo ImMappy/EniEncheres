@@ -15,6 +15,12 @@ public class Utilisateurs {
     private int credit;
     private byte administrateur;
 
+    public Utilisateurs(String pseudo) {
+
+        this.pseudo = pseudo;
+    }
+
+
     public Utilisateurs(Integer noUtilisateur, String pseudo, String nom, String prenom, String email, String telephone, String rue, String codePostal, String ville, String motDePasse, int credit) {
         this.noUtilisateur = noUtilisateur;
         this.pseudo = pseudo;
@@ -29,6 +35,8 @@ public class Utilisateurs {
         this.credit = credit;
     }
 
+
+
     public Utilisateurs(String pseudo, String nom, String prenom, String email, String telephone, String rue, String codePostal, String ville, String motDePasse) {
         this.pseudo = pseudo;
         this.nom = nom;
@@ -41,9 +49,8 @@ public class Utilisateurs {
         this.motDePasse = motDePasse;
     }
 
-    public Utilisateurs(String pseudo, String nom, String prenom, String email, String telephone, String rue, String codePostal,
-                        String ville, String motDePasse, int credit, byte administrateur)
-    {
+    public Utilisateurs(Integer noUtilisateur, String pseudo, String nom, String prenom, String email, String telephone, String rue, String codePostal, String ville, String motDePasse) {
+        this.noUtilisateur = noUtilisateur;
         this.pseudo = pseudo;
         this.nom = nom;
         this.prenom = prenom;
@@ -53,25 +60,9 @@ public class Utilisateurs {
         this.codePostal = codePostal;
         this.ville = ville;
         this.motDePasse = motDePasse;
-        this.credit = credit;
     }
 
-    public Utilisateurs(String pseudo, String nom, String prenom, String email, String telephone, String rue, String codePostal, String ville, String motDePasse, int credit) {
-        this.pseudo = pseudo;
-        this.nom = nom;
-        this.prenom = prenom;
-        this.email = email;
-        this.telephone = telephone;
-        this.rue = rue;
-        this.codePostal = codePostal;
-        this.ville = ville;
-        this.motDePasse = motDePasse;
-        this.credit = credit;
-    }
-
-    public Utilisateurs(Integer noUtilisateur, String pseudo, String nom, String prenom,
-                        String email, String telephone, String rue, String codePostal, String ville, String motDePasse, int credit, byte administrateur)
-    {
+    public Utilisateurs(Integer noUtilisateur, String pseudo, String nom, String prenom, String email, String telephone, String rue, String codePostal, String ville, String motDePasse, int credit, byte administrateur) {
         this.noUtilisateur = noUtilisateur;
         this.pseudo = pseudo;
         this.nom = nom;
@@ -86,16 +77,9 @@ public class Utilisateurs {
         this.administrateur = administrateur;
     }
 
-    public Utilisateurs() {
-
-    }
     public Utilisateurs(String pseudo, String motDePasse) {
         this.pseudo = pseudo;
         this.motDePasse = motDePasse;
-    }
-
-    public Utilisateurs(String pseudo) {
-        this.pseudo = pseudo;
     }
 
     public Integer getNoUtilisateur() {

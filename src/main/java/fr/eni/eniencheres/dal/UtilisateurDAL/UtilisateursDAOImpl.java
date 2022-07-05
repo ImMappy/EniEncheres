@@ -1,6 +1,9 @@
-package fr.eni.eniencheres.dal;
+package fr.eni.eniencheres.dal.UtilisateurDAL;
 
+import fr.eni.eniencheres.Exceptions.DALException;
 import fr.eni.eniencheres.bo.Utilisateurs;
+import fr.eni.eniencheres.dal.ConnectionProvider;
+import fr.eni.eniencheres.dal.UtilisateursDAO;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -14,7 +17,6 @@ public class UtilisateursDAOImpl implements UtilisateursDAO {
     private static final String SELECT_ALL_UTILISATEURS = "SELECT * FROM UTILISATEURS";
     private static final String DELETE_UTILISATEUR = "DELETE FROM UTILISATEURS WHERE no_utilisateur = ?";
     private static final String SELECT_INFOS_USER = "SELECT * FROM UTILISATEURS WHERE pseudo = ? AND mot_de_passe = ?";
-
     private static final String SELECT_USER_PSEUDO = "SELECT pseudo from UTILISATEURS u, ARTICLES_VENDUS a, RETRAITS r WHERE u.no_utilisateur = a.no_utilisateur AND r.no_article = a.no_article AND a.no_article=?";
 
 
@@ -33,7 +35,7 @@ public class UtilisateursDAOImpl implements UtilisateursDAO {
             ResultSet rs = preparedStatement.getResultSet();
             if(rs.next()){
 
-                user = new Utilisateurs(rs.getString("pseudo"),rs.getString("nom"),rs.getString("prenom"),rs.getString("email"),rs.getString("telephone"),rs.getString("rue"),rs.getString("code_postal"),rs.getString("ville"),rs.getString("mot_de_passe"),rs.getInt("credit"),rs.getByte("administrateur"));
+                user = new Utilisateurs(rs.getInt("no_utilisateur"),rs.getString("pseudo"),rs.getString("nom"),rs.getString("prenom"),rs.getString("email"),rs.getString("telephone"),rs.getString("rue"),rs.getString("code_postal"),rs.getString("ville"),rs.getString("mot_de_passe"),rs.getInt("credit"));
 
             }
         } catch (SQLException e){
@@ -58,7 +60,7 @@ public class UtilisateursDAOImpl implements UtilisateursDAO {
             while(rs.next()){
                  utilisateursList= new ArrayList<>();
 
-                user = new Utilisateurs(rs.getString("pseudo"),rs.getString("nom"),rs.getString("prenom"),rs.getString("email"),rs.getString("telephone"),rs.getString("rue"),rs.getString("code_postal"),rs.getString("ville"),rs.getString("motDePasse"),rs.getInt("credit"),rs.getByte("administrateur"));
+                user = new Utilisateurs(rs.getInt("no_utilisateur"),rs.getString("pseudo"),rs.getString("nom"),rs.getString("prenom"),rs.getString("email"),rs.getString("telephone"),rs.getString("rue"),rs.getString("code_postal"),rs.getString("ville"),rs.getString("motDePasse"),rs.getInt("credit"),rs.getByte("administrateur"));
 
                 utilisateursList.add(user);
             }
@@ -137,6 +139,7 @@ public class UtilisateursDAOImpl implements UtilisateursDAO {
         try(Connection connection = ConnectionProvider.getConnection()){
             PreparedStatement preparedStatement = connection.prepareStatement(DELETE_UTILISATEUR);
             preparedStatement.setInt(1,id);
+            preparedStatement.executeUpdate();
         } catch (SQLException e){
             e.printStackTrace();
             throw new DALException("Erreur delete",e);

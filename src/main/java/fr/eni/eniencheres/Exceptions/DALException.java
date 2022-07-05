@@ -1,4 +1,4 @@
-package fr.eni.eniencheres.dal;
+package fr.eni.eniencheres.Exceptions;
 
 public class DALException extends Exception {
 

@@ -1,14 +1,16 @@
-package fr.eni.eniencheres.bll;
+package fr.eni.eniencheres.bll.UtilisateursBLL;
 
+import fr.eni.eniencheres.Exceptions.BLLException;
+import fr.eni.eniencheres.bll.UtilisateursManager;
 import fr.eni.eniencheres.bo.Utilisateurs;
-import fr.eni.eniencheres.dal.DALException;
+import fr.eni.eniencheres.Exceptions.DALException;
 import fr.eni.eniencheres.dal.UtilisateursDAO;
 import fr.eni.eniencheres.dao.DaoFactory;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class UtilisateursManagerImpl implements UtilisateursManager{
+public class UtilisateursManagerImpl implements UtilisateursManager {
 
     private static UtilisateursManagerImpl instance;
     private UtilisateursDAO userDao;
@@ -78,7 +80,7 @@ public class UtilisateursManagerImpl implements UtilisateursManager{
     public Utilisateurs getUtilisateurById(int id) throws BLLException{
         Utilisateurs user = null;
         try{
-            userDao.selectUtilisateurById(id);
+            user = userDao.selectUtilisateurById(id);
         } catch (DALException e){
             e.printStackTrace();
             throw new BLLException("Erreur affichage utilisateur by id",e);

@@ -33,6 +33,7 @@
 </head>
 <body>
 <body>
+<% Utilisateurs user = (Utilisateurs) session.getAttribute("user"); %>
 <header>
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-transparent shadow-0">
@@ -164,20 +165,19 @@
                             <label class="form-label" for="registerPasswordConf">Confirmation</label>
                         </div>
                     </div>
-                        <div class="form-outline mb-4">
+                        <div class="text-center mb-2">
                             <button type="button" class="btn btn-light btn mb-3 shadow-1">Crédits : ${user.credit}</button>
-                            <input type="hidden" name="profilCredit" value="${user.credit}" />
                         </div>
                     <!-- Bouton Input -->
                     <div class="d-flex flex-column align-items-center justify-content-center col-12 gap-4 text-center">
                         <div class="col-12 col-sm-8 col-lg-9 text-center">
                             <div class="form-outline">
-                               <button type="submit" class="btn btn-primary btn-block shadow-1" >ENREGISTRER</button>
+                                <button type="submit" class="btn btn-primary btn-block shadow-1" name="modifier" >ENREGISTRER</button>
                             </div>
                         </div>
                         <div class="col-12 col-sm-8 col-lg-9 text-center">
                             <div class="form-outline">
-                                <a href="${pageContext.request.contextPath}/profilServlet?action=supprimer&noUtilisateur=${user.noUtilisateur}"><button type="button" class="btn btn-outline-danger btn-block shadow-1" >SUPPRIMER</button></a>
+                                <a href="${pageContext.request.contextPath}/profilServlet?action=supprimer&noUtilisateur=${user.noUtilisateur}"><button type="button" class="btn btn-outline-danger btn-block shadow-1">SUPPRIMER</button></a>
                             </div>
                         </div>
                     </div>
