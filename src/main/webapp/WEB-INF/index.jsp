@@ -114,7 +114,7 @@
                     <c:if test="${isAllowed}">
                     <div class="row">
                         <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 mb-3">
-                            <input type="radio" name="filterRadio" id="achats" onchange="check()">
+                            <input type="radio" name="filterRadio" id="achats" onchange="check()" checked>
                             <label for="achats">Achats</label>
                             <div>
                                 <div>
@@ -137,15 +137,15 @@
                             <label for="ventes">Mes ventes</label>
                             <div>
                                 <div>
-                                    <input type="checkbox" name="ventesEnCours" id="ventesEnCours">
+                                    <input type="checkbox" name="ventesEnCours" id="ventesEnCours" disabled>
                                     <label for="ventesEnCours">Mes ventes en cours</label>
                                 </div>
                                 <div>
-                                    <input type="checkbox" name="ventesNonCommencees" id="ventesNonCommencees">
+                                    <input type="checkbox" name="ventesNonCommencees" id="ventesNonCommencees" disabled>
                                     <label for="ventesNonCommencees">Ventes non debutees</label>
                                 </div>
                                 <div>
-                                    <input type="checkbox" name="ventesTerminees" id="ventesTerminees">
+                                    <input type="checkbox" name="ventesTerminees" id="ventesTerminees" disabled>
                                     <label for="ventesTerminees">Ventes terminees</label>
                                 </div>
                             </div>
