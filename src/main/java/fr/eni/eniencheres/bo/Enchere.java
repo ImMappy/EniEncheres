@@ -3,35 +3,79 @@ package fr.eni.eniencheres.bo;
 import java.time.LocalDate;
 
 public class Enchere {
+    private int noEnchere;
     private LocalDate dateEnchere;
-    private float montantEnchere;
+    private int montantEnchere;
+    private int noArticle;
+    private int noUtilisateur;
 
-    public Enchere(LocalDate dateEnchere, float montantEnchere) {
+    public Enchere(int montantEnchere) {
+        this.montantEnchere = montantEnchere;
+    }
+
+    public Enchere(int noEnchere, LocalDate dateEnchere, int montantEnchere, int noArticle, int noUtilisateur) {
+        this.noEnchere = noEnchere;
         this.dateEnchere = dateEnchere;
         this.montantEnchere = montantEnchere;
+        this.noArticle = noArticle;
+        this.noUtilisateur = noUtilisateur;
+    }
+
+    public Enchere(LocalDate dateEnchere, int montantEnchere, int noArticle, int noUtilisateur) {
+        this.dateEnchere = dateEnchere;
+        this.montantEnchere = montantEnchere;
+        this.noArticle = noArticle;
+        this.noUtilisateur = noUtilisateur;
+    }
+
+    public int getNoEnchere() {
+        return noEnchere;
+    }
+
+    public void setNoEnchere(int noEnchere) {
+        this.noEnchere = noEnchere;
     }
 
     public LocalDate getDateEnchere() {
         return dateEnchere;
     }
 
-    public float getMontantEnchere() {
-        return montantEnchere;
-    }
-
     public void setDateEnchere(LocalDate dateEnchere) {
         this.dateEnchere = dateEnchere;
     }
 
-    public void setMontantEnchere(float montantEnchere) {
+    public int getMontantEnchere() {
+        return montantEnchere;
+    }
+
+    public void setMontantEnchere(int montantEnchere) {
         this.montantEnchere = montantEnchere;
+    }
+
+    public int getNoArticle() {
+        return noArticle;
+    }
+
+    public void setNoArticle(int noArticle) {
+        this.noArticle = noArticle;
+    }
+
+    public int getNoUtilisateur() {
+        return noUtilisateur;
+    }
+
+    public void setNoUtilisateur(int noUtilisateur) {
+        this.noUtilisateur = noUtilisateur;
     }
 
     @Override
     public String toString() {
         return "Enchere{" +
-                "dateEnchere=" + dateEnchere +
+                "noEnchere=" + noEnchere +
+                ", dateEnchere=" + dateEnchere +
                 ", montantEnchere=" + montantEnchere +
+                ", noArticle=" + noArticle +
+                ", noUtilisateur=" + noUtilisateur +
                 '}';
     }
 }

@@ -26,8 +26,6 @@ public class EncheresServlet extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
         try {
-
-
             session = request.getSession();
             session.setAttribute("categorie",categoriesManager.getAllCategories());
             session.setAttribute("article",articleVenduManager.selectAll());
@@ -37,6 +35,5 @@ public class EncheresServlet extends HttpServlet {
             e.printStackTrace();
         }
     }
-
 
 }
