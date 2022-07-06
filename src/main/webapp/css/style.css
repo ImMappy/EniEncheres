@@ -73,3 +73,7 @@ small.justify-content-center{
 .titleNouvelleArticle {
     color: #0a4275;
 }
+
+.btnNewPrice {
+    --bs-btn-padding-x: 0.6rem !important;
+}
