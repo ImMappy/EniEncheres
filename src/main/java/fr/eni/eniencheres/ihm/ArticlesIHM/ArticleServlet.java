@@ -45,13 +45,6 @@ public class ArticleServlet extends HttpServlet {
             }
         }
 
-        try {
-            enchere= enchereManager.selectEnchereId(enchere.getNoArticle());
-            session = request.getSession();
-            session.setAttribute("enchere",enchere);
-        } catch (BLLException e) {
-            e.printStackTrace();
-        }
         request.getRequestDispatcher("/WEB-INF/articleDetail.jsp").forward(request,response);
 
     }
@@ -72,7 +65,6 @@ public class ArticleServlet extends HttpServlet {
             session.setAttribute("retrait",retrait);
             session.setAttribute("article",articleVendu);
             session.setAttribute("enchere",enchere);
-
             session.setAttribute("userPseudo",user);
 
 

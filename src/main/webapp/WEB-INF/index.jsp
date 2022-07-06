@@ -172,7 +172,7 @@
                                     <img src="${pageContext.request.contextPath}/${element.urlPhoto}" class="card-img-top" width="100%">
                                     <div class="card-body pt-0 px-0">
                                         <div class="d-flex flex-row justify-content-between mb-0 px-3">
-                                            <small class="text-muted mt-1">PRIX</small>
+                                            <small class="text-muted mt-1">PRIX DE DÉPART</small>
                                             <h6>${element.prixInitial} POINTS</h6>
                                         </div>
                                         <hr class="mt-2 mx-3">
@@ -182,6 +182,7 @@
                                         <div class="d-flex flex-row justify-content-between p-3 mid">
                                             <div class="d-flex flex-column"><small class="text-muted mb-1">VENDEUR</small><div class="d-flex flex-row"><div class="d-flex flex-column ml-1"><h6 class="pseudoUtilisateur ml-1">${element.pseudoUtilisateur}</h6></div></div></div>
                                             <div class="d-flex flex-column"><small class="text-muted mb-1">FIN DE L'ENCHERE</small><div class="d-flex flex-row"><h6 class="ml-1">${element.dateFinEncheres}</h6></div></div>
+                                            <div class="d-flex flex-column"><small class="text-muted mb-1">DERNIER PRIX</small><div class="d-flex flex-row"><h6 class="ml-1 dernierPrix">${enchere.montantEnchere}</h6></div></div>
                                         </div>
                                         <div class="mx-3 mt-2 mb-2"><a href="<%=request.getContextPath()%>/articleDetail?action=getDetail&noArticle=${element.noArticle}"><button type="button" class="btn btn-outline-danger btn-block"><small>DETAIL DE L'ARTICLE</small></button></a></div>
                                         <c:if test="${!isAllowed}">
