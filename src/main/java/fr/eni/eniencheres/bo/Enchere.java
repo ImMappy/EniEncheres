@@ -13,6 +13,11 @@ public class Enchere {
         this.montantEnchere = montantEnchere;
     }
 
+    @Override
+    public String toString() {
+        return String.valueOf(montantEnchere);
+    }
+
     public Enchere(int noEnchere, LocalDate dateEnchere, int montantEnchere, int noArticle, int noUtilisateur) {
         this.noEnchere = noEnchere;
         this.dateEnchere = dateEnchere;
@@ -66,16 +71,5 @@ public class Enchere {
 
     public void setNoUtilisateur(int noUtilisateur) {
         this.noUtilisateur = noUtilisateur;
-    }
-
-    @Override
-    public String toString() {
-        return "Enchere{" +
-                "noEnchere=" + noEnchere +
-                ", dateEnchere=" + dateEnchere +
-                ", montantEnchere=" + montantEnchere +
-                ", noArticle=" + noArticle +
-                ", noUtilisateur=" + noUtilisateur +
-                '}';
     }
 }

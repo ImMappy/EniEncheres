@@ -10,7 +10,7 @@ import java.time.LocalDate;
 
 public class EncheresDAOImpl implements EncheresDAO  {
         private static final String SELECT_ENCHERES = "SELECT no_enchere,date_enchere,montant_enchere,no_article,no_utilisateur FROM Encheres e WHERE no_article= ?";
-        private static final String SELECT_MONTANT = "SELECT montant_enchere FROM Encheres WHERE no_article = ?";
+        private static final String SELECT_MONTANT = "SELECT TOP 1 montant_enchere FROM Encheres WHERE no_article = ? ORDER BY montant_enchere DESC";
         private static final String INSERT_ENCHERE = "INSERT INTO Encheres (date_enchere,montant_enchere,no_article,no_utilisateur) VALUES (?,?,?,?)";
 
         public Enchere selectEnchereId(int id) throws DALException {

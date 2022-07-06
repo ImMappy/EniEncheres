@@ -24,6 +24,7 @@ public class ArticleServlet extends HttpServlet {
     private ArticleVendu articleVendu;
     private Enchere enchere;
     private EnchereManager enchereManager;
+
     public ArticleServlet(){
         articleVenduManager = FactoryBLL.getArticleVenduManager();
         retraitManager =    FactoryBLL.getRetraitManager();
@@ -64,7 +65,7 @@ public class ArticleServlet extends HttpServlet {
             session = req.getSession();
             session.setAttribute("retrait",retrait);
             session.setAttribute("article",articleVendu);
-            session.setAttribute("enchere",enchere);
+            session.setAttribute("prixVente",enchere);
             session.setAttribute("userPseudo",user);
 
 
@@ -81,11 +82,12 @@ public class ArticleServlet extends HttpServlet {
         try{
             enchere = new Enchere(articleVendu.getDateFinEncheres(),credit,articleVendu.getNoArticle(), articleVendu.getNoUtilisateur());
             enchereManager.ajoutEnchere(enchere);
+            articleVendu.setPrixVente(enchere.getMontantEnchere());
+            System.out.println(articleVendu);
             resp.sendRedirect(req.getContextPath() + "/articleDetail");
         }catch (BLLException e){
             e.printStackTrace();
         }
-
 
 
     }
