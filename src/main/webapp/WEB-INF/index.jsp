@@ -28,6 +28,7 @@
     <link href="css/normalize.css" rel="stylesheet" />
     <link href="css/style.css" rel="stylesheet" />
     <script type="text/javascript" src="js/radioDisable.js"></script>
+    <script type="text/javascript" src="js/searchBar.js"></script>
     <title>ENI - ENCHERES</title>
 
 </head>
@@ -95,7 +96,7 @@
                     <span>Filtres :</span>
                     <div class="form-outline my-2">
                         <i class="fas fa-search trailing"></i>
-                        <input type="text" name="articleIn" class="form-control" placeholder="Le nom de l'article contient"/>
+                        <input type="text" name="articleIn" id="searchBarInput" class="form-control" placeholder="Le nom de l'article contient" onkeyup="searchBar()"/>
                     </div>
 
                     <div class="row my-4">
@@ -165,31 +166,31 @@
                 <c:if test="${empty article}">
                     <p id="nullArticle">Le catalogue ne contient aucun Article</p>
                 </c:if>
-                <c:forEach var="element"  items="${article}" >
-                <div class="col-xl-3 col-lg-4 col-sm-6 col-md-6 col-12 mt-3">
-                    <div class="card">
-                        <img src="${pageContext.request.contextPath}/${element.urlPhoto}" class="card-img-top" width="100%">
-                        <div class="card-body pt-0 px-0">
-                            <div class="d-flex flex-row justify-content-between mb-0 px-3">
-                                <small class="text-muted mt-1">PRIX</small>
-                                <h6>${element.prixInitial} POINTS</h6>
+                    <c:forEach var="element"  items="${article}" >
+                            <div class="articleSearch col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mt-3">
+                                <div class="card">
+                                    <img src="${pageContext.request.contextPath}/${element.urlPhoto}" class="card-img-top" width="100%">
+                                    <div class="card-body pt-0 px-0">
+                                        <div class="d-flex flex-row justify-content-between mb-0 px-3">
+                                            <small class="text-muted mt-1">PRIX</small>
+                                            <h6>${element.prixInitial} POINTS</h6>
+                                        </div>
+                                        <hr class="mt-2 mx-3">
+                                        <div class="d-flex flex-row justify-content-between px-3 pb-2">
+                                            <div class="d-flex flex-column"><span class="text-muted">${element.nomArticle}</span><small class="text-muted">${element.description}</small></div>
+                                        </div>
+                                        <div class="d-flex flex-row justify-content-between p-3 mid">
+                                            <div class="d-flex flex-column"><small class="text-muted mb-1">VENDEUR</small><div class="d-flex flex-row"><div class="d-flex flex-column ml-1"><h6 class="pseudoUtilisateur ml-1">${element.pseudoUtilisateur}</h6></div></div></div>
+                                            <div class="d-flex flex-column"><small class="text-muted mb-1">FIN DE L'ENCHERE</small><div class="d-flex flex-row"><h6 class="ml-1">${element.dateFinEncheres}</h6></div></div>
+                                        </div>
+                                        <div class="mx-3 mt-2 mb-2"><a href="<%=request.getContextPath()%>/articleDetail?action=getDetail&noArticle=${element.noArticle}"><button type="button" class="btn btn-outline-danger btn-block"><small>DETAIL DE L'ARTICLE</small></button></a></div>
+                                        <c:if test="${!isAllowed}">
+                                        <small class="d-flex justify-content-center text-muted">*enregistrez-vous pour enchèrir</small>
+                                        </c:if>
+                                    </div>
+                                </div>
                             </div>
-                            <hr class="mt-2 mx-3">
-                            <div class="d-flex flex-row justify-content-between px-3 pb-2">
-                                <div class="d-flex flex-column"><span class="text-muted">${element.nomArticle}</span><small class="text-muted">${element.description}</small></div>
-                            </div>
-                            <div class="d-flex flex-row justify-content-between p-3 mid">
-                                <div class="d-flex flex-column"><small class="text-muted mb-1">VENDEUR</small><div class="d-flex flex-row"><div class="d-flex flex-column ml-1"><h6 class="pseudoUtilisateur ml-1">${element.pseudoUtilisateur}</h6></div></div></div>
-                                <div class="d-flex flex-column"><small class="text-muted mb-1">FIN DE L'ENCHERE</small><div class="d-flex flex-row"><h6 class="ml-1">${element.dateFinEncheres}</h6></div></div>
-                            </div>
-                            <div class="mx-3 mt-2 mb-2"><a href="<%=request.getContextPath()%>/articleDetail?action=getDetail&noArticle=${element.noArticle}"><button type="button" class="btn btn-outline-danger btn-block"><small>DETAIL DE L'ARTICLE</small></button></a></div>
-                            <c:if test="${!isAllowed}">
-                            <small class="d-flex justify-content-center text-muted">*enregistrez-vous pour enchèrir</small>
-                            </c:if>
-                        </div>
-                    </div>
-                </div>
-                </c:forEach>
+                    </c:forEach>
             </div>
         </div>
     </div>
