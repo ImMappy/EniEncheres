@@ -7,6 +7,7 @@ function check() {
         document.getElementById('encheresOuvertes').disabled = false;
         document.getElementById('mesEncheres').disabled = false;
         document.getElementById('encheresRemportees').disabled = false;
+
     } else if (document.getElementById('ventes').checked) {
         document.getElementById('ventesEnCours').disabled = false;
         document.getElementById('ventesNonCommencees').disabled = false;
