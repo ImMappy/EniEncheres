@@ -83,6 +83,7 @@ public class ArticleServlet extends HttpServlet {
             enchere = new Enchere(articleVendu.getDateFinEncheres(),credit,articleVendu.getNoArticle(), articleVendu.getNoUtilisateur());
             enchereManager.ajoutEnchere(enchere);
             articleVendu.setPrixVente(enchere.getMontantEnchere());
+            session.setAttribute("prixVente", credit);
             System.out.println(articleVendu);
             resp.sendRedirect(req.getContextPath() + "/articleDetail");
         }catch (BLLException e){
