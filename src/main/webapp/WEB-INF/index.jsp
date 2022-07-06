@@ -27,6 +27,7 @@
     <!-- Normalize CSS and Steelsheets -->
     <link href="css/normalize.css" rel="stylesheet" />
     <link href="css/style.css" rel="stylesheet" />
+    <script type="text/javascript" src="js/radioDisable.js"></script>
     <title>ENI - ENCHERES</title>
 
 </head>
@@ -113,7 +114,7 @@
                     <c:if test="${isAllowed}">
                     <div class="row">
                         <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 mb-3">
-                            <input type="radio" name="filterRadio" id="achats">
+                            <input type="radio" name="filterRadio" id="achats" onchange="check()">
                             <label for="achats">Achats</label>
                             <div>
                                 <div>
@@ -132,7 +133,7 @@
                         </div>
 
                         <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 mb-3">
-                            <input type="radio" name="filterRadio" id="ventes" ${disableRadio}>
+                            <input type="radio" name="filterRadio" id="ventes" ${disableRadio} onchange="check()">
                             <label for="ventes">Mes ventes</label>
                             <div>
                                 <div>
