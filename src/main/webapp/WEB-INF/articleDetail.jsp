@@ -98,7 +98,7 @@
     <div class="container">
         <div class="container d-flex justify-content-center">
             <div class="row">
-                <div class="col-12 col-sm-12 col-md-6 mb-4">
+                <div class="col-12 col-sm-12 col-md-5 offset-md-1 mb-4">
                     <div class="card">
                         <img src="${pageContext.request.contextPath}/${article.urlPhoto}" class="card-img-top" width="100%">
                         <div class="card-body pt-0 px-0">
