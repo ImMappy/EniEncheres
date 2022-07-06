@@ -91,14 +91,14 @@
 <main class="container">
 
         <div class="container containerFilter mt-5 col-12 col-sm-12 col-md-8 col-lg-8 col-xl-6">
-            <section id="filter" class="mid2 row w-150 mx-auto border border rounded p-3 shadow-2">
-                <form method="post" action="">
+            <section id="filter" class="mid2 row w-100 mx-auto border border rounded p-4 shadow-2">
                     <span>Filtres :</span>
                     <div class="form-outline my-2">
                         <i class="fas fa-search trailing"></i>
                         <input type="text" name="articleIn" id="searchBarInput" class="form-control" placeholder="Le nom de l'article contient" onkeyup="searchBar()"/>
                     </div>
 
+                <form method="post" action="">
                     <div class="row my-4">
                         <div class="col-12 col-md-3 d-flex justify-content-center">
                             <label for="category" class="mt-1 mb-2">Categorie</label>
