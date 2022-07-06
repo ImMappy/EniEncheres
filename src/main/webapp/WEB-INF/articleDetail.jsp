@@ -100,7 +100,7 @@
             <div class="row">
                 <div class="col-12 col-sm-12 col-md-5 offset-md-1 mb-4">
                     <div class="card">
-                        <img src="${pageContext.request.contextPath}/${article.urlPhoto}" class="card-img-top" width="100%">
+                        <img src="https://www.visitdubai.com/fr/places-to-visit/img-worlds-of-adventure" class="card-img-top" width="100%">
                         <div class="card-body pt-0 px-0">
                             <hr class="mt-2 mx-3">
                             <div class="d-flex flex-row justify-content-between px-3 pb-2">
@@ -122,7 +122,7 @@
                                     <div class="d-flex flex-row justify-content-between px-3 pb-2">
                                         <div class="d-flex"><span class="text-muted pseudoUtilisateur">ADRESSE DE RETRAIT :<br><strong> ${retrait.rue} <br>${retrait.codePostal} ${retrait.ville}</strong></span></div>
                                         <button type="button" class="btn btn-success btnNewPrice shadow-1 mb-2" disabled>
-                                            <h6 class="text-center pt-1">DERNIER PRIX :<br> ${article.prixInitial} POINTS</h6>
+                                            <h6 class="text-center pt-1">DERNIER PRIX :<br> ${enchere.montantEnchere} POINTS</h6>
                                             <small class="pseudoUtilisateur">PAR ${userPseudo.pseudo}</small></button>
                                     </div>
 
@@ -131,15 +131,15 @@
                                             <small class="text-center">*enregistrez-vous pour enchèrir</small>
                                         </c:if>
                                         <c:if test="${isAllowed}">
-                                        <form action="" method="post" class="row g-3 align-items-center">
+                                        <form action="${pageContext.request.contextPath}/articleDetail" method="post" class="row g-3 align-items-center">
                                             <div class="col-9 col-sm-8">
                                                 <div class="input-group">
                                                     <div class="input-group-text">POINTS</div>
-                                                    <input type="number" class="form-control" id="inlineFormInputGroupUsername" placeholder="${article.prixInitial}" min="${article.prixInitial}" step="10" />
+                                                    <input type="number" class="form-control" id="inlineFormInputGroupUsername" name="creditEnchere" placeholder="${article.prixInitial}" min="${article.prixInitial}" step="10" />
                                                 </div>
                                             </div>
                                             <div class="col-3 col-sm-4">
-                                                <button type="submit" class="btn btn-primary shadow-1">ENCHERIR</button>
+                                                <button type="submit" class="btn btn-primary shadow-1" >ENCHERIR</button>
                                             </div>
                                         </form>
                                         </c:if>
