@@ -124,8 +124,13 @@
                                             <span class="text-muted pseudoUtilisateur">ADRESSE DE RETRAIT :<br><strong> ${retrait.rue} <br>${retrait.codePostal} ${retrait.ville}</strong></span>
                                         </div>
                                             <button type="button" class="btn btn-success btnNewPrice shadow-1 mb-2" disabled>
-                                            <h6 class="text-center pt-1">DERNIER PRIX :<br> ${prixVente} POINTS</h6>
-                                            <small class="pseudoUtilisateur">PAR ${userPseudo.pseudo}</small></button>
+                                                <c:if test="${prixVente==null}">
+                                                <h6 class="text-center pt-1">DERNIER PRIX :<br> ${article.prixInitial} POINTS</h6>
+                                                </c:if>
+                                                <c:if test="${prixVente!=null}">
+                                                <h6 class="text-center pt-1">DERNIER PRIX :<br> ${prixVente} POINTS</h6>
+                                                </c:if>
+                                                <small class="pseudoUtilisateur">PAR ${userPseudo.pseudo}</small></button>
                                     </div>
 
                                     <div class="d-flex flex-row justify-content-center p-3 mid">
@@ -137,7 +142,12 @@
                                             <div class="col-9 col-sm-8">
                                                 <div class="input-group">
                                                     <div class="input-group-text">POINTS</div>
+                                                    <c:if test="${prixVente==null}">
                                                     <input type="number" class="form-control" id="inlineFormInputGroupUsername" name="creditEnchere" placeholder="${article.prixInitial}" min="${article.prixInitial}" step="10" />
+                                                    </c:if>
+                                                    <c:if test="${prixVente!=null}">
+                                                        <input type="number" class="form-control" id="inlineFormInputGroupUsername" name="creditEnchere" placeholder="${prixVente}" min="${prixVente}" step="10" />
+                                                    </c:if>
                                                 </div>
                                             </div>
                                             <div class="col-3 col-sm-4">
