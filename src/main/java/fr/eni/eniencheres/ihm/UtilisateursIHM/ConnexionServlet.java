@@ -22,6 +22,7 @@ public class ConnexionServlet extends HttpServlet {
     }
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        session = request.getSession();
 
         // ?action=deconnexion
         String action=request.getParameter("action");
@@ -29,8 +30,6 @@ public class ConnexionServlet extends HttpServlet {
             doDeconnexion(request, response);
             return;
         }
-
-
 
         request.getRequestDispatcher("/WEB-INF/connexion.jsp").forward(request, response);
     }
@@ -42,9 +41,8 @@ public class ConnexionServlet extends HttpServlet {
 
         try {
             user = utilisateursManager.getUser(req.getParameter("pseudo"), req.getParameter("password"));
-
             if(user != null){
-                session = req.getSession();
+
                 session.setAttribute("user", user);
 
                 this.getServletContext().setAttribute("isAllowed", true);
