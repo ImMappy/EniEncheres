@@ -120,8 +120,9 @@ public class ArticleVendu {
         this.pseudoUtilisateur = pseudoUtilisateur;
     }
 
-
-
+    public ArticleVendu(int prixVente) {
+        this.prixVente = prixVente;
+    }
 
     public Integer getNoArticle() {
         return noArticle;

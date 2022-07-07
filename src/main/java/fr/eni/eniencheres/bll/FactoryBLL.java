@@ -22,6 +22,5 @@ public class FactoryBLL {
     public static EnchereManager getEnchereManager(){return new EnchereManagerImpl();}
     public static CategoriesManager getCategoriesManager(){return new CategoriesManagerImpl();
     }
-
     public  static RetraitManager getRetraitManager(){return new RetraitManagerImpl();}
 }

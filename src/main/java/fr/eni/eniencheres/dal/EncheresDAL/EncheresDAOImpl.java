@@ -1,6 +1,7 @@
 package fr.eni.eniencheres.dal.EncheresDAL;
 
 import fr.eni.eniencheres.Exceptions.DALException;
+import fr.eni.eniencheres.bo.ArticleVendu;
 import fr.eni.eniencheres.bo.Enchere;
 import fr.eni.eniencheres.dal.ConnectionProvider;
 

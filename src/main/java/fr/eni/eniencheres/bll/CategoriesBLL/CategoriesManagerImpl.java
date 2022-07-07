@@ -6,7 +6,6 @@ import fr.eni.eniencheres.dal.CategoriesDAL.CategoriesDAO;
 import fr.eni.eniencheres.Exceptions.DALException;
 import fr.eni.eniencheres.dao.DaoFactory;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class CategoriesManagerImpl implements CategoriesManager {

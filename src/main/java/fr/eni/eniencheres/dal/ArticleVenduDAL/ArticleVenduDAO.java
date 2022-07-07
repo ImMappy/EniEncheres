@@ -20,4 +20,5 @@ public interface ArticleVenduDAO {
 
     //* SelectALL
     List<ArticleVendu> selectAll()  throws DALException;
+
 }

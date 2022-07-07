@@ -35,7 +35,6 @@ public class EncheresServlet extends HttpServlet {
             session = request.getSession();
             session.setAttribute("categorie",categoriesManager.getAllCategories());
             session.setAttribute("article",articleVenduManager.selectAll());
-            // session.setAttribute("prixVente", enchereManager.getMontant(id)); // Afficher dernier enchere sur l'accueil JSP
             request.getRequestDispatcher("/WEB-INF/index.jsp").forward(request, response);
 
         } catch (BLLException e) {

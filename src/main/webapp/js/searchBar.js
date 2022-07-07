@@ -16,3 +16,22 @@ function searchBar() {
         }
     }
 }
+
+function searchSelect() {
+    // Declare variables
+    let select = document.getElementById('categorySelect');
+    select = select.value.toLowerCase();
+    let y = document.getElementsByClassName('articleSearch');
+
+    // Loop through all list items, and hide those who don't match the search query
+    for (let i = 0; i < x.length; i++) {
+        if (!y[i].innerHTML.toLowerCase().includes(select)) {
+            y[i].style.display="none";
+            y[i].style.listStyle="none";
+        }
+        else {
+            y[i].style.display="list-item";
+            y[i].style.listStyle="none";
+        }
+    }
+}

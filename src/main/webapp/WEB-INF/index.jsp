@@ -101,10 +101,11 @@
                 <form method="post" action="">
                     <div class="row my-4">
                         <div class="col-12 col-md-3 d-flex justify-content-center">
-                            <label for="category" class="mt-1 mb-2">Categorie</label>
+                            <label for="categorySelect" class="mt-1 mb-2">Categorie</label>
                         </div>
                         <div class="col-12 col-md-9 d-flex justify-content-center">
-                            <select name="category" id="category" class="form-select ms-3 w-75">
+                            <select name="category" id="categorySelect" class="form-select ms-3 w-75" onkeyup="searchSelect()">
+                                <option value="">Toutes les Catégories</option>
                                 <c:forEach var="cat" items="${categorie}">
                                 <option value="${cat.noCategorie}">${cat.libelle}</option>
                                 </c:forEach>
