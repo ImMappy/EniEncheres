@@ -49,11 +49,11 @@ public class InscriptionServlet extends HttpServlet {
             }
             passwordAllowed = false;
             this.getServletContext().setAttribute("errorPassword", passwordAllowed);
-            response.sendRedirect(request.getContextPath() + "/connexion");
+            response.sendRedirect(request.getContextPath() + "/inscription");
         } else {
             passwordAllowed = true;
             this.getServletContext().setAttribute("errorPassword", passwordAllowed);
-            response.sendRedirect(request.getContextPath() + "/#pills-register");
+            response.sendRedirect(request.getContextPath() + "/inscription");
         }
     }
 }

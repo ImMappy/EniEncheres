@@ -139,6 +139,7 @@
                                         </c:if>
                                         <c:if test="${isAllowed}">
                                         <form action="${pageContext.request.contextPath}/articleDetail" method="post" class="row g-3 align-items-center">
+                                            <input type="hidden" name="noArticle" value="${article.noArticle}">
                                             <div class="col-9 col-sm-8">
                                                 <div class="input-group">
                                                     <div class="input-group-text">POINTS</div>

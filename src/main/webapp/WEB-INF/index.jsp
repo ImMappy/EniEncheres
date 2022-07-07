@@ -27,8 +27,6 @@
     <!-- Normalize CSS and Steelsheets -->
     <link href="css/normalize.css" rel="stylesheet" />
     <link href="css/style.css" rel="stylesheet" />
-    <script type="text/javascript" src="js/radioDisable.js"></script>
-    <script type="text/javascript" src="js/searchBar.js"></script>
     <title>ENI - ENCHERES</title>
 
 </head>
@@ -98,16 +96,16 @@
                         <input type="text" name="articleIn" id="searchBarInput" class="form-control" placeholder="Le nom de l'article contient" onkeyup="searchBar()"/>
                     </div>
 
-                <form method="post" action="">
+                <form method="post" action="${pageContext.request.contextPath}/eniencheres">
                     <div class="row my-4">
                         <div class="col-12 col-md-3 d-flex justify-content-center">
                             <label for="categorySelect" class="mt-1 mb-2">Categorie</label>
                         </div>
                         <div class="col-12 col-md-9 d-flex justify-content-center">
-                            <select name="category" id="categorySelect" class="form-select ms-3 w-75" onkeyup="searchSelect()">
+                            <select name="category" id="categorySelect" class="form-select ms-3 w-75">
                                 <option value="">Toutes les Catégories</option>
                                 <c:forEach var="cat" items="${categorie}">
-                                <option value="${cat.noCategorie}">${cat.libelle}</option>
+                                <option name="categorySelect" value="${cat.noCategorie}">${cat.libelle}</option>
                                 </c:forEach>
                             </select>
                         </div>
@@ -234,5 +232,8 @@
 <!-- MDB -->
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.2.0/mdb.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!-- Script JS -->
+<script type="text/javascript" src="js/radioDisable.js"></script>
+<script type="text/javascript" src="js/searchBar.js"></script>
 </body>
 </html>
