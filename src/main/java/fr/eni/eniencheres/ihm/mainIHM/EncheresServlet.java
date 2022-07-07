@@ -33,7 +33,6 @@ public class EncheresServlet extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         try {
             session = request.getSession();
-            session.setMaxInactiveInterval(300);
             List<ArticleVendu> articleVendus = articleVenduManager.selectAll();
             session.setAttribute("article",articleVendus);
             for(ArticleVendu art : articleVendus){

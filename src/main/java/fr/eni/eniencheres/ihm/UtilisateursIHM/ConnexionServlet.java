@@ -43,6 +43,7 @@ public class ConnexionServlet extends HttpServlet {
             user = utilisateursManager.getUser(req.getParameter("pseudo"), req.getParameter("password"));
             if(user != null){
 
+
                 session.setAttribute("user", user);
 
                 this.getServletContext().setAttribute("isAllowed", true);
