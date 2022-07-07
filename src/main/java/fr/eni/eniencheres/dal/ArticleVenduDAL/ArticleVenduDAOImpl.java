@@ -16,7 +16,7 @@ public class ArticleVenduDAOImpl implements ArticleVenduDAO {
     private static final String DELETE = "DELETE FROM ARTICLES_VENDUS WHERE no_article = ?";
     private static final String UPDATE = "UPDATE ARTICLES_VENDUS SET nom_article=?, description=?, date_debut_encheres=?, date_fin_encheres=?,prix_initial=?,prix_vente=?,url_photo=? WHERE no_article = ?";
 
-    private static final String SELECT_ALL_ARTICLES = "SELECT a.no_article,a.nom_article,a.description,a.date_debut_encheres,a.date_fin_encheres,a.prix_initial,a.prix_vente,a.no_categorie,a.no_utilisateur,a.url_photo,u.pseudo FROM ARTICLES_VENDUS a, UTILISATEURS u WHERE a.no_utilisateur = u.no_utilisateur";
+    private static final String SELECT_ALL_ARTICLES = "SELECT a.no_article,a.nom_article,a.description,a.date_debut_encheres,a.date_fin_encheres,a.prix_initial,a.prix_vente,a.no_categorie,a.no_utilisateur,a.url_photo,u.pseudo FROM ARTICLES_VENDUS a, UTILISATEURS u WHERE a.no_utilisateur = u.no_utilisateur ORDER BY no_article DESC";
 
 
     //* partie INSERT
