@@ -77,12 +77,13 @@ public class ArticleServlet extends HttpServlet {
     }
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        int credit = Integer.parseInt(req.getParameter("creditEnchere"));
-
+        Integer credit = Integer.parseInt(req.getParameter("creditEnchere"));
         try{
             enchere = new Enchere(articleVendu.getDateFinEncheres(),credit,articleVendu.getNoArticle(), articleVendu.getNoUtilisateur());
+            articleVendu = articleVenduManager.selectById(Integer.parseInt(req.getParameter("noArticle")));
+            articleVendu = new ArticleVendu(Integer.parseInt(req.getParameter("noArticle")),articleVendu.getNomArticle(),articleVendu.getDescription(),articleVendu.getDateDebutEncheres(),articleVendu.getDateFinEncheres(),articleVendu.getPrixInitial(),enchere.getMontantEnchere(),articleVendu.getNoUtilisateur(),articleVendu.getNoArticle(),articleVendu.getUrlPhoto());
             enchereManager.ajoutEnchere(enchere);
-            articleVendu.setPrixVente(enchere.getMontantEnchere());
+            articleVenduManager.modifierArticle(articleVendu);
             session.setAttribute("prixVente", articleVendu.getPrixVente());
             resp.sendRedirect(req.getContextPath() + "/articleDetail");
         }catch (BLLException e){

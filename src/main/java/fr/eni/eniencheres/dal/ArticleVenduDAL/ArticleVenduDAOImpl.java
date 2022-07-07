@@ -135,6 +135,7 @@ public class ArticleVenduDAOImpl implements ArticleVenduDAO {
             stmt.setInt(5, articleVendu.getPrixInitial());
             stmt.setInt(6, articleVendu.getPrixVente());
             stmt.setString(7, articleVendu.getUrlPhoto());
+            stmt.setInt(8,articleVendu.getNoArticle());
 
 
             //* Exécuter la Mise à jour
